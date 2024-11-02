@@ -1,0 +1,21 @@
+.responsive-media-wrapper {
+	position: relative;
+	aspect-ratio: var(--aspect-ratio);
+
+	&.has-radius {
+		overflow: hidden;
+		border-radius: var(--radius-lg);
+	}
+	& > iframe {
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+}
+.responsive-media-item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

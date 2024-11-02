@@ -1,0 +1,15 @@
+.acf-field.acf-float-left {
+	float: left;
+}
+.acf-field.acf-float-right {
+	float: right;
+}
+.acf-field.acf-clear {
+	clear:both;
+}
+.acf-field.acf-clear-left {
+	clear:left;
+}
+.acf-field.acf-clear-right {
+	clear:right;
+}

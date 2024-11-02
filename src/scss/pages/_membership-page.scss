@@ -1,0 +1,16 @@
+.page--membership-account {
+
+	.pmpro_list,
+	.pmpro_courses-list {
+		list-style-type: none;
+		padding:0;
+	}
+
+	a.pmpro_courses-list-item-link {
+		display: flex;
+		justify-content: space-between;
+		text-decoration: none;
+		border-bottom: 1px solid;
+		padding-block: 1rem 0rem;
+	}
+}

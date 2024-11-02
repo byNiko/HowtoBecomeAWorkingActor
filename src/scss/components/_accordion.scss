@@ -1,0 +1,15 @@
+.accordion {
+	transition: height 0.3s ease-in-out;
+	& > .accordion-content {
+		height:0;
+		overflow: hidden;
+		transition: height 0.3s ease-in-out;
+	}
+	&.is-open {
+		& > .accordion-content {
+			// height: auto;
+		}
+	}
+
+	
+}

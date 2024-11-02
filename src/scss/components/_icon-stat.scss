@@ -1,0 +1,42 @@
+@use '../abstracts/' as *;
+
+.icon-stats {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: var(--spacer-16);
+	column-gap: var(--spacer-8);
+
+	@include bp(md) {
+		row-gap: 0;
+		justify-content: space-evenly;
+	}
+}
+
+.icon-stat {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	align-items: center;
+	gap: var(--spacer-5);
+	flex: 40%;
+	text-align: center;
+
+	@include bp(md) {
+		flex: auto;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.icon {
+		color: var(--color-text);
+		// display: flex;
+		// align-items: center;
+		// justify-content: center;
+	}
+
+	svg {
+		fill: currentColor;
+		stroke: currentColor;
+	}
+}

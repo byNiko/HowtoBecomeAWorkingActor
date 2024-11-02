@@ -1,0 +1,128 @@
+@use '../abstracts/' as *;
+.landing {
+	background-size: cover !important;
+	background-repeat: no-repeat;
+	position: relative;
+	&.container {
+		padding: 0; 
+		
+	}
+	.bg-gradient {
+		overflow: hidden;
+		position: absolute;
+		inset: 0;
+		border-radius: var(--radius-lg);
+		mix-blend-mode: multiply;
+		
+		// background-image: var(--primary-linear-gradient);
+
+		// .page--about-jim &,
+		// .page--hawaii-retreat & {
+		// 	background-image:var(--secondary-linear-gradient);
+		// }
+	}
+	
+}
+.hero {
+	container-type:inline-size
+}
+
+.hero-grid {
+	--column_order: 1fr 28cqi;
+	--grid-areas: "hero-copy hero-image";
+	padding-block: clamp(1rem, 3vw, 4rem);
+	
+	display: flex;
+	flex-direction: column;
+	
+	text-align: center;
+	gap: var(--spacer-16);
+	margin-bottom: 0;
+	
+	&.copy--right {
+		--column_order: 33ch 1fr;
+		--grid-areas: "hero-image hero-copy";
+	}
+
+	@include bp(lg) {
+		display:grid;
+		text-align: left;
+		grid-template-columns: var(--column_order);
+		grid-template-areas: var(--grid-areas);
+		justify-content: space-between;;
+	}
+}
+
+.hero-copy {
+	grid-area: hero-copy;
+	display: grid;
+	grid-gap: var(--spacer-8);
+	container-type: inline-size;
+	width: 100%;
+	position: relative;
+}
+
+.hero-title {
+    line-height: 1;
+    text-transform: none;
+    font-size: clamp(2rem, 11cqi, 4.5rem);
+	// font-size: var(--font-size-xxxl);
+    font-weight: 1000;
+    letter-spacing: -1px;
+	margin-bottom: 0;
+	text-wrap:balance;
+}
+
+.hero-subtitle {
+	font-size: var(--font-size-md);
+    line-height: 1.5;
+    font-weight: var(--font-weight-normal);
+	text-wrap: pretty;
+	text-wrap: balance;
+	@include bp(lg){
+	}
+}	
+
+.hero-image {
+	grid-area: hero-image;
+	position: relative;
+	container-type: inline-size;
+}
+.hero-image-container {
+	
+	background:none;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+	background-size:cover;
+	background-repeat: no-repeat;
+	// box-shadow: 2px 2px 12px hsl(0 0% 100% / .31);	
+    z-index: 0;
+	display: flex;
+    align-items: end;
+    justify-content: center;
+	@include bp(lg){
+		--background: var(--text-color);
+		inset: 0;
+		background:var(--background);
+		background-size: 100%;
+		aspect-ratio: 2 / 3;
+		position: absolute;
+		box-shadow: 2px 2px 12px #222, 2px 2px 12px hsl(0 0% 100% / .31);
+	}
+}
+
+.hero__background {
+	position: absolute;
+	inset: 0;
+	background:var(--background) ;
+	background-size: cover;
+	border-radius: var(--radius-lg);
+	background-blend-mode: multiply;
+	background-position: center;
+	opacity: .4;
+	filter: blur(.1rem);
+	@include bp(lg){
+		opacity: 1;
+		filter: none;
+	}
+}

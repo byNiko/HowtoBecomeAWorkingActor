@@ -1,0 +1,33 @@
+.single-pmpro_course {
+	// background: var(--primary-400);
+	.landing {
+		// display: none;
+	}
+
+	.sidebar {
+		align-self: start;
+	}
+	.inner-lessons-list {
+		max-height: max-content;
+	}
+	.entry-content {
+		
+		.course__lessons {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: var(--spacer-16);
+			.accordion-items {
+				padding:0;
+				margin:0;
+				display: grid;
+				row-gap: var(--spacer-1);
+			}
+		}
+
+		aside {
+			display: grid;
+			gap: var(--spacer-16);	
+		}
+		
+	}
+}

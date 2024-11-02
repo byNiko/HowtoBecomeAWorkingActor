@@ -1,0 +1,29 @@
+/**
+* Pico Docs: https://picocss.com/docs/sass
+* Pico theme color choices:
+* amber, azure, blue, cyan, fuchsia, green, grey, indigo, jade, lime, orange, pink, pumpkin, purple, red, sand, slate, violet, yellow, zinc.
+**/
+
+
+
+@use '../abstracts/breakpoints' as *;
+@use "@picocss/pico/scss/pico" with (
+  $theme-color:"azure",
+  $css-var-prefix: "--",
+  $breakpoints: $bps,
+  $modules: ("content/code": false,
+    "forms/input-color": false,
+    "forms/input-date": false,
+    "forms/input-file": false,
+    "forms/input-range": false,
+    "forms/input-search": false,
+    "components/accordion": false,
+    "components/card": false,
+    "components/dropdown": false,
+    "components/loading": false,
+    "components/modal": false,
+    "components/nav": true,
+    "components/progress": false,
+    "components/tooltip": false,
+    "utilities/accessibility": false,
+    "utilities/reduce-motion": false));

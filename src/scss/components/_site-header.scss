@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+.site-header {
+	// position: sticky;
+	// top: -1px;
+	// z-index: 999;
+	& > a {
+		margin: calc(var(--spacing)* -.125) calc(var(--spacing)* -.25);
+		padding: calc(var(--spacing)* .125) calc(var(--spacing)* .25);
+		border-radius: var(--border-radius);
+		text-decoration: none;
+	}
+	& > .container {
+		
+	}
+	@include bp(sm){
+		// backdrop-filter: blur(.5rem);
+		// background: transparent
+	}
+}

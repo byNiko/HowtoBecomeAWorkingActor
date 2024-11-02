@@ -1,0 +1,122 @@
+@use '../abstracts/mixins' as *;
+
+.testimonials {
+	display: grid;
+	gap: var(--spacer-16);
+}
+
+.testimonial {
+	container-type: inline-size;
+	container-name: testimonial;
+}
+
+.testimonial--inner {
+	background: var(--primary-200);
+	border-radius: var(--radius-md);
+	padding: min(8cqi, var(--spacer-16));
+	display: grid;
+	grid-template-columns: 1fr;
+	column-gap: var(--spacer-16);
+	box-shadow: var(--shadow-sm);
+	align-items: center;
+	@container  (min-width: 700px) {
+		font-size: clamp(1rem, 2.6cqi, 3rem);
+        grid-template-columns: max(40%, 300px) 1fr;
+	}
+	.source--general & {
+		grid-template-columns: 1fr;
+	}
+
+	.testimonial-quote{
+		font-weight: var(--font-weight-semibold);
+		&:before,
+		&:after {
+			content: "“";
+			font-size: var(--font-size-lg);
+			color: var(--accent-100);
+			margin-right: var(--spacer-2);
+		}
+		&:after {
+			content: "”";
+		}
+	}
+}
+
+.testimonial-image {
+	width: clamp(250px, 39cqi, 400px);
+	margin-inline: auto;
+	img {
+		width: 100%;
+		border-radius: 50%;
+	}
+
+	figcaption {
+		margin-top: var(--spacer-2);
+		text-align: right;
+		color: var(--bs-gray);
+		font-size: var(--font-size-sm);
+		font-weight: var(--font-weight-light);
+		text-wrap: pretty;
+		p {margin-bottom: 0;}
+
+		.testimonial-caption-2 {
+			font-size: .88em;
+			font-style: italic;
+		}
+	}
+}
+
+
+	.testimonial-citation {
+		text-align: right;
+		font-size: var(--font-size-sm);
+		margin-top: var(--spacer-4);
+		
+		cite {
+			display: block;
+		}
+		.testimonial-citation-name {
+			font-weight: var(--font-weight-bold);
+			margin-bottom: var(--spacer-2);
+			&:before {
+				content: "—";
+				margin-right: var(--spacer-2);
+				color: var(--bs-gray);
+				font-weight: var(--font-weight-light);
+			}
+
+		}
+		.testimonial-citation-title {
+			color: var(--bs-gray);
+		}
+	}
+
+	.testimonial-quote {
+		position: relative;
+		&:after, &::before {
+			position: absolute;
+			text-shadow: 1px 1px 0px #a7a7a7
+		}
+		&::before {
+			// top: 0;
+			transform: translatex(-.91ch) translatey(-.1ch);
+		}
+		&::after {
+			// bottom: 0;
+			transform: translatex(.25ch) translatey(-.1ch);
+		}
+	}
+
+
+	.post-type-archive-testimonial {
+		.testimonial-quote {
+			// font-size: var(--font-size-sm);
+			line-height: 1;
+			position: relative;
+		}
+
+		.grid > section {
+			display:grid;
+			gap: 2rem;
+		}
+	}

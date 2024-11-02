@@ -1,0 +1,47 @@
+@forward '../typography';
+
+.post-type-archive-faq {
+	.page-title {
+		text-align: center;
+		display: none;
+	}
+
+	.type-faq {
+		background: var(--primary-200);
+		padding: 2rem;
+		border-radius: var(--radius-lg);
+		p {
+			font-size: var(--font-size-sml);
+		}
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		&:not(:first-of-type) {
+			// margin-top: 2rem;
+		}
+	}
+}
+
+.faq__questions {
+	display: grid;
+	gap: 2rem;
+	align-items: start;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.faq__category-header {
+	width: 100%;
+	font-size: var(--font-size-md);
+	border-bottom: 1px solid #c7c7c7;
+}
+
+.faq__entry-header {
+	margin-bottom: var(--spacer-2);
+}
+
+.faq__category:not(:first-of-type) {
+
+	// padding-top: 5rem;
+	margin-top: 5rem;
+	// border-top: 1px solid #ccc;
+}

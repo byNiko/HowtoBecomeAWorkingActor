@@ -1,0 +1,20 @@
+.page--about-jim {
+	.landing {
+		background-size: cover !important;
+		background-repeat: no-repeat;
+		// background-image: url(//localhost:3000/wp-content/uploads/2024/09/niceJim.jpg);
+		background-size: cover;
+		background-position: center;
+
+		// background-clip: content-box;
+	}
+}
+
+
+.about-jim-hero-grid {
+	padding-block: var(--spacer-16);
+	display: grid;
+	grid-template-columns: .5fr .8fr ;
+	gap: var(--spacer-16);
+	margin-bottom: 0;
+}

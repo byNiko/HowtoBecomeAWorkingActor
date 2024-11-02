@@ -1,0 +1,8 @@
+.widget-area {
+	.sidebar-container {
+		margin-top: var(--spacer-4);
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+}

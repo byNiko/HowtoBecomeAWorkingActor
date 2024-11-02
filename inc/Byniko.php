@@ -1,0 +1,158 @@
+<?php
+
+namespace byniko;
+
+function get_testimonials($args) {
+	$defaults = array(
+		'post_type' => 'testimonial',
+		'post_status' => 'publish',
+		'orderby' => 'rand',
+		'order' => 'ASC',
+		'suppress_filters' => false,
+	);
+	$args = wp_parse_args($args, $defaults);
+	$query = new \WP_Query($args);
+	return $query->posts;
+}
+
+
+function show_hero() {
+	global $post;
+	
+	$show_on = array(
+		is_front_page(),
+		is_page('about-jim'),
+		is_page('hawaii-retreat'),
+		get_field('hero_section_show_hero_section', $post)
+	);
+	// var_dump($show_on);
+
+// // if ACF show hero section setting is true
+// 	if(get_field('hero_section_show_hero_section', $post)):
+		
+// 		$heroArr = get_hero_background_settings();
+		
+// 		return $heroArr;
+// 	endif; 
+
+	return in_array(true, $show_on);
+}
+
+function get_hero_background_settings() {
+	global $post;
+	$arr = array(
+		'bg_image' => wp_get_attachment_url(get_field('hero_section_background_image', $post), 'full'),
+		'title' => get_field('hero_section_main_title', $post), 
+		'subtitle' => get_field('hero_section_subtitle', $post),
+		'bg_overlay' => get_field('hero_section_image_overlay', $post),
+		'text_side' => get_field('hero_section_text_side', $post),
+		'bg_position' => get_field('hero_section_image_position', $post),
+		'link' => get_field('hero_section_link'),
+		'hero_image' => get_field('hero_section_hero_image', $post)? wp_get_attachment_url(get_field('hero_section_hero_image', $post)): false,
+		'hero_image_link' => get_field('hero_section_hero_image_link', $post),
+
+	);
+	return $arr;
+}
+
+
+function get_courses_price($atts = null) {	
+	if (function_exists('pmpro_getLevel')) {
+		$default = array(
+			'level' => '2',
+		);
+		$a = shortcode_atts($default, $atts);
+
+		// filter cost text removing "now." from the beginning
+		add_filter('pmpro_level_cost_text', function ($text, $level) {
+			$text = str_replace('now.', '', $text);
+			return $text;
+		}, 10, 2);
+
+
+		$level = pmpro_getLevel($a['level']);
+		// var_dump($level);
+		if ($level) {
+		return pmpro_getLevelCost($level, false, true); 
+		}
+	}
+}
+
+function get_questionnaire_modal_trigger($class = 'button secondary', $CTA = 'Fill out the Questionnaire!') {
+	return "<button class='$class' data-micromodal-trigger='modal-questionairre'>$CTA</button>";
+}
+function get_questionnaire_modal() {
+	$form = FrmFormsController::get_form_shortcode(array('id' => 2, 'title'=>true, 'description'=>true));
+	return makeModal('questionairre', $form);
+}
+function the_questionnaire_modal_trigger() {
+	echo get_questionnaire_modal_trigger();
+}
+
+function get_page_by_title( $page_title, $output = OBJECT, $post_type = 'page' ) {
+    $args  = array(
+        'title'                  => $page_title,
+        'post_type'              => $post_type,
+        'post_status'            => get_post_stati(),
+        'posts_per_page'         => 1,
+        'update_post_term_cache' => false,
+        'update_post_meta_cache' => false,
+        'no_found_rows'          => true,
+        'orderby'                => 'post_date ID',
+        'order'                  => 'ASC',
+    );
+    $query = new \WP_Query( $args );
+    $pages = $query->posts;
+
+    if ( empty( $pages ) ) {
+        return null;
+    }
+
+    return get_post( $pages[0], $output );
+}
+
+function get_correct_nav_menu(){
+	return (is_user_logged_in())? 11 : 7;
+}
+
+function order_terms_with_posts($post_type,$taxonomy) {
+	$terms = get_terms($taxonomy);
+	$all_posts = [];
+	foreach ($terms as $term) {
+		$args = array(
+			'taxonomy' => $taxonomy,
+			'term' => $term->slug,
+			'posts_per_page' => -1,
+			'post_type' => $post_type,
+			'post_status' => 'publish',
+		);
+		$all_posts[$term->name] = get_posts($args);
+	}
+	return $all_posts;
+}
+
+function get_post_edit_link($post_id) {
+	if(current_user_can('edit_posts')): ?>
+		<footer class="edit-footer">
+			<a href="<?= get_edit_post_link($post_id); ?>" class="fz-sm">Edit <?= get_post_type($post_id);?></a>
+		</footer>
+	<?php endif;
+}
+
+
+function has_membership_level($role) {
+	if(function_exists('pmpro_hasMembershipLevel')) {
+		return pmpro_hasMembershipLevel( $role );
+	}	
+	else 
+	return false;
+}
+
+
+function get_acf_link($link_arr, $class = "button primary") {
+	$link_url = $link_arr['url'];
+    $link_title = $link_arr['title'];
+    $link_target = $link_arr['target'] ?: '_self';
+	return "<a href='$link_url' class='$class' target='$link_target'>$link_title</a>";
+
+}

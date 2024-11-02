@@ -1,0 +1,133 @@
+
+@forward './breakpoints';
+@use './mixins' as *;
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+
+// Primitives //
+--ff-body: "Montserrat", sans-serif;
+--ff-heading: "Montserrat", sans-serif;
+--ff-mono: "Space Mono", monospace;
+
+--font-size-base: 1rem;
+// --font-size-sm: calc(var(--font-size-base) - 0.05rem);
+// --font-size-md: calc(var(--font-size-base) + 0.05rem);
+// --font-size-lg: calc(var(--font-size-base) + 0.1rem);
+// --font-size-xl: calc(var(--font-size-base) + 0.2rem);
+// --font-size-xxl: calc(var(--font-size-base) + 0.4rem);
+// --font-size-xxxl: calc(var(--font-size-base) + 0.6rem);
+
+--font-size-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
+--font-size-sml: calc(var(--font-size-sm) + 0.1rem);
+--font-size-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+--font-size-md: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
+--font-size-mdl: calc(1.2 * var(--font-size-md));
+--font-size-lg: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
+--font-size-xl: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
+--font-size-xxl: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
+--font-size-xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
+
+
+--font-weight-light: 300;
+--font-weight-normal: 400;
+--font-weight-medium: 500;
+--font-weight-semibold: 600;
+--font-weight-bold: 700;
+--font-weight-extrabold: 800;
+--font-weight-black: 900;
+
+--line-height-base: 1.5;
+--line-height-sm: 1.25;
+--line-height-md: 1.5;
+--line-height-lg: 1.75;
+--line-height-xl: 2;
+--line-height-xxl: 2.25;
+--line-height-xxxl: 2.5;
+
+	// COLORS
+	--primary: #0D1E38;
+	--primary-rgb: 13, 30, 56; 
+	--primary-linear-gradient: linear-gradient(136deg, rgba(13, 30, 56, .7), rgba(13, 30, 56, 1));
+	--secondary-linear-gradient: linear-gradient(136deg, rgba(13, 30, 56, .7), rgba(13, 30, 56, 0));
+	--primary-100: #F5F9FF;
+	--primary-200: #E9F1FA;
+	--primary-300: #D1E3F8;
+	// --primary-300: #56A5D2;
+	--primary-400: #196cae;
+	--accent: #FEC75C;
+	--accent-100: #f5d949;
+	--tertiary-color: #f8f9fa;
+	
+
+	// SPACERS
+	--spacer-1: 4px;
+	--spacer-2: calc(2 * var(--spacer-1));
+	--spacer-3: calc(3 * var(--spacer-1));
+	--spacer-4: calc(4 * var(--spacer-1));
+	--spacer-5: calc(5 * var(--spacer-1));
+	--spacer-6: calc(6 * var(--spacer-1));
+	--spacer-7: calc(7 * var(--spacer-1));
+	--spacer-8: calc(8 * var(--spacer-1));
+	--spacer-9: calc(9 * var(--spacer-1));
+	--spacer-10: calc(10 * var(--spacer-1));
+	--spacer-11: calc(11 * var(--spacer-1));
+	--spacer-12: calc(12 * var(--spacer-1));
+	--spacer-13: calc(13 * var(--spacer-1));
+	--spacer-14: calc(14 * var(--spacer-1));
+	--spacer-15: calc(15 * var(--spacer-1));
+	--spacer-16: calc(16 * var(--spacer-1));
+
+
+// SEMANTIC
+	--gap : var(--spacer-2);
+	--body-bg: var(--primary-100);
+	--body-color: var(--primary);
+	--body-color-lighter: var(--primary-200);
+	--body-color-dark: var(--primary-400);
+	--link-color: var(--primary-400);
+	--link-color-hover: var(--primary-300);
+	--border-color: var(--primary-200);
+	--border-color-lighter: var(--primary-300);
+	--heading-color: var(--foreground);
+	--heading-color-lighter: var(--primary-100);
+	--heading-color-dark: var(--primary-400);
+	--text-color: var(--primary);
+	--text-color-lighter: var(--primary-100);
+	--text-color-dark: var(--primary-400);
+	--hr-color: var(--primary-200);
+
+	--spacer-row: var(--spacer-8);
+	@include bp(lg){
+		--spacer-row: var(--spacer-16);
+	}
+
+	--white: #fff;
+	--black: #000;
+	--light-gray: #999999 ;
+
+	--surface-light: var(--primary-100)
+	--surface-md: var(--primary-400);
+	--surface-dark: var(--primary);
+
+	--radius-sm: var(--spacer-2);
+	--radius-md: var(--spacer-3);
+	--radius-lg: var(--spacer-4);
+
+	--main-nav-link-color: var(--primary-100);
+	--main-nav-link-hover-color: var(--primary-300);
+	--text-accent: var(--accent);
+
+	--container-max: 	80rem;
+
+	--shadow-sm: 0 3px 3px rgba(0, 0, 0, 0.2);
+	--shadow-md: 0 6px 6px rgba(0, 0, 0, 0.2);
+	--shadow-lg: 0 10px 10px rgba(0, 0, 0, 0.2);
+
+	--button-padding-vertical: calc(var(--spacer-1) - 1px);
+	--button-padding-horizontal: calc(var(--spacer-2) - 1px);
+}
+
+
+[data-theme="dark"] {
+	--text-color: var(--primary-100);
+}

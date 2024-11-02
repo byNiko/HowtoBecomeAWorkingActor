@@ -1,0 +1,73 @@
+@use '../abstracts/' as *;
+
+.site-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
+	padding-block: clamp(2rem, 5vw, 3rem);
+}
+
+.brand {
+	width: 16ch;
+	font-weight: 900;
+	text-transform: uppercase;
+	color: var(--primary-100);
+	line-height: 0.91;
+	text-wrap: balance;
+	display: inline-block;
+	letter-spacing: -1.05px;
+	font-weight: 900;
+	font-size: clamp(1.5rem, 2.5vw, 2rem);
+	&:hover {
+		color: var(--accent);
+	}
+}
+
+
+.navbar-menu .primary-menu {
+	a {
+		
+		font-weight: 600;
+		// color: var(--accent);
+		--main-nav-link-color: var(--accent);
+		@include bp(lg, 'max-width') {
+			font-size: 2ch;
+		}
+	}
+}
+
+.navbar-menu {
+	ul {
+		list-style: none;
+		display: flex;
+		justify-content: end;
+		margin: 0;
+		padding: 0;
+
+		@include bp(lg) {
+			gap: var(--spacer-6);
+		}
+	}
+
+	a {
+		text-decoration: none;
+		color: var(--main-nav-link-color);
+
+		@include bp(lg, 'max-width') {
+			padding: 0.5rem 1rem;
+			display: inline-block;
+		}
+
+		&:hover {
+			color: var(--main-nav-link-hover-color);
+		}
+	}
+
+	@include bp(lg) {
+		.secondary-menu {
+			a {
+				font-size: var(--font-size-sm);
+			}
+		}
+	}
+}

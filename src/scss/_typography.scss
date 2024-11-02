@@ -1,0 +1,85 @@
+header {
+	line-height: 1.2;
+}
+.text-accent {
+	color: var(--text-accent);
+}
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+
+.text-balance {
+	text-wrap: balance;
+}
+.text-underline {
+	text-decoration: underline;
+}
+
+
+
+.display {
+	font-size: clamp(2rem, 6vw, 4.5rem);
+	font-weight: 1000;
+	letter-spacing: -1px;
+	line-height: 1.1;
+	text-wrap: balance
+}
+
+.subdisplay {
+	font-size: var(--font-size-lg);
+	line-height: 1.5;
+	font-weight: var(--font-weight-normal);
+	text-wrap: balance;
+}
+.display-sm {
+	font-size: calc(1.2 * var(--font-size-md)); 
+	text-wrap: balance;
+	line-height: 1.2;
+	font-weight: var(--font-weight-black);
+}
+
+.display-md {
+	font-size: var(--font-size-xxl);
+	text-wrap: balance;
+	line-height: 1.2;
+	font-weight: var(--font-weight-black);
+}
+
+.fz-sm {
+	font-size: var(--font-size-sm);
+}
+
+.fz-md {
+	font-size: var(--font-size-md);
+}
+.fz-mdl{
+	font-size: var(--font-size-mdl);
+}
+
+.fz-lg {
+	font-size: var(--font-size-lg);
+}
+
+.fz-xl {
+	font-size: var(--font-size-xl);
+}
+
+.fz-xxl {
+	font-size: var(--font-size-xxl);
+}
+
+.fz-xxxl {
+	font-size: var(--font-size-xxxl);
+}
+
+.fw-semibold {
+	font-weight: var(--font-weight-semibold);
+}
+.fw-light {
+	font-weight: var(--font-weight-light);
+}
+
+.text-center {
+	text-align: center;
+}

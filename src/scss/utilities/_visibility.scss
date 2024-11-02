@@ -1,0 +1,5 @@
+@use '../abstracts/' as *;
+.sr-only,
+.visually-hidden {
+	@include visually-hidden();
+}

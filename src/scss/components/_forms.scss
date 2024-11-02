@@ -1,0 +1,37 @@
+form {
+
+	input,
+	button {
+		padding: 12px 16px;
+		border-radius: var(--radius-sm);
+		box-shadow: none;
+		border: 1px solid currentColor;
+	}
+}
+
+// formidable overrides
+.with_frm_style {
+	--title-margin-top: 0;
+	--title-margin-bottom: 0;
+	--form-desc-size: 1.2rem;
+	--form-desc-margin-bottom: 1rem;
+
+	.frm_rootline_group {
+		margin-top: 0;
+	}
+
+	.frm_form_title,
+	.frm_description {
+		width: 40rem;
+		margin-inline: auto;
+		max-width: 100%;
+	}
+
+}
+
+.modal {
+	.frm_fields_container {
+		padding-top: 2rem;
+		border-top: 1px solid #ccc;
+	}
+}
