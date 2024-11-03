@@ -34,6 +34,6 @@ class Testimonial{
 
 	public function get_source($key = 'slug') {
 		$terms = get_the_terms( $this->ID, 'source' );
-		if(!empty($terms)) return $terms[0]->$key;
+		if(!empty($terms) && is_array($terms)) return $terms[0]->$key;
 	}
 }
