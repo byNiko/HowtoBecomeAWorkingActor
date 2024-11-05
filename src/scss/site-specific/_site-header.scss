@@ -3,21 +3,28 @@
 .site-header {
 	display: flex;
 	justify-content: space-between;
-	align-items: end;
+	align-items: start;
 	padding-block: clamp(2rem, 5vw, 3rem);
+	@include bp(sm) {
+		align-items: end;
+	}
 }
 
 .brand {
-	width: 16ch;
+	width: 12ch;
 	font-weight: 900;
 	text-transform: uppercase;
 	color: var(--primary-100);
 	line-height: 0.91;
 	text-wrap: balance;
 	display: inline-block;
-	letter-spacing: -1.05px;
 	font-weight: 900;
-	font-size: clamp(1.5rem, 2.5vw, 2rem);
+	font-size: 1.2rem;
+	@include bp(sm) {
+		font-size: clamp(1.5rem, 2.5vw, 2rem);
+		letter-spacing: -1.05px;
+		width: 16ch;
+	}
 	&:hover {
 		color: var(--accent);
 	}

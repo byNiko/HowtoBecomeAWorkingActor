@@ -77,8 +77,11 @@
 	font-size: var(--font-size-md);
     line-height: 1.5;
     font-weight: var(--font-weight-normal);
-	text-wrap: pretty;
-	text-wrap: balance;
+	// text-wrap: pretty;
+	// text-align: center;;
+	@include bp(sm){
+		text-wrap: balance;
+	}
 	@include bp(lg){
 	}
 }	
