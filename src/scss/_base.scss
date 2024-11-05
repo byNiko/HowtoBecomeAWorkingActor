@@ -79,3 +79,15 @@ ul.no-style{
 	max-width: 60ch;
 	margin-inline: auto;
 }
+.entry-header {
+	position: relative;
+	// padding-inline: var(--body-spacer);
+}
+
+.list-content {
+	font-size: 1.5rem;
+line-height: 1.2;
+ & > li {
+	margin-top: .51em;
+ }
+}

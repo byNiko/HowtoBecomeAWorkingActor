@@ -11,9 +11,6 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
-	<?php byniko_the_page_title(); ?>
-	
-
 	<?php //byniko_post_thumbnail(); ?>
 
 	<div class="entry-content">

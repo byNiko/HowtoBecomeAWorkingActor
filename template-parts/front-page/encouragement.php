@@ -3,9 +3,9 @@
 		<header class="display-md centered">
 			These 125 sessions will transform your career as an actor.
 		</header>
-		<div class="container narrow light-md">
+		<div class="container  light-md ">
 			<div class="row">
-				<ul class="content fz-md">
+				<ul class="content list-content">
 					<li>They’ll educate, empower, and support you.</li>
 					<li>Save you time, energy, heartache, struggles and money.</li>
 					<li>They’ll help you find your passion, your purpose, your calling.</li>

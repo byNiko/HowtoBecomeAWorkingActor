@@ -27,20 +27,12 @@
 			<div class="bg-gradient"></div>
 			<div class="row">
 			<?php get_template_part('template-parts/header/site-header'); ?>
-			<?php // if ( ("pmpro_course" !== get_post_type() ) && ("pmpro_lesson" !== get_post_type())): ?>
+		
 				<div class="hero__background"  style="--background: url(<?= $bg['bg_image']; ?>), <?= $bg['bg_overlay'];?>; background-position: <?= $bg['bg_position'];?>;"></div>
-			
-				<?php //if (is_front_page()): ?>
-				<?php //get_template_part('template-parts/hero/hero', 'home'); ?>
-				<?php //else: ?>
 					<?php if ($show_hero): ?>
 					<?php get_template_part('template-parts/hero/hero', null, $bg); ?>
 					<?php endif; ?>
-				<?php //get_template_part('template-parts/hero/hero', $post->post_name, $bg); ?>
-			<?php //endif; ?>
 			</div>
 		</div>
-		<?php //endif; 
-		?>
 		<section class="page-content">
 			<main id="primary" class="site-main">

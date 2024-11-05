@@ -101,7 +101,9 @@ add_filter('get_the_archive_title', function ($title) {
 
 function byniko_the_page_title() {
 	global $post;
+	// either slug or title - I can't remember which is $post->post_name
 	$hide_title = array(
+		'home'
 		// 'student-questionnaire'
 	);
 
