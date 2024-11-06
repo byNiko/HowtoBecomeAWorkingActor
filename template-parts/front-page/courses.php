@@ -1,19 +1,14 @@
 <?php
-require(__DIR__ . '/courses-data.php');
+// require(__DIR__ . '/courses-data.php');
 require(get_template_directory() . '/parts/svg-icons.php');
 $Courses = new Courses();
 ?>
 
-<div class="container light">
-	<div class="row">
+<section>
+	<header class="row">
 		<div class="display centered">
 			To be part of that 2%, you must be elite in 3 areas:
 		</div>
-	</div>
-</div>
-<div class="">
-	<header>
-		<h2 class="centered text-uppercase">Courses</h2>
 	</header>
 	<div class="grid vertical-grid">
 		<?php
@@ -21,12 +16,12 @@ $Courses = new Courses();
 			//var_dump($course);
 		?>
 			<div class="container light-md has-shadow">
-				<div class="grid has-sidebar row">
+				<div class="grid has-sidebar row grid-400">
 					<div class="course-description main">
 						<header>
 							<h2 class="display-sm"><?php echo $course->post_title; ?></h2>
 						</header>
-						<div class="content">
+						<div class="content fz-mds">
 							<p><?= apply_filters('the_content', $course->post_excerpt); ?></p>
 						</div>
 					</div>
@@ -86,4 +81,4 @@ $Courses = new Courses();
 			</div>
 		<?php endforeach; ?>
 	</div>
-</div>
+</section>
