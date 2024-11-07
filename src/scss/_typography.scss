@@ -27,10 +27,17 @@ header {
 }
 
 .subdisplay {
+	border-top: 1px solid #ccc;
+	margin-top: 1rem;
+	padding-top: 1rem;;
 	font-size: var(--font-size-lg);
 	line-height: 1.5;
 	font-weight: var(--font-weight-normal);
-	text-wrap: balance;
+	text-wrap: pretty;
+	&.centered {
+		max-width: 40ch;
+		margin-inline: auto;
+	}
 }
 .display-sm {
 	font-size: calc(1.2 * var(--font-size-md)); 

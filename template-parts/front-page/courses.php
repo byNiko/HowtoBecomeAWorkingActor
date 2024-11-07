@@ -3,13 +3,6 @@
 require(get_template_directory() . '/parts/svg-icons.php');
 $Courses = new Courses();
 ?>
-
-<section>
-	<header class="row">
-		<div class="display centered">
-			To be part of that 2%, you must be elite in 3 areas:
-		</div>
-	</header>
 	<div class="grid vertical-grid">
 		<?php
 		foreach ($Courses->get_courses() as $course):
@@ -81,4 +74,3 @@ $Courses = new Courses();
 			</div>
 		<?php endforeach; ?>
 	</div>
-</section>

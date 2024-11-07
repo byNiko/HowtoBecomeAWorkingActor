@@ -65,12 +65,21 @@
 .hero-title {
     line-height: 1;
     text-transform: none;
-    font-size: clamp(2rem, 11cqi, 4.5rem);
+    font-size: clamp(2rem, 11cqi, 5.5rem);
 	// font-size: var(--font-size-xxxl);
     font-weight: 1000;
     letter-spacing: -1px;
 	margin-bottom: 0;
 	text-wrap:balance;
+}
+
+.hero-title--accent2{
+	font-size: 1.55em;
+	font-weight: 900;
+}
+.hero-title--line1 {
+	font-size: .6em;
+	font-weight: 600;
 }
 
 .hero-subtitle {

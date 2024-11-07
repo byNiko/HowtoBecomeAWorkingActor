@@ -96,7 +96,7 @@
 	--text-color-dark: var(--primary-400);
 	--hr-color: var(--primary-200);
 
-	--spacer-row: var(--spacer-8);
+	--spacer-row: var(--spacer-6);
 	@include bp(lg){
 		--spacer-row: var(--spacer-16);
 	}
