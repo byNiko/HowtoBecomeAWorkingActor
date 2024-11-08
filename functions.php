@@ -236,3 +236,11 @@ function byniko_custom_admin_bar()
 	$wp_admin_bar->remove_menu('comments');
     $wp_admin_bar->remove_menu('customize');
 }
+
+
+function add_custom_user_role_pending() {
+	if ( ! wp_roles()->is_role( 'pending' ) ) {
+		add_role( 'pending', 'Pending', array() );
+	}
+}
+add_action('init', 'add_custom_user_role_pending');
