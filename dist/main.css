@@ -1010,6 +1010,7 @@ ul.no-style {
 .modal__close {
   background: transparent;
   border: 0;
+  align-self: start;
 }
 
 .modal__header .modal__close:before {

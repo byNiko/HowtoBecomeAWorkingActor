@@ -62,6 +62,7 @@
   .modal__close {
 	background: transparent;
 	border: 0;
+	align-self: start;
   }
   
   .modal__header .modal__close:before { content: "\2715"; }
