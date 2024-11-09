@@ -244,3 +244,14 @@ function add_custom_user_role_pending() {
 	}
 }
 add_action('init', 'add_custom_user_role_pending');
+
+/**
+ * Bypass the reset password page PMPro uses and use the default WordPress reset password page.
+ * This is useful if you're using another frontend login process and have the log in page set to this. 
+ * Add this code to your site by following this guide - https://www.paidmembershipspro.com/create-a-plugin-for-pmpro-customizations/
+ */
+
+ remove_action( 'login_form_rp', 'pmpro_reset_password_redirect' );
+ remove_action( 'login_form_resetpass', 'pmpro_reset_password_redirect' );
+ remove_filter( 'retrieve_password_message', 'pmpro_password_reset_email_filter', 20, 3 );
+ remove_filter( 'wp_new_user_notification_email', 'pmpro_password_reset_email_filter', 10, 3 );
