@@ -58,7 +58,7 @@ function byniko_pmpro_courses_the_content_lessons() {
 							<?php
 						}
 							?>
-							<div class="pmpro_courses-list-item-title">
+							<div class="pmpro_courses-list-item-title fz-sm">
 								<?php echo esc_html($lesson->post_title); ?>
 							</div>
 							<?php
