@@ -49,7 +49,7 @@ $Courses = new Courses();
 									</div>
 								</div>
 							<?php endif; ?>
-							<small>lessons</small>
+							<small class="fw-bold text-uppercase mt-3">lessons</small>
 							<ol class="accordion-items lesson-items">
 								<?php
 								$counter = 0;
@@ -63,7 +63,7 @@ $Courses = new Courses();
 											<span class="lesson-icon"><?= $caret; ?></span>
 										</header>
 										<div class="lesson-description accordion-content">
-											<?php echo apply_filters('the_content', $lesson_data->post_excerpt); ?>
+											<?php echo apply_filters('the_content', $lesson_data->post_content); ?>
 										</div>
 									</li>
 								<?php endforeach; ?>
