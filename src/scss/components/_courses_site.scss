@@ -34,7 +34,7 @@
 	gap: var(--spacer-2);
 	font-weight: var(--font-weight-semibold);
 	text-transform: uppercase;
-
+align-items: start;
 	justify-content: space-between;
 	margin-bottom: 0;
 	cursor: pointer	;
@@ -42,7 +42,8 @@
 		color: var(--white);
 	}
 	.lesson-title {
-		margin-right: auto;;
+		margin-right: auto;
+		text-wrap: initial;
 	}
 }
 .lesson-icon {

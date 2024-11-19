@@ -2,6 +2,31 @@
 	.page-content{
 		margin-top: 0;
 	}
+	.lesson-content {
+		padding-inline: var(--spacer-2);
+	}
+	.lesson-title {
+		margin-top: var(--spacer-8);
+		font-size: var(--font-size-xl);
+		line-height: 1.2;
+		font-weight: var(--font-weight-bold);
+		text-wrap: inital;
+	}
+
+	.pmpro_courses_lesson-status, 
+	.pmpro_courses_lesson-back-to-course {
+		text-align: right;
+	}
+
+	.pmpro_courses_lesson-status {
+		p{
+		display: inline-block;
+		font-size: var(--font-size-sm);
+		background: var(--primary-300);
+		padding: .5em 1em;
+		border-radius: var(--radius-sm);
+		}
+	}
 .sidebar {
 	align-self: start;
 }

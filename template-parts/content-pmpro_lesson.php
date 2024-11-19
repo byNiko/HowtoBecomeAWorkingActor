@@ -10,7 +10,9 @@
  */
 require(get_template_directory() . '/parts/svg-icons.php');
 $lesson = new Lesson($post->ID);
-$course = new Course($lesson->get_course_id($lesson->ID));
+$course_id = $lesson->get_course_id($lesson->ID);
+$course = new Course($course_id);
+// $course = new Course($lesson->get_course_id($lesson->ID));
 
 
 $video_args = array(
@@ -21,63 +23,42 @@ $responsive_video = $v->get_responsive_video();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ($responsive_video): ?>
-		<div class="container light no-padding">
 
-			<header class="entry-header ">
-				<?php the_title('<h1 class="display-sm entry-title">', '</h1>'); ?>
-			</header>
-			<div class="excerpt">
-				<?php the_excerpt(); ?>
-			</div>
-
-		</div>
-
-		<!-- .entry-header -->
-		<div class="container light no-padding">
-			<div class="entry-content">
-				<?= $responsive_video; ?>
-			</div><!-- .entry-content -->
-		</div>
-	<?php endif; ?>
 	<div class="container light">
-		<div class="row">
-			<div class="grid has-sidebar sidebar ">
-				<div class="course-description main">
-					<header>
-						<h2 class="display-sm"><?php echo $post->post_title; ?></h2>
-					</header>
-					<div class="content">
-						<div class="lesson-content">
+		<header class="entry-header">
+			<?php the_title('<h1 class="lesson-title entry-title">', '</h1>'); ?>
+		</header>
+		<div class="grid has-sidebar sidebar ">
+			<div class="course-description main">
+				<div class="content">
+					<div class="entry-content">
+						<?php if ($responsive_video): ?>
+							<?= $responsive_video; ?>
+						<?php endif; ?>
+
+						<div class="lesson-content mt-6">
+							<div class="">
+								<?php
+								\byniko\pmpro_the_courses_lesson_nav($course_id);
+
+								// If comments are open or we have at least one comment, load up the comment template.
+								if (comments_open() || get_comments_number()) :
+									comments_template();
+								endif;
+								?>
+							</div>
 							<?php the_content(); ?>
 						</div>
 					</div>
-				</div>
-				<aside class=" sidebar lessons-list ">
-					<?php echo apply_filters('byniko_lessons_sidebar', null); ?>
-				</aside>
-
+				</div><!-- .entry-content -->
 			</div>
+			<aside class=" sidebar lessons-list ">
+				<?php echo apply_filters('byniko_lessons_sidebar', null); ?>
+			</aside>
+
 		</div>
 	</div>
-	<div class="container light">
-		<div class="row">
-			<?php
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__('Previous:', 'byniko') . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__('Next:', 'byniko') . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if (comments_open() || get_comments_number()) :
-				comments_template();
-			endif;
-			?>
-		</div>
-	</div>
 
 	<?php if (get_edit_post_link()) : ?>
 		<footer class="entry-footer">

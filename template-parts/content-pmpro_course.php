@@ -16,7 +16,7 @@ $course = new Course($post->ID);
 			<?php the_title( '<h1 class="entry-title display-md">', '</h1>' ); ?>
 		</header><!-- .entry-header -->
 
-		<?php byniko_post_thumbnail(); ?>
+		<?php // byniko_post_thumbnail(); ?>
 
 		<div class="entry-content">
 

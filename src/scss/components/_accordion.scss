@@ -1,5 +1,9 @@
+.accordion-trigger {
+	margin-bottom: 0;		
+}
 .accordion {
 	transition: height 0.3s ease-in-out;
+	
 	& > .accordion-content {
 		height:0;
 		overflow: hidden;
