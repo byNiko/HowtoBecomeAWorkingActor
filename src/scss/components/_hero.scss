@@ -138,3 +138,16 @@
 		filter: none;
 	}
 }
+
+
+.hero-image-overlay {
+	padding-inline: var(--spacer-2);
+	.button {
+		display: inline;
+		text-shadow:1px 1px 5px black;
+		// filter: drop-shadow(0em 0em .25em black);
+		.icon {
+		display: inline-block;
+		}
+	}
+}

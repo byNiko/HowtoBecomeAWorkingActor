@@ -258,3 +258,4 @@ add_action('init', 'add_custom_user_role_pending');
 
 //  global $pmpro_invite_required_levels;
 // $pmpro_invite_required_levels = array(1);
+
