@@ -255,3 +255,6 @@ add_action('init', 'add_custom_user_role_pending');
  remove_action( 'login_form_resetpass', 'pmpro_reset_password_redirect' );
  remove_filter( 'retrieve_password_message', 'pmpro_password_reset_email_filter', 20, 3 );
  remove_filter( 'wp_new_user_notification_email', 'pmpro_password_reset_email_filter', 10, 3 );
+
+//  global $pmpro_invite_required_levels;
+// $pmpro_invite_required_levels = array(1);
