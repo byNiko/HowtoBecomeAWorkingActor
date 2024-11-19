@@ -156,3 +156,74 @@ function get_acf_link($link_arr, $class = "button primary") {
 	return "<a href='$link_url' class='$class' target='$link_target'>$link_title</a>";
 
 }
+
+
+
+function pmpro_courses_get_next_prev_lessons( $course_id) {
+	global $post;
+
+	// Fetch all lessons associated with the course in the correct order.
+	$lessons = pmpro_courses_get_lessons( $course_id );
+
+	// Check if lessons are available.
+	if ( empty( $lessons ) ) {
+		return;
+	}
+
+	// Build an array of lesson IDs.
+	$lesson_ids = wp_list_pluck( $lessons, 'ID' );
+
+	// Find the current lesson's position.
+	$current_index = array_search( $post->ID, $lesson_ids );
+
+	// Determine previous and next lesson IDs.
+	$previous_id = $current_index > 0 ? $lesson_ids[ $current_index - 1 ] : false;
+	$next_id     = $current_index < count( $lesson_ids ) - 1 ? $lesson_ids[ $current_index + 1 ] : false;
+
+	// Only display navigation if there's a previous or next lesson.
+	if ( ! $previous_id && ! $next_id ) {
+		return array();
+	}
+
+	return array(
+		'prev_id' => $previous_id,
+		'next_id' => $next_id,
+	);
+
+}
+
+
+
+/**
+ * Display navigation to next/previous lesson within a single course.
+ */
+function pmpro_the_courses_lesson_nav( $course_id ) {
+	
+	$next_prev_lessons = pmpro_courses_get_next_prev_lessons( $course_id );
+	$previous_id = $next_prev_lessons['prev_id'];
+	$next_id     = $next_prev_lessons['next_id'];
+	// Output HTML for navigation.
+	?>
+	<nav class="navigation page-navigation" role="navigation">
+		<span class="screen-reader-text"><?php esc_html_e( 'Lesson navigation', 'pmpro-courses' ); ?></span>
+		<div class="nav-links">
+			<?php if ( $previous_id ) : ?>
+				<div class="nav-previous">
+					Previous Lesson:
+					<a href="<?php echo esc_url( get_permalink( $previous_id ) ); ?>" rel="prev">
+						<?php echo esc_html( get_the_title( $previous_id ) ); ?>
+					</a>
+				</div>
+			<?php endif; ?>
+			<?php if ( $next_id ) : ?>
+				<div class="nav-next">
+					Next Lesson:
+					<a href="<?php echo esc_url( get_permalink( $next_id ) ); ?>" rel="next">
+						<?php echo esc_html( get_the_title( $next_id ) ); ?>
+					</a>
+				</div>
+			<?php endif; ?>
+		</div><!-- .nav-links -->
+	</nav><!-- .lesson-navigation -->
+	<?php
+}
