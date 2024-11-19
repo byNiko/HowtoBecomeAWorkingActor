@@ -28,7 +28,7 @@
 }
 
 .hero-grid {
-	--column_order: 1fr 28cqi;
+	--column_order: 1fr max(275px, 30cqi);
 	--grid-areas: "hero-copy hero-image";
 	padding-block: clamp(1rem, 3vw, 4rem);
 	

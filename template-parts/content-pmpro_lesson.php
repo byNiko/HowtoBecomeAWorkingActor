@@ -29,27 +29,23 @@ $responsive_video = $v->get_responsive_video();
 			<?php the_title('<h1 class="lesson-title entry-title">', '</h1>'); ?>
 		</header>
 		<div class="grid has-sidebar sidebar ">
-			<div class="course-description main">
-				<div class="content">
-					<div class="entry-content">
-						<?php if ($responsive_video): ?>
-							<?= $responsive_video; ?>
-						<?php endif; ?>
+			<div class="course-content main">
+				<?php if ($responsive_video): ?>
+					<?= $responsive_video; ?>
+				<?php endif; ?>
+				<div class="entry-content">
+					<div class="lesson-content mt-6">
+						<?php
+						\byniko\pmpro_the_courses_lesson_nav($course_id);
 
-						<div class="lesson-content mt-6">
-							<div class="">
-								<?php
-								\byniko\pmpro_the_courses_lesson_nav($course_id);
-
-								// If comments are open or we have at least one comment, load up the comment template.
-								if (comments_open() || get_comments_number()) :
-									comments_template();
-								endif;
-								?>
-							</div>
-							<?php the_content(); ?>
-						</div>
+						// If comments are open or we have at least one comment, load up the comment template.
+						if (comments_open() || get_comments_number()) :
+							comments_template();
+						endif;
+						?>
+						<?php the_content(); ?>
 					</div>
+
 				</div><!-- .entry-content -->
 			</div>
 			<aside class=" sidebar lessons-list ">

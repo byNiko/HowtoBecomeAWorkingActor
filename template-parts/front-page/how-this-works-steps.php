@@ -26,7 +26,7 @@
 <div class="container bold narrow">
 
 	<div class="row ">
-		<h3 class="subdisplay centered text-underline mb-3">
+		<h3 class="centered text-underline mb-3">
 			How this works
 		</h3>
 		<p class="fz-sml fw-light border-bottom--inner pb-10 mb-10 small-reading-width">

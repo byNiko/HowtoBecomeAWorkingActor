@@ -10,7 +10,7 @@ $Courses = new Courses();
 		?>
 			<div class="container light-md has-shadow">
 				<div class="grid has-sidebar row grid-400">
-					<div class="course-description main">
+					<div class="course-content main">
 						<header>
 							<h2 class="display-sm"><?php echo $course->post_title; ?></h2>
 						</header>
