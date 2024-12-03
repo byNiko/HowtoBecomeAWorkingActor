@@ -14,6 +14,49 @@ if (!defined('_S_VERSION')) {
 }
 
 require __DIR__ . '/inc/autoload.php';
+require __DIR__ . '/inc/Byniko.php';
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Register Theme Files 
+|--------------------------------------------------------------------------
+| Simply add (or remove) files from the array below to change what
+| is registered alongside this theme.
+|
+*/
+
+$include_theme_customizations = [
+	'template-functions',
+	'template-tags'
+];
+foreach ($include_theme_customizations as $file) {
+	if (!locate_template($file = "inc/{$file}.php", true, true)) {
+		wp_die(
+			/* translators: %s is replaced with the relative file path */
+			sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file)
+		);
+	}
+};
+
+/*
+|--------------------------------------------------------------------------
+| Register PMPRO Files 
+|--------------------------------------------------------------------------
+*/
+
+$include_pmpro_customizations = [
+	"Byniko_Membership"
+];
+foreach ($include_pmpro_customizations as $file) {
+	if (!locate_template($file = "inc/Byniko_Membership/{$file}.php", true, true)) {
+		wp_die(
+			/* translators: %s is replaced with the relative file path */
+			sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file)
+		);
+	}
+};
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -170,16 +213,6 @@ function byniko_scripts() {
 }
 add_action('wp_enqueue_scripts', 'byniko_scripts');
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
 
 
 add_filter( 'is_post_type_viewable', 'byniko_hide_cpt_single', 10, 2 );
@@ -258,4 +291,43 @@ add_action('init', 'add_custom_user_role_pending');
 
 //  global $pmpro_invite_required_levels;
 // $pmpro_invite_required_levels = array(1);
+
+
+
+/**
+ * Share taxonomy pdf-groups with posts
+ *
+ * @return void
+ */
+// function namespace_share_category_with_pages() {
+// 	register_taxonomy_for_object_type( 'category', 'pmpro_lesson' );
+// }
+
+// add_action( 'init', 'namespace_share_category_with_pages' );
+
+function byniko( $query ) {
+    if ( $query->is_category() && $query->is_main_query() ) {
+        $query->set( 'post_type', array( 'post', 'pmpro_lesson' ) );
+    }
+}
+add_action( 'pre_get_posts', 'byniko' );
+
+
+/*
+	Tell PMPro to filter the_content a bit later.
+	
+	This will sometimes fix issues where theme or plugin elements (e.g. videos)
+	are not being filtered by PMPro. Note that this sometimes will cause
+	some things (e.g. share links) to be filtered that you don't want to be
+	filtered... and sometimes edits to the theme or a child theme are
+	required to get the desired effect.
+	
+	Add this to your active theme's fucntions.php or a custom plugin.
+*/
+function my_init_change_pmpro_content_filter_priority()
+{
+	remove_filter('the_content', 'pmpro_membership_content_filter', 5);
+	add_filter('the_content', 'pmpro_membership_content_filter',0);
+}
+// add_action('init', 'my_init_change_pmpro_content_filter_priority');
 

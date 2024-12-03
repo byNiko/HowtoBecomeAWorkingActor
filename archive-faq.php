@@ -23,11 +23,11 @@ $categorized = byniko\order_terms_with_posts('faq', 'faq-category');
 		<div class="grid has-sidebar">
 			<section>
 				<?php foreach ($categorized as $category => $posts): ?>
-					<div class="faq__category">
+					<div class="faq__category ">
 						<header class="faq__category-header">
 							<h2 class="faq__category-title"><?= $category; ?></h2>
 						</header>
-						<div class="faq__questions">
+						<div class="faq__questions grid-300">
 						<?php foreach ($posts as $post): ?>
 							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 								<header class="faq__entry-header">

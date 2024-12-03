@@ -97,16 +97,3 @@ add_filter( 'wp_nav_menu_items', 'byniko_loginout_menu_link', 10, 2 );
 add_filter('get_the_archive_title', function ($title) {
     return preg_replace('/^\w+: /', '', $title);
 });
-
-
-function byniko_the_page_title() {
-	global $post;
-	// either slug or title - I can't remember which is $post->post_name
-	$hide_title = array(
-		'home'
-		// 'student-questionnaire'
-	);
-
-	if ( in_array($post->post_name, $hide_title)) return;
-	return the_title( '<header class="entry-header"><h1 class="page-title h1">', '</h1></header>' );
-}

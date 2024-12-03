@@ -65,17 +65,16 @@ class ResponsiveVideo {
 		return $id;
 	}
 
-	public function get_responsive_video() {
+	public function get_responsive_video($is_restricted = false) {
 		$iframe = $this->make_iframe();
 		$html = false;
 		if($iframe) {
-		$html = "<div class='responsive-media-container'>";
+		$html = "<div class='responsive-media-container'>" . apply_filters('byniko_before_responsive_media_wrapper', '', $is_restricted);
 		$html .= "<div class='responsive-media-wrapper has-radius' style='--aspect-ratio:$this->aspect_ratio;'>";
-		$html .=$iframe;
+		$html .= $iframe;
 		$html .= "</div>";
 		$html .= "</div>";
 		}
-		// var_dump($html);
 
 		return $html;
 	}

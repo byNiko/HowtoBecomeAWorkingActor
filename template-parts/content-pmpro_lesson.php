@@ -15,11 +15,16 @@ $course = new Course($course_id);
 // $course = new Course($lesson->get_course_id($lesson->ID));
 
 
-$video_args = array(
-	'video_url' => get_field('lesson_video_url', $post->ID),
-);
-$v = new ResponsiveVideo($video_args);
-$responsive_video = $v->get_responsive_video();
+
+// $video_args = array(
+// 	'video_url' => get_field('lesson_video_url', $post->ID),
+// );
+// $v = new ResponsiveVideo($video_args);
+$is_bonus = $lesson->is_bonus_lesson();
+$is_restricted = $lesson->is_restricted_bonus_lesson();
+$member_has_access = $lesson->member_has_access_to_bonus_lesson();
+var_dump($member_has_access);
+// echo apply_filters( 'pmpro_membership_content_filter', false, "test content", true );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -30,13 +35,14 @@ $responsive_video = $v->get_responsive_video();
 		</header>
 		<div class="grid has-sidebar sidebar ">
 			<div class="course-content main">
-				<?php if ($responsive_video): ?>
-					<?= $responsive_video; ?>
-				<?php endif; ?>
+				<?php 
+				echo $lesson->get_main_video();
+				 ?>
 				<div class="entry-content">
 					<div class="lesson-content mt-6">
 						<?php
 						\byniko\pmpro_the_courses_lesson_nav($course_id);
+						
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						if (comments_open() || get_comments_number()) :
