@@ -2438,6 +2438,7 @@ form button {
   justify-content: center;
   color: black;
   font-weight: 800;
+  line-height: 1.2;
 }
 .responsive-media-container:hover .restricted-video-overlay {
   opacity: 1;

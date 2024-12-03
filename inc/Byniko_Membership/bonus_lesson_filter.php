@@ -1,7 +1,8 @@
 <?php
 namespace byniko_membership;
 
-function bonus_lesson_content($lesson) {
+function bonus_lesson_content($post) {
+	$lesson = new \Lesson($post);
 	// $content = get_the_content($lesson->id);
 	$content = "";
 	$has_access = $lesson->member_has_access_to_bonus_lesson();

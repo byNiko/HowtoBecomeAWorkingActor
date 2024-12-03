@@ -6,25 +6,26 @@
  *
  * @package byniko
  */
-$lesson = new Lesson($post->ID);
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header">
-		<?php
-			the_title( '<h2 class="entry-title">', '</h2>' );
-			?>
+	<header class="entry-header d-none">
+		
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?= byniko_membership\bonus_lesson_content($lesson); ?>
+		<?= byniko_membership\bonus_lesson_content($post); ?>
 		<?php // the_content(); ?>
 	</div><!-- .entry-content -->
 
 	
 
 	<footer class="entry-footer">
+	<?php
+			the_title( '<h4 class="entry-title">', '</h4>' );
+			?>
 		<?php //byniko_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -39,7 +39,7 @@ class Lesson {
 			'video_url' => get_field('lesson_video_url', $this->id),
 		);
 		$v = new ResponsiveVideo($video_args);
-		var_dump($is_restricted);
+		// var_dump($is_restricted);
 		if ($is_restricted) {
 			add_filter('byniko_before_responsive_media_wrapper','byniko_membership\addRestrictedVideOverlay', 10, 2);
 		}

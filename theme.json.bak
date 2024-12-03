@@ -2,15 +2,10 @@
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
   "settings": {
-	"color": {
-		"palette": [
-			{
-			"name":"Green",
-			"slug":"green",
-			"color":"#009E6C"
-			}
-		]
-	},
+    "spacing": {
+			"margin": true,
+			"padding": true
+		},
     "typography": {
       "defaultFontSizes": true,
       "customFontSize": false
