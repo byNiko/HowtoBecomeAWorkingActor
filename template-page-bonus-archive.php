@@ -53,7 +53,7 @@ $free = new WP_Query($free);
 	<div class="grid ">
 		<section>
 			<?= byniko\the_page_title(); ?>
-			<div>
+			<div class="hide-overflow">
 			<?php the_content(); ?>
 			</div>
 			<div class="d-none">
