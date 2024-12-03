@@ -32,7 +32,7 @@ class Modal {
 	private function get_trigger() {
 		
 		extract($this->args);
-		var_dump($id);
+		// var_dump($id);
 		return "<button class='$trigger_class' data-micromodal-trigger='modal-$id'>$trigger_cta</button>";
 	}
 	private function makeModal() {

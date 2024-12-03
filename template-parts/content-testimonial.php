@@ -9,7 +9,7 @@ $test = $args['test'];
 
 if (!isset($args['test']) && current_user_can('edit_posts')) :
 	echo "No testimonials passed.<br/>";
-	var_dump($args['test']);
+	// var_dump($args['test']);
 else:
 
 ?>

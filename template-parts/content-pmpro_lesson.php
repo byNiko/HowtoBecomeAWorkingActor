@@ -23,7 +23,7 @@ $course = new Course($course_id);
 $is_bonus = $lesson->is_bonus_lesson();
 $is_restricted = $lesson->is_restricted_bonus_lesson();
 $member_has_access = $lesson->member_has_access_to_bonus_lesson();
-var_dump($member_has_access);
+// var_dump($member_has_access);
 // echo apply_filters( 'pmpro_membership_content_filter', false, "test content", true );
 ?>
 
