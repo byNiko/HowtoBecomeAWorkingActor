@@ -1536,7 +1536,7 @@ header {
   font-size: var(--font-size-xl);
   line-height: 1.2;
   font-weight: var(--font-weight-bold);
-  text-wrap: inital;
+  text-wrap: initial;
 }
 .single-pmpro_lesson .pmpro_courses_lesson-status,
 .single-pmpro_lesson .pmpro_courses_lesson-back-to-course {
@@ -1548,6 +1548,23 @@ header {
   background: var(--primary-300);
   padding: 0.5em 1em;
   border-radius: var(--radius-sm);
+}
+.single-pmpro_lesson .lesson-navigation {
+  font-size: 1rem;
+  padding: 10px;
+}
+.single-pmpro_lesson .lesson-navigation .nav-links {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacer-2);
+}
+.single-pmpro_lesson .lesson-navigation .nav-links .nav-previous {
+  text-align: left;
+  margin-right: auto;
+}
+.single-pmpro_lesson .lesson-navigation .nav-links .nav-next {
+  margin-left: auto;
+  text-align: right;
 }
 .single-pmpro_lesson .sidebar {
   align-self: start;

@@ -191,7 +191,7 @@ function pmpro_the_courses_lesson_nav($course_id) {
 	$next_id     = $next_prev_lessons['next_id'] ?? null;
 	// Output HTML for navigation.
 	?>
-	<nav class="navigation page-navigation" role="navigation">
+	<nav class="lesson-navigation page-navigation" role="navigation">
 		<span class="screen-reader-text"><?php esc_html_e('Lesson navigation', 'pmpro-courses'); ?></span>
 		<div class="nav-links">
 			<?php if ($previous_id) : ?>

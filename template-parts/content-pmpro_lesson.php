@@ -39,10 +39,9 @@ var_dump($member_has_access);
 				echo $lesson->get_main_video();
 				 ?>
 				<div class="entry-content">
+					<?php \byniko\pmpro_the_courses_lesson_nav($course_id); ?>
 					<div class="lesson-content mt-6">
-						<?php
-						\byniko\pmpro_the_courses_lesson_nav($course_id);
-						
+						<?php				
 
 						// If comments are open or we have at least one comment, load up the comment template.
 						if (comments_open() || get_comments_number()) :

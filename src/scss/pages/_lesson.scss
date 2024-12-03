@@ -10,7 +10,7 @@
 		font-size: var(--font-size-xl);
 		line-height: 1.2;
 		font-weight: var(--font-weight-bold);
-		text-wrap: inital;
+		text-wrap: initial;
 	}
 
 	.pmpro_courses_lesson-status, 
@@ -25,6 +25,25 @@
 		background: var(--primary-300);
 		padding: .5em 1em;
 		border-radius: var(--radius-sm);
+		}
+	}
+
+	.lesson-navigation {
+		font-size: 1rem;
+		padding: 10px;
+		.nav-links {
+			display: flex;
+			justify-content: space-between;
+			gap: var(--spacer-2);
+			.nav-previous {
+				text-align: left;
+				margin-right:auto;
+
+			}
+			.nav-next {
+				margin-left: auto;;
+				text-align: right;
+			}
 		}
 	}
 .sidebar {
