@@ -53,15 +53,17 @@ $free = new WP_Query($free);
 	<div class="grid ">
 		<section>
 			<?= byniko\the_page_title(); ?>
+			<div>
 			<?php the_content(); ?>
+			</div>
 			<div class="d-none">
-			<section id="free-bonus-courses" class="courses-grid grid-300 ">
+			<section id="free-bonus-courses" class="courses-grid grid-450 ">
 				<?php if($free->have_posts()): while($free->have_posts()): $free->the_post(); ?>
 					<?php get_template_part('template-parts/content', 'pmpro_bonus-lesson', array('post' => $post)); ?>
 				<?php endwhile; endif; ?>
 			</section>
 			</div>
-			<section id="restricted-bonus-courses" class="courses-grid grid-300">
+			<section id="restricted-bonus-courses" class="courses-grid grid-450">
 				<?php if($bonus->have_posts()): while($bonus->have_posts()): $bonus->the_post(); ?>
 					<?php get_template_part('template-parts/content', 'pmpro_bonus-lesson', array('post' => $post)); ?>
 				<?php endwhile; endif; ?>
