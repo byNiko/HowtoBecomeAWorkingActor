@@ -2452,6 +2452,20 @@ form button {
   height: 100%;
 }
 
+.wp-block-embed.alignleft, .wp-block-embed.alignright,
+.wp-block-embed .alignleft,
+.wp-block-embed .alignright {
+  max-width: initial;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .wp-block-embed.alignleft, .wp-block-embed.alignright,
+  .wp-block-embed .alignleft,
+  .wp-block-embed .alignright {
+    max-width: 45%;
+  }
+}
+
 [data-micromodal-trigger] {
   cursor: pointer;
 }
