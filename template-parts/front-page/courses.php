@@ -15,7 +15,7 @@ $Courses = new Courses();
 							<h2 class="display-sm"><?php echo $course->post_title; ?></h2>
 						</header>
 						<div class="content fz-mds">
-							<p><?= apply_filters('the_content', $course->post_excerpt); ?></p>
+							<p><?= apply_filters('the_content', $course->post_content); ?></p>
 							<p class="text-right text-underline"> 
 								<a class="button secondary " href="<?= get_permalink($course->ID); ?>">Start <?= $course->post_title; ?>!</a>
 							</p>
