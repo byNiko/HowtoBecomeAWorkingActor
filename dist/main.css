@@ -1230,6 +1230,14 @@ header {
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
 .sr-only,
 .visually-hidden {
   width: 1px !important;
@@ -1704,6 +1712,33 @@ header {
   --bg: var(--active-bg);
   --color: var(--active-color);
 }
+.button.primary {
+  --bg: var(--primary);
+  --color: var(--primary-100);
+  --border-color: var(--primary-200);
+  --hover-bg: var(--primary-200);
+  --hover-color: var(--primary-100);
+  --active-bg: var(--primary-300);
+  --active-color: var(--primary-100);
+}
+.button.secondary {
+  --bg: var(--accent);
+  --color: var(--primary);
+  --border-color: var(--accent-200);
+  --hover-bg: var(--accent-200);
+  --hover-color: var(--accent-100);
+  --active-bg: var(--accent-300);
+  --active-color: var(--accent-100);
+}
+.button.tertiary {
+  --bg: var(--tertiary);
+  --color: var(--tertiary-100);
+  --border-color: var(--tertiary-200);
+  --hover-bg: var(--tertiary-200);
+  --hover-color: var(--tertiary-100);
+  --active-bg: var(--tertiary-300);
+  --active-color: var(--tertiary-100);
+}
 .button.hollow {
   --bg: transparent;
   box-shadow: none;
@@ -1719,36 +1754,6 @@ header {
 .button.hollow:active, .button.hollow:focus {
   --bg: var(--active-bg);
   --color: var(--active-color);
-}
-
-.button.primary {
-  --bg: var(--primary);
-  --color: var(--primary-100);
-  --border-color: var(--primary-200);
-  --hover-bg: var(--primary-200);
-  --hover-color: var(--primary-100);
-  --active-bg: var(--primary-300);
-  --active-color: var(--primary-100);
-}
-
-.button.secondary {
-  --bg: var(--accent);
-  --color: var(--primary);
-  --border-color: var(--accent-200);
-  --hover-bg: var(--accent-200);
-  --hover-color: var(--accent-100);
-  --active-bg: var(--accent-300);
-  --active-color: var(--accent-100);
-}
-
-.button.tertiary {
-  --bg: var(--tertiary);
-  --color: var(--tertiary-100);
-  --border-color: var(--tertiary-200);
-  --hover-bg: var(--tertiary-200);
-  --hover-color: var(--tertiary-100);
-  --active-bg: var(--tertiary-300);
-  --active-color: var(--tertiary-100);
 }
 
 .button.large {
@@ -1776,6 +1781,7 @@ header {
 }
 
 .button.text {
+  color: currentColor;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -1785,9 +1791,9 @@ header {
   font-weight: var(--font-weight-normal);
   padding: 0;
   text-decoration: none;
+  display: inline;
 }
 .button.text:hover {
-  color: var(--text-color-lighter);
   text-decoration: underline;
   text-underline-offset: 2px;
 }

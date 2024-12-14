@@ -16,6 +16,9 @@ $Courses = new Courses();
 						</header>
 						<div class="content fz-mds">
 							<p><?= apply_filters('the_content', $course->post_excerpt); ?></p>
+							<p class="text-right text-underline"> 
+								<a class="button secondary " href="<?= get_permalink($course->ID); ?>">Start <?= $course->post_title; ?>!</a>
+							</p>
 						</div>
 					</div>
 					<aside class="lessons-list">
