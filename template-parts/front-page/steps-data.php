@@ -2,7 +2,7 @@
 $steps = array(
 	'step-1' => array(
 		'title' => 'QUESTIONNAIRE',
-		'description' => '<p>The questionnaire is designed to help you think about your acting career and give me insight into your journey.</p>',
+		'description' => '<p>We use the questionnaire to drive the conversation in the zoom call.<p>It\'s a chance to get to know you and your goals, and to see if you’re a good fit for the program.</p>',
 		'cta' => array(
 			'url' => '#',
 			'text' => 'Fill Out the Questionnaire',

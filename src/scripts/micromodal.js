@@ -1,11 +1,12 @@
 import MicroModal from 'micromodal';
-import { isValidVimeoUrl } from './vimeo-video.js';
+import { isValidVimeoUrl, getVimeoPlayer } from './vimeo-video.js';
 
 MicroModal.init( {
 	onShow: async ( modal, el, triggerEv ) => {
 		closeAllOthers( modal );
 		bodyScrollbar();
 		autoIframeVimeo( modal, el, triggerEv );
+		autoVimeoPlayer( modal, el, triggerEv );
 		autoIframeModal( modal, el, triggerEv );
 	}, // [1]
 	onClose: ( modal ) => {
@@ -28,6 +29,20 @@ MicroModal.init( {
 
 function bodyScrollbar() {
 	document.body.classList.toggle('modal-open');
+}
+
+
+async function autoVimeoPlayer( modal, el, triggerEv ) {
+	let videoUrl = false;
+	const videoEl = modal.querySelector( '[data-video-url]' );
+	if ( videoEl ) {
+		videoUrl = videoEl.getAttribute( 'data-video-url' );
+		if ( videoUrl && videoUrl.length ) {
+			console.log( 'videoUrl', videoUrl );
+			videoEl.innerHTML = await getVimeoPlayer( videoUrl );
+		}
+	}
+	
 }
 async function autoIframeVimeo( modal, el, triggerEv ) {
 	const videoTrigger = triggerEv.target.closest( '[data-video-url]' );

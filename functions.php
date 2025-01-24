@@ -237,7 +237,7 @@ function byniko_disable_gutenberg($current_status, $post_type)
 }
 
 
-function get_questionnaire_modal_trigger($class = 'button secondary', $CTA = 'Fill out the Questionnaire!') {
+function get_questionnaire_modal_trigger($class = 'button secondary', $CTA = 'Sign Up With Us!') {
 	if(byniko\has_membership_level('2')) return;
 	return "<button class='$class' data-micromodal-trigger='modal-questionairre'>$CTA</button>";
 }

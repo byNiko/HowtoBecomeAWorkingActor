@@ -75,6 +75,7 @@ micromodal__WEBPACK_IMPORTED_MODULE_0__["default"].init({
     closeAllOthers(modal);
     bodyScrollbar();
     autoIframeVimeo(modal, el, triggerEv);
+    autoVimeoPlayer(modal, el, triggerEv);
     autoIframeModal(modal, el, triggerEv);
   },
   // [1]
@@ -103,6 +104,17 @@ micromodal__WEBPACK_IMPORTED_MODULE_0__["default"].init({
 });
 function bodyScrollbar() {
   document.body.classList.toggle('modal-open');
+}
+async function autoVimeoPlayer(modal, el, triggerEv) {
+  let videoUrl = false;
+  const videoEl = modal.querySelector('[data-video-url]');
+  if (videoEl) {
+    videoUrl = videoEl.getAttribute('data-video-url');
+    if (videoUrl && videoUrl.length) {
+      console.log('videoUrl', videoUrl);
+      videoEl.innerHTML = await (0,_vimeo_video_js__WEBPACK_IMPORTED_MODULE_1__.getVimeoPlayer)(videoUrl);
+    }
+  }
 }
 async function autoIframeVimeo(modal, el, triggerEv) {
   const videoTrigger = triggerEv.target.closest('[data-video-url]');
@@ -289,24 +301,27 @@ function closeAllOthers(modal) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getVimeoPlayer: () => (/* binding */ getVimeoPlayer),
 /* harmony export */   isValidVimeoUrl: () => (/* binding */ isValidVimeoUrl)
 /* harmony export */ });
 async function isValidVimeoUrl(url) {
   const resp = await fetch(`https://vimeo.com/api/oembed.json?url=${url}&width=800`);
   return resp.ok && (await resp.json());
 }
+async function getVimeoPlayer(url, videoInfo) {
+  let info = videoInfo || (await isValidVimeoUrl(url));
+  return `<div class="responsive-media-wrapper has-radius has-shadow " style="--aspect-ratio: ${info.width / info.height}; ">
+	<iframe class="responsive-media-item" src="${url}" frameborder="0"  allowfullscreen>
+	</iframe>
+	<!-- <img clas="responsive-media-item video-thumbnail" src="${info.thumbnail_url_with_play_button}" alt="video" > -->
+	</div>`;
+}
 const iframe_divs = document.querySelectorAll('[data-iframe-url]');
 iframe_divs.forEach(async el => {
   const url = el.getAttribute('data-iframe-url');
   const info = await isValidVimeoUrl(url);
   if (info) {
-    console.log(info);
-    el.innerHTML = `
-		<div class="responsive-media-wrapper has-radius has-shadow " style="--aspect-ratio: ${info.width / info.height}; ">
-		<iframe class="responsive-media-item" src="${url}" frameborder="0"  allowfullscreen>
-		</iframe>
-		<!-- <img clas="responsive-media-item video-thumbnail" src="${info.thumbnail_url_with_play_button}" alt="video" > -->
-		</div>`;
+    el.innerHTML = await getVimeoPlayer(url, info);
   }
 });
 

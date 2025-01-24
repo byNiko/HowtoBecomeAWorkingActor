@@ -6,7 +6,7 @@
 		<div class="student-types">
 
 			<?php
-			require(__DIR__ . '/student-types-data.php');
+			// require(__DIR__ . '/student-types-data.php');
 			$args = array(
 				'posts_per_page' => -1,
 				'post_type' => 'student-type',
@@ -32,9 +32,10 @@
 
 				</div>
 				<?
-				$modal_content = get_field('popup_text', $type);
+				$modal_content = "<div class='mb-5' data-video-url='" . get_field('vimeo_link', $type) . "'></div>";
+				$modal_content .= "<div class='flex centered '>" . get_questionnaire_modal_trigger() . "</div>";
+				$modal_content .= get_field('popup_text', $type);
 				$modal_content .= "<footer>" . get_field('popup_footer', $type) .  "</footer>";
-				$modal_content .= "<div class='flex centered'>" . get_questionnaire_modal_trigger() . "</div>";
 				$modal_title = "<div class='display-sm text-center border-bottom--inner pb-3'>" . get_field('popup_title', $type) . "</div>";
 
 				echo makeModal($id, $modal_content, $modal_title);
@@ -44,4 +45,4 @@
 	</div>
 </div>
 
-<?php get_template_part('patterns/micromodal'); ?>
+<?php //get_template_part('patterns/micromodal'); ?>
