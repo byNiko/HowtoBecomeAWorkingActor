@@ -20,5 +20,5 @@ jobs:
           # ssh_port: 23456 # Default is 22, omit if not needed
           use_jump_host: 'no' # Defaults to no, omit if not needed
           transfer_files: 'yes' # Defaults to yes, as transferring files is a core function of this action :)
-          # source_file_path: './build/app.jar' # Artifact from an upstream job
+          source_file_path: './build/app.jar' # Artifact from an upstream job
           destination_path: ${{ secrets.REMOTE_TARGET }}
