@@ -20,8 +20,6 @@ jobs:
       # run: npm run build --if-present
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
-       - name: Install Rsync
-         run: apt-get install rsync
       with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i --delete"
