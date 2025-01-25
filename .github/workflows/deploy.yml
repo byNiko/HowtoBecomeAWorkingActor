@@ -13,14 +13,15 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20.x'
-        name: Install Rsync
-        run: apt-get install rsync
+       
     # - name: Install npm dependencies
      # run: npm install
     # - name: Run build task
       # run: npm run build --if-present
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
+       - name: Install Rsync
+         run: apt-get install rsync
       with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i --delete"
