@@ -1,24 +1,30 @@
-name: Deploy to Remote Server
+name: Node CI
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  deploy:
+  web-deploy:
+
     runs-on: ubuntu-latest
+
     steps:
-      # ... other jobs ...
-      - name: Deploy Application via SSH
-        uses: falling42/ssh-deploy@v0.2.1
-        with:
-          use_screen: 'yes' # Defaults to no, omit if not needed
-          ssh_host: ${{ secrets.REMOTE_HOST }}
-          ssh_user:  ${{ secrets.REMOTE_USER }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          # ssh_port: 23456 # Default is 22, omit if not needed
-          use_jump_host: 'no' # Defaults to no, omit if not needed
-          transfer_files: 'yes' # Defaults to yes, as transferring files is a core function of this action :)
-          # source_file_path: './build/app.jar' # Artifact from an upstream job
-          destination_path: ${{ secrets.REMOTE_TARGET }}
+    - uses: actions/checkout@v3
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.x'
+    # - name: Install npm dependencies
+     # run: npm install
+    # - name: Run build task
+      # run: npm run build --if-present
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i --delete"
+          SOURCE: ""
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
+          # TARGET: "~/www/hosting/kobaltpier.com/wp-content/themes/kobalt-pier"
+          EXCLUDE: ""
