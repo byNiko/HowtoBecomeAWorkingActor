@@ -28,7 +28,7 @@ jobs:
           SOURCE: ""
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
-          # TARGET: "~/test"
+          #TARGET: ${{ secrets.REMOTE_TARGET }}
+          TARGET: "~/public_html/working2.themeisnertechniquestudio.com/wp-content/themes/HowtoBecomeAWorkingActor"
           # TARGET: "~/www/hosting/kobaltpier.com/wp-content/themes/kobalt-pier"
           EXCLUDE: ""
