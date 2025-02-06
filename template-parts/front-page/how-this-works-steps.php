@@ -49,7 +49,7 @@
 						<?= $step_data['description']; ?>
 						<?php if (isset($step_data['cta'])) : ?>
 							<div class="how-this-works-step-cta">
-								<?php the_questionnaire_modal_trigger(); ?>
+								<?php the_questionnaire_modal_trigger('button secondary', 'Fill Out the Questionnaire'); ?>
 							</div>
 						<?php endif; ?>
 						<?php if (isset($step_data['price'])) : ?>
@@ -72,7 +72,7 @@
 		</ul>
 
 		<div class="centered flex-row how-this-works-step-cta">
-			<?php the_questionnaire_modal_trigger(); ?>
+		<?php the_questionnaire_modal_trigger('button secondary', 'Fill Out the Questionnaire'); ?>
 		</div>
 	</div>
 </div>

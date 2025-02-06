@@ -245,8 +245,8 @@ function get_questionnaire_modal() {
 	$form = FrmFormsController::get_form_shortcode(array('id' => 2, 'title'=>true, 'description'=>true));
 	return makeModal('questionairre', $form);
 }
-function the_questionnaire_modal_trigger() {
-	echo get_questionnaire_modal_trigger();
+function the_questionnaire_modal_trigger($class = 'button secondary', $CTA = 'Sign Up With Us!') {
+	echo get_questionnaire_modal_trigger($class, $CTA);
 }
 function the_questionnaire_modal_trigger_shortcode() {
 	return get_questionnaire_modal_trigger();
