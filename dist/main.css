@@ -2064,6 +2064,9 @@ header {
   overflow: auto;
   align-content: start;
 }
+.inner-lessons-list ::marker {
+  font-size: 0.8rem;
+}
 .inner-lessons-list .lesson-items {
   padding: 0;
   margin: 0;

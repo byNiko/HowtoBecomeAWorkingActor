@@ -10,6 +10,9 @@
 	max-height: 250px;
 	overflow: auto;
 	align-content: start;
+	::marker {
+		font-size: .8rem;
+	}
 	.lesson-items {
 		padding:0;
 		margin:0;
