@@ -2,13 +2,13 @@
 	<div class="grid-50 grid-centered row">
 		<div class="content ">
 			<p class="fz-mdl">
-				I designed these video courses for <strong>anyone</strong> at <strong>any stage</strong> of their acting dreams who is <strong>dedicated</strong> to being part of that 2%.
+				Jim Jarrett designed these video courses for <strong>anyone</strong> at <strong>any stage</strong> of their acting dreams who is <strong>dedicated</strong> to being part of that 2%.
 			</p>
 			<div class="centered">
 				<a
 					href="/about-jim"
 					class="button primary ">
-					Find Out More About Me
+					Find Out More About Jim
 				</a>
 			</div>
 		</div>

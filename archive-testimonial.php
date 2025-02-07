@@ -15,8 +15,8 @@ get_header();
 		<header class="page-header">
 			<?php the_archive_title('<h1 class="page-title">', '</h1>'); ?>
 		</header><!-- .page-header -->
-		<div class="grid has-sidebar">
-			<section>
+		<div class="grid">
+			<section class='grid grid__3-md'>
 				<?php
 				while (have_posts()) :
 					the_post();
@@ -32,7 +32,7 @@ get_header();
 				endwhile;
 				?>
 			</section>
-			<?php get_sidebar(); ?>
+			<?php //get_sidebar(); ?>
 		</div>
 	</div>
 

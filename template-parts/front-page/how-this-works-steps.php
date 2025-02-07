@@ -3,7 +3,7 @@
 	<div class="container light no-padding">
 		<div class="row">
 			<h2 class="display centered text-uppercase">
-				Let's Get Started!
+				How This Works
 			</h2>
 
 		</div>
@@ -26,9 +26,7 @@
 <div class="container bold narrow">
 
 	<div class="row ">
-		<h3 class="centered text-underline mb-3">
-			How this works
-		</h3>
+		
 		<p class="fz-sml fw-light border-bottom--inner pb-10 mb-10 small-reading-width">
 			I meet with every potential student before getting access to these courses. This road isn’t easy and I want to make sure you’re a good fit for this program.
 		</p>
@@ -49,7 +47,7 @@
 						<?= $step_data['description']; ?>
 						<?php if (isset($step_data['cta'])) : ?>
 							<div class="how-this-works-step-cta">
-								<?php the_questionnaire_modal_trigger('button secondary', 'Fill Out the Questionnaire'); ?>
+								<?php the_questionnaire_modal_trigger('button secondary', 'Let\'s Get Started'); ?>
 							</div>
 						<?php endif; ?>
 						<?php if (isset($step_data['price'])) : ?>
@@ -72,7 +70,7 @@
 		</ul>
 
 		<div class="centered flex-row how-this-works-step-cta">
-		<?php the_questionnaire_modal_trigger('button secondary', 'Fill Out the Questionnaire'); ?>
+		<?php the_questionnaire_modal_trigger('button secondary', 'Let\'s Get Started'); ?>
 		</div>
 	</div>
 </div>

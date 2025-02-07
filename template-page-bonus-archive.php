@@ -56,7 +56,7 @@ $free = new WP_Query($free);
 			<div class="hide-overflow">
 			<?php the_content(); ?>
 			</div>
-			<div class="d-none">
+			<div class="d-non">
 			<section id="free-bonus-courses" class="courses-grid grid-450 ">
 				<?php if($free->have_posts()): while($free->have_posts()): $free->the_post(); ?>
 					<?php get_template_part('template-parts/content', 'pmpro_bonus-lesson', array('post' => $post)); ?>

@@ -233,7 +233,7 @@ function is_bonus_course($post_id) {
 }
 
 function is_bonus_lesson($post_id) {
-	echo  __FUNCTION__ ." deprecated for Lesson class <br>" ;
+	echo  __FUNCTION__ . " deprecated for Lesson class <br>";
 	$bonus_slug = 'bonus';
 
 	$is_bonus = false;
@@ -250,7 +250,7 @@ function is_bonus_lesson($post_id) {
 }
 
 function is_restricted_bonus_lesson($post_id) {
-	echo  __FUNCTION__ ." deprecated for Lesson class <br>" ;
+	echo  __FUNCTION__ . " deprecated for Lesson class <br>";
 	if (!is_bonus_lesson($post_id)) return false;
 
 	/* The line ` = true;` is initializing a variable named `` and setting its
@@ -276,7 +276,7 @@ function is_restricted_bonus_lesson($post_id) {
 }
 
 function member_has_access_to_bonus_lesson($lesson_id) {
-	echo  __FUNCTION__ ." deprecated for Lesson class <br>" ;
+	echo  __FUNCTION__ . " deprecated for Lesson class <br>";
 	global $current_user;
 
 	if (!is_user_logged_in()) return false;
@@ -296,6 +296,59 @@ function the_page_title() {
 		// 'student-questionnaire'
 	);
 
-	if ( in_array($post->post_name, $hide_title)) return;
-	return the_title( '<header class="entry-header"><h1 class="page-title h1">', '</h1></header>' );
+	if (in_array($post->post_name, $hide_title)) return;
+	return the_title('<header class="entry-header"><h1 class="page-title h1">', '</h1></header>');
+}
+
+function array_random($array, $amount = 1)
+{
+    $keys = array_rand($array, $amount);
+
+    if ($amount == 1) {
+        return $array[$keys];
+    }
+
+    $results = [];
+    foreach ($keys as $key) {
+        $results[] = $array[$key];
+    }
+
+    return $results;
+}
+
+function get_random_testimonials($args = array()) {
+	$defaults = array(
+		'count' => 1,
+		'source' => 'celebrity',
+	);
+	$args = wp_parse_args($args, $defaults);
+	$testimonial_ids_args = array(
+		'post_type' => 'testimonial',
+		'posts_per_page' => -1,
+		'suppress_filters' => false,
+		'fields' => 'ids',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'source',
+				'field' => 'slug',
+				'terms' => $args['source']
+			)
+		)
+	);
+	// just getting post ids here
+	$testimonial_ids = get_posts($testimonial_ids_args);
+	// randomize result and make sure to get an array of ids even if count is 1
+	$random_ids = array_random($testimonial_ids, $args['count']);
+	$testimonials_query = 
+		array(
+			'post_type' => 'testimonial',
+			'post__in' => $random_ids,
+		);
+	// get the radmom testimonials
+	$testimonials_res = get_posts($testimonials_query);
+	$testimonials = [];
+	foreach ($testimonials_res as $test) {
+		$testimonials[] = new \Testimonial($test);
+	}
+	return $testimonials;
 }

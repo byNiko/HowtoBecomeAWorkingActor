@@ -5,4 +5,8 @@
 			margin-top: 0;
 		}
 	}
+	.testimonial + .testimonial {
+		margin-block: 1rem;
+	}
 }
+

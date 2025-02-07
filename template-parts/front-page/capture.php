@@ -14,8 +14,8 @@
 					</header>
 
 					<p>
-					As a way of thanking you for you time and interest - I'd like to extend to you your first teaching free of charge. </p>
-					<p>By signing up, you'll also be the first to know about course updates, opportunities to meet with me, new free videos and more.</p>
+					As a way of thanking you for you time and interest - we'd like to extend to you your first teaching free of charge. </p>
+					<p>By signing up, you'll also be the first to know about course updates, opportunities to meet with Jim, new free videos and more.</p>
 
 				</div>
 				<div class="centered">

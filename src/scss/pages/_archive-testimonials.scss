@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+.post-type-archive-testimonial {
+	.grid > section {
+		
+		
+		@include bp(md){
+			display:grid;
+			grid-template-columns: 1fr 1fr;
+			.testimonial--inner {
+				height: 100%;
+				align-content: start;
+			}
+		}
+		@include bp(lg) {
+			.testimonial--inner {
+				height:auto;
+			}
+			display:grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			align-content: start;
+		}
+	}
+}

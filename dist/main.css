@@ -1582,6 +1582,27 @@ header {
   align-self: start;
 }
 
+@media (min-width: 768px) {
+  .post-type-archive-testimonial .grid > section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .post-type-archive-testimonial .grid > section .testimonial--inner {
+    height: 100%;
+    align-content: start;
+  }
+}
+@media (min-width: 1040px) {
+  .post-type-archive-testimonial .grid > section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: start;
+  }
+  .post-type-archive-testimonial .grid > section .testimonial--inner {
+    height: auto;
+  }
+}
+
 .page--membership-account .pmpro_list,
 .page--membership-account .pmpro_courses-list {
   list-style-type: none;
@@ -2510,6 +2531,9 @@ form button {
 }
 .widget-area .sidebar-container:first-of-type {
   margin-top: 0;
+}
+.widget-area .testimonial + .testimonial {
+  margin-block: 1rem;
 }
 
 /*!
