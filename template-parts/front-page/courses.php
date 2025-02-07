@@ -9,7 +9,7 @@ $Courses = new Courses();
 			//var_dump($course);
 		?>
 			<div class="container light-md has-shadow">
-				<div class="grid has-sidebar row grid-400">
+				<div class="grid has-sidebar row grid-400 align-start">
 					<div class="course-content main">
 						<header>
 							<h2 class="display-sm"><?php echo $course->post_title; ?></h2>
@@ -52,6 +52,7 @@ $Courses = new Courses();
 									</div>
 								</div>
 							<?php endif; ?>
+							<?php if(1 === 2): ?>
 							<small class="fw-bold text-uppercase mt-3">lessons</small>
 							<ol class="accordion-items lesson-items">
 								<?php
@@ -71,6 +72,7 @@ $Courses = new Courses();
 									</li>
 								<?php endforeach; ?>
 							</ol>
+							<?php endif; ?>
 						</div>
 					</aside>
 				</div>

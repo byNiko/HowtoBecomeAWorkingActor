@@ -8,7 +8,6 @@
  *
  * @package byniko
  */
-// require (get_template_directory() . '/parts/svg-icons.php');
 $course = new Course($post->ID);
 ?>
 <div class="container light no-padding">
@@ -40,11 +39,12 @@ $course = new Course($post->ID);
 			</div>
 			<aside class=" sidebar lessons-list">
 				<div class="inner-lessons-list">
-				<?php echo apply_filters('byniko_lessons_sidebar', null); ?>
+					<?php echo apply_filters('byniko_lessons_sidebar', null); ?>
 				</div>
 			</aside>
 
 		</div>
+	</article>
 </div><!-- .entry-content -->
 
 <?php if (get_edit_post_link()) : ?>
@@ -69,5 +69,3 @@ $course = new Course($post->ID);
 		?>
 	</footer><!-- .entry-footer -->
 <?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
-</div>

@@ -1471,6 +1471,10 @@ header {
   --minWidth: 450px;
 }
 
+.align-start {
+  align-items: start;
+}
+
 .page-content {
   display: grid;
   grid-template-columns: 1fr;
