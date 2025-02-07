@@ -20,7 +20,8 @@ $course = new Course($post->ID);
 		?>
 		<div class="grid has-sidebar sidebar">
 
-			<div class="lesson-content main" >
+			<div class=" main" >
+				<div class="lesson-content">
 				<?php
 				$video_args = array(
 					'video_url' => get_field('welcome_video_link', $post->ID),
@@ -35,6 +36,7 @@ $course = new Course($post->ID);
 					echo '<p>' . $post->post_excerpt . '</p>';
 					the_content();
 					?>
+				</div>
 				</div>
 			</div>
 			<aside class=" sidebar lessons-list" data-equal-height="lesson-content">
