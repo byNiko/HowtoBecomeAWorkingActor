@@ -10,7 +10,7 @@
  */
 $course = new Course($post->ID);
 ?>
-<div class="container light no-padding">
+<div class="container light no-padding" >
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<?php the_title('<h1 class="entry-title display-md">', '</h1>'); ?>
@@ -20,7 +20,7 @@ $course = new Course($post->ID);
 		?>
 		<div class="grid has-sidebar sidebar">
 
-			<div class="lesson-content main">
+			<div class="lesson-content main" >
 				<?php
 				$video_args = array(
 					'video_url' => get_field('welcome_video_link', $post->ID),
@@ -37,7 +37,7 @@ $course = new Course($post->ID);
 					?>
 				</div>
 			</div>
-			<aside class=" sidebar lessons-list">
+			<aside class=" sidebar lessons-list" data-equal-height="lesson-content">
 				<div class="inner-lessons-list">
 					<?php echo apply_filters('byniko_lessons_sidebar', null); ?>
 				</div>

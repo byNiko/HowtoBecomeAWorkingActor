@@ -52,6 +52,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./accordion */ "./src/scripts/accordion.js");
 /* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_accordion__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _vimeo_video__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./vimeo-video */ "./src/scripts/vimeo-video.js");
+/* harmony import */ var _sameHeightSidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sameHeightSidebar */ "./src/scripts/sameHeightSidebar.js");
+/* harmony import */ var _sameHeightSidebar__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_sameHeightSidebar__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -289,6 +292,24 @@ function closeAllOthers(modal) {
     }
   }
 })();
+
+/***/ }),
+
+/***/ "./src/scripts/sameHeightSidebar.js":
+/*!******************************************!*\
+  !*** ./src/scripts/sameHeightSidebar.js ***!
+  \******************************************/
+/***/ (() => {
+
+const els = document.querySelectorAll('[data-equal-height]');
+if (els.length) {
+  els.forEach(el => {
+    const targetClass = el.getAttribute('data-equal-height');
+    const target = el.parentElement.querySelector(`.${targetClass}`);
+    const elHeight = target.offsetHeight;
+    el.style.height = `${elHeight}px`;
+  });
+}
 
 /***/ }),
 
