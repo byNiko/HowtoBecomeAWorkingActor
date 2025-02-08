@@ -19,13 +19,12 @@ $Courses = new Courses();
 					<div class="content fz-mds">
 						<?php $extended = get_extended($course->post_content); ?>
 						<p><?= apply_filters('the_content', $extended['main']); ?></p>
-						<!-- <p class="text-right text-underline">
+						<p class="text-right text-underline">
 							<a class="button secondary " href="<?= get_permalink($course->ID); ?>">Start <?= $course->post_title; ?>!</a>
-						</p> -->
+						</p>
 					</div>
 				</div>
-				<aside class="">
-					<div class="lessons-list">
+				<aside class="lessons-list">
 					<div class="inner-lessons-list grid grid-vertical">
 						<?php
 						if ($welcome_url = get_field('welcome_video_link', $course->ID)):
@@ -56,7 +55,6 @@ $Courses = new Courses();
 								</div>
 							</div>
 						<?php endif; ?>
-					
 						<?php if (1 === 2): ?>
 							<small class="fw-bold text-uppercase mt-3">lessons</small>
 							<ol class="accordion-items lesson-items">
@@ -79,13 +77,6 @@ $Courses = new Courses();
 							</ol>
 						<?php endif; ?>
 					</div>
-					</div>
-					<div class="">
-						<p class="text-center mt-4 text-underline">
-							<a class="button secondary " href="<?= get_permalink($course->ID); ?>">Start <?= $course->post_title; ?>!</a>
-						</p>
-						</div>
-				
 				</aside>
 			</div>
 		</article>
