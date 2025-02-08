@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<header class="display-sm centered">
-			These 125 sessions will save you a tremendous amount of time, money, heartache, and struggle.
+			These <?= do_shortcode('[lesson_count]'); ?> sessions will save you a tremendous amount of time, money, heartache, and struggle.
 		</header>
 		<div class="container  light-md ">
 			<div class="row">

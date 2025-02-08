@@ -2549,6 +2549,12 @@ form button {
   margin-block: 1rem;
 }
 
+ul.no-bullets, ul.no-bullet {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 /*!
  * Hamburgers
  * @description Tasty CSS-animated hamburgers
@@ -2724,6 +2730,11 @@ main > section:last-of-type {
 .container.light-md {
   --surface: var(--primary-200);
   --foreground: var(--primary);
+  --heading: var(--primary);
+}
+.container.bright {
+  --surface: var(--accent);
+  --foreground: var(--primary-400);
   --heading: var(--primary);
 }
 .container[data-theme=light], .container.light {

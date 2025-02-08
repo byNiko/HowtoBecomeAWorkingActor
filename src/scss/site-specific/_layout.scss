@@ -72,6 +72,12 @@ main > section {
 		--heading: var(--primary);;
 	}
 
+	&.bright {
+		--surface: var(--accent);
+		--foreground: var(--primary-400);
+		--heading: var(--primary);;
+	}
+
 	&[data-theme="light"],
 	&.light {
 		padding-block: 0;

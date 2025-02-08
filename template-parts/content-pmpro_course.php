@@ -33,7 +33,7 @@ $course = new Course($post->ID);
 
 				<div class="entry-content mt-5">
 					<?php
-					echo '<p>' . $post->post_excerpt . '</p>';
+					// echo '<p>' . $post->post_content . '</p>';
 					the_content();
 					?>
 				</div>
