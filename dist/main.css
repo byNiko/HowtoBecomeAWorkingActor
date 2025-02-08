@@ -1527,10 +1527,6 @@ header {
 .single-pmpro_course .sidebar {
   align-self: start;
 }
-.single-pmpro_course .inner-lessons-list {
-  max-height: -moz-max-content;
-  max-height: max-content;
-}
 .single-pmpro_course .entry-content .course__lessons {
   display: grid;
   grid-template-columns: 1fr;
