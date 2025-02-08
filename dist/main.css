@@ -931,10 +931,6 @@ ul.no-style {
   margin: 0;
 }
 
-.d-none {
-  display: none;
-}
-
 .hide-overflow {
   overflow: hidden;
 }
@@ -1381,6 +1377,16 @@ header {
 .border-bottom--inner {
   border-bottom: 1px solid hsla(0, 0%, 67%, 0.51);
   background-clip: padding-box;
+}
+
+.d-none {
+  display: none;
+}
+
+@media (max-width: 1040px) {
+  .d-none-sm {
+    display: none !important;
+  }
 }
 
 .grid-50 {

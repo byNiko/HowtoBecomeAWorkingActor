@@ -1,0 +1,11 @@
+@use '../abstracts/' as *;
+
+
+.d-none {	
+	display: none;
+}
+.d-none-sm {
+	@include bp(lg, 'max-width') {
+		display: none!important;
+	}
+}

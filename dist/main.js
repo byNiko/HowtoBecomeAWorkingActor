@@ -53,7 +53,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_accordion__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _vimeo_video__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./vimeo-video */ "./src/scripts/vimeo-video.js");
 /* harmony import */ var _sameHeightSidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sameHeightSidebar */ "./src/scripts/sameHeightSidebar.js");
-/* harmony import */ var _sameHeightSidebar__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_sameHeightSidebar__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -299,16 +298,48 @@ function closeAllOthers(modal) {
 /*!******************************************!*\
   !*** ./src/scripts/sameHeightSidebar.js ***!
   \******************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-const els = document.querySelectorAll('[data-equal-height]');
-if (els.length) {
-  els.forEach(el => {
-    const targetClass = el.getAttribute('data-equal-height');
-    const target = el.parentElement.querySelector(`.${targetClass}`);
-    const elHeight = target.offsetHeight;
-    el.style.height = `${elHeight}px`;
-  });
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utilities_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utilities.js */ "./src/scripts/utilities.js");
+
+const equalizeHeight = (0,_utilities_js__WEBPACK_IMPORTED_MODULE_0__.debounce)(makeEqualHeight);
+window.addEventListener("load", makeEqualHeight);
+window.addEventListener("resize", equalizeHeight);
+function makeEqualHeight() {
+  const els = document.querySelectorAll('[data-equal-height-target]');
+  if (els.length) {
+    els.forEach(el => {
+      const targetSelector = el.getAttribute('data-equal-height-target');
+      const target = el.parentElement.querySelector(`${targetSelector}`);
+      const elHeight = target.offsetHeight;
+      el.style.height = `${elHeight}px`;
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./src/scripts/utilities.js":
+/*!**********************************!*\
+  !*** ./src/scripts/utilities.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   debounce: () => (/* binding */ debounce)
+/* harmony export */ });
+function debounce(func, timeout = 300) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
 }
 
 /***/ }),
