@@ -362,6 +362,7 @@ async function isValidVimeoUrl(url) {
 }
 async function getVimeoPlayer(url, videoInfo) {
   let info = videoInfo || (await isValidVimeoUrl(url));
+  console.log(info);
   const iframeSrc = `https://player.vimeo.com/video/${info.video_id}?badge=0&vimeo_logo=false&title=false&byline=false&responsive=true`;
   return `<div class="responsive-media-wrapper has-radius has-shadow " style="--aspect-ratio: ${info.width / info.height}; ">
 	<iframe  loading="lazy" class="responsive-media-item" src="${iframeSrc}" frameborder="0"  allowfullscreen>
