@@ -19,19 +19,24 @@ $Courses = new Courses();
 					<div class="content fz-mds">
 						<?php $extended = get_extended($course->post_content); ?>
 						<p><?= apply_filters('the_content', $extended['main']); ?></p>
-						<p class="text-right text-underline">
+						<p class="text-center text-underline">
 							<a class="button secondary " href="<?= get_permalink($course->ID); ?>">Start <?= $course->post_title; ?>!</a>
 						</p>
 					</div>
 				</div>
 				<aside class="lessons-list">
 					<div class="inner-lessons-list grid grid-vertical">
+						
+
+						</div>
 						<?php
 						if ($welcome_url = get_field('welcome_video_link', $course->ID)):
 							$id = trim(sanitize_title($welcome_url));
 							echo makeModal($id, null);
 						?>
-							<div class="lesson-item-wrap "
+						<div data-iframe-url="<?= $welcome_url; ?>">
+						</div>
+							<div class="lesson-item-wrap d-none"
 								data-micromodal-trigger="modal-<?= $id; ?>"
 								data-video-url="<?= $welcome_url; ?>">
 								<div class="lesson-title-wrap">

@@ -1,4 +1,4 @@
-<div class="container bright">
+<div class="container bold">
 	<header class="row centered">
 		<h2 class='display-sm text-underline'>What's in the Program</h2>
 	</header>
