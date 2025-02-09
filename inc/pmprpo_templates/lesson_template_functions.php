@@ -112,9 +112,6 @@ function byniko_pmpro_courses_the_content_lesson($content) {
 	$after_the_content = '';
 	if (is_singular('pmpro_lesson')) {
 		$course_id = wp_get_post_parent_id($post->ID);
-
-
-
 		// Show a link to mark the lesson complete or incomplete.	
 		$complete_button = pmpro_courses_complete_button($post->ID, $course_id);
 		if (! empty($complete_button)) {
