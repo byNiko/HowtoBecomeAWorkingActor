@@ -362,10 +362,11 @@ async function isValidVimeoUrl(url) {
 }
 async function getVimeoPlayer(url, videoInfo) {
   let info = videoInfo || (await isValidVimeoUrl(url));
+  const iframeSrc = `https://player.vimeo.com/video/${info.video_id}?badge=0&vimeo_logo=false&title=false&byline=false&responsive=true`;
   return `<div class="responsive-media-wrapper has-radius has-shadow " style="--aspect-ratio: ${info.width / info.height}; ">
-	<iframe class="responsive-media-item" src="${url}" frameborder="0"  allowfullscreen>
+	<iframe  loading="lazy" class="responsive-media-item" src="${iframeSrc}" frameborder="0"  allowfullscreen>
 	</iframe>
-	<!-- <img clas="responsive-media-item video-thumbnail" src="${info.thumbnail_url_with_play_button}" alt="video" > -->
+
 	</div>`;
 }
 const iframe_divs = document.querySelectorAll('[data-iframe-url]');
