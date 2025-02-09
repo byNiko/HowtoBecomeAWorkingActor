@@ -26,9 +26,6 @@ $Courses = new Courses();
 				</div>
 				<aside class="lessons-list">
 					<div class="inner-lessons-list grid grid-vertical">
-						
-
-						</div>
 						<?php
 						if ($welcome_url = get_field('welcome_video_link', $course->ID)):
 							$id = trim(sanitize_title($welcome_url));
