@@ -10,7 +10,7 @@ function addRestrictedVideOverlay($content, $is_restricted) {
 	return "
 	<div class='restricted-video-overlay'>
 	<div class='inner-container'>
-<div class='restriction-notification'>Join the Masterclass to access all Bonus Lessons.</div>
+<div class='restriction-notification'>Join the Monthly Mentorship to access all Bonus Lessons.</div>
 	</div>
 	</div>"; 
 }
