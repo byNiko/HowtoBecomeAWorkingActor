@@ -10,15 +10,24 @@ window.addEventListener( "load", makeEqualHeight );
 window.addEventListener( "resize", equalizeHeight );
 
 
-function makeEqualHeight() {
-	OverlayScrollbars({ 
-		target: document.querySelector( '.inner-lessons-list' ), 
+function customScrollBar( el ) {
+	const innerEl = el.querySelector( '.inner-lessons-list' );
+	if ( ! innerEl ) {
+		return;
+	}
+	OverlayScrollbars( {
+		target: innerEl,
 		scrollbars: {
-			slot: document.querySelector( '.inner-lessons-list' ).parentElement,
-		  },
-	  }, {
+			slot: innerEl.parentElement,
+		},
+	}, {
 		// options here
-	  });
+	} );
+}
+
+
+function makeEqualHeight() {
+	
 	const els = document.querySelectorAll( '[data-equal-height-target]' );
 	if ( els.length ) {
 		els.forEach( el => {
@@ -26,6 +35,7 @@ function makeEqualHeight() {
 			const target = el.parentElement.querySelector( `${targetSelector}` );
 			const elHeight = target.offsetHeight;
 			el.style.height = `${elHeight}px`;
+			customScrollBar( el );
 		} );
 	}
 }

@@ -311,15 +311,21 @@ __webpack_require__.r(__webpack_exports__);
 const equalizeHeight = (0,_utilities_js__WEBPACK_IMPORTED_MODULE_0__.debounce)(makeEqualHeight);
 window.addEventListener("load", makeEqualHeight);
 window.addEventListener("resize", equalizeHeight);
-function makeEqualHeight() {
+function customScrollBar(el) {
+  const innerEl = el.querySelector('.inner-lessons-list');
+  if (!innerEl) {
+    return;
+  }
   (0,overlayscrollbars__WEBPACK_IMPORTED_MODULE_2__.OverlayScrollbars)({
-    target: document.querySelector('.inner-lessons-list'),
+    target: innerEl,
     scrollbars: {
-      slot: document.querySelector('.inner-lessons-list').parentElement
+      slot: innerEl.parentElement
     }
   }, {
     // options here
   });
+}
+function makeEqualHeight() {
   const els = document.querySelectorAll('[data-equal-height-target]');
   if (els.length) {
     els.forEach(el => {
@@ -327,6 +333,7 @@ function makeEqualHeight() {
       const target = el.parentElement.querySelector(`${targetSelector}`);
       const elHeight = target.offsetHeight;
       el.style.height = `${elHeight}px`;
+      customScrollBar(el);
     });
   }
 }

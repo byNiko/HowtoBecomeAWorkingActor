@@ -10,42 +10,42 @@ function byniko_pmpro_courses_the_content_lessons() {
 		$course_id = wp_get_post_parent_id($post->ID);
 		// Get the course ID from the global post.
 	}
-		if (empty($course_id) && ! empty($post) && isset($post->ID)) {
-			$course_id = $post->ID;
-		}
+	if (empty($course_id) && ! empty($post) && isset($post->ID)) {
+		$course_id = $post->ID;
+	}
 
-		// Return if empty.
-		if (empty($course_id)) {
-			return;
-		}
+	// Return if empty.
+	if (empty($course_id)) {
+		return;
+	}
 
-		ob_start();
+	ob_start();
 
-		// Get the lessons assigned to this course.
-		$lessons = pmpro_courses_get_lessons($course_id);
+	// Get the lessons assigned to this course.
+	$lessons = pmpro_courses_get_lessons($course_id);
 
-		// Return if there are no lessons for this course.
-		if (empty($lessons)) {
-			return;
-		}
+	// Return if there are no lessons for this course.
+	if (empty($lessons)) {
+		return;
+	}
 
-		// Check whether the current user has access to these lessons.
-		if (current_user_can('manage_options')) {
-			$hasaccess = true;
-		} else {
-			$hasaccess = pmpro_has_membership_access($course_id, get_current_user_id());
-		}
+	// Check whether the current user has access to these lessons.
+	if (current_user_can('manage_options')) {
+		$hasaccess = true;
+	} else {
+		$hasaccess = pmpro_has_membership_access($course_id, get_current_user_id());
+	}
 
-		// Set the right class for the lessons list div based on access.
-		if (! empty($hasaccess)) {
-			$pmpro_courses_lesson_access_class = 'pmpro-courses-has-access';
-		} else {
-			$pmpro_courses_lesson_access_class = 'pmpro-courses-no-access';
-		}
+	// Set the right class for the lessons list div based on access.
+	if (! empty($hasaccess)) {
+		$pmpro_courses_lesson_access_class = 'pmpro-courses-has-access';
+	} else {
+		$pmpro_courses_lesson_access_class = 'pmpro-courses-no-access';
+	}
 
-		// Build the HTML to output a list of lessons.
+	// Build the HTML to output a list of lessons.
 ?>
-<div class="inner-lessons-list">
+	<div class="inner-lessons-list">
 		<div class="pmpro_courses pmpro_courses-lessons <?php echo esc_attr($pmpro_courses_lesson_access_class); ?>">
 			<h3 class="pmpro_courses-title"><?php esc_html_e('Lessons', 'pmpro-courses'); ?></h3>
 			<ol class="pmpro_courses-list">
@@ -89,12 +89,12 @@ function byniko_pmpro_courses_the_content_lessons() {
 				?>
 			</ol> <!-- end pmpro_courses-list -->
 		</div> <!-- end pmpro_courses -->
-</div>
+	</div>
 <?php
 
-		$temp_content = ob_get_contents();
-		ob_end_clean();
-		return $temp_content;
+	$temp_content = ob_get_contents();
+	ob_end_clean();
+	return $temp_content;
 	// }
 }
 
@@ -105,7 +105,7 @@ function byniko_pmpro_courses_the_content_lessons() {
 
 // remove default pmpro filter for lesson content
 remove_filter('the_content', 'pmpro_courses_the_content_lesson', 10);
-remove_filter( 'the_content', 'pmpro_courses_add_lessons_to_course', 10 );
+remove_filter('the_content', 'pmpro_courses_add_lessons_to_course', 10);
 
 add_filter('the_content', 'byniko_pmpro_courses_the_content_lesson', 10, 1);
 

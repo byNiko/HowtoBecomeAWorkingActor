@@ -10,7 +10,7 @@
  */
 $course = new Course($post->ID);
 ?>
-<div class="container light no-padding" >
+<div class="container light no-padding">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<?php the_title('<h1 class="entry-title display-md">', '</h1>'); ?>
@@ -20,28 +20,27 @@ $course = new Course($post->ID);
 		?>
 		<div class="grid has-sidebar sidebar">
 
-			<div class=" main" >
+			<div class=" main">
 				<div class="lesson-content">
-				<?php
-				$video_args = array(
-					'video_url' => get_field('welcome_video_link', $post->ID),
-					'video_url' => get_field('sample_video_link', $post->ID),
-				);
-				$v = new ResponsiveVideo($video_args);
-				echo $v->get_responsive_video();
-				?>
-
-				<div class="entry-content mt-5">
 					<?php
-					// echo '<p>' . $post->post_content . '</p>';
-					the_content();
+					$video_args = array(
+						'video_url' => get_field('welcome_video_link', $post->ID),
+						'video_url' => get_field('sample_video_link', $post->ID),
+					);
+					$v = new ResponsiveVideo($video_args);
+					echo $v->get_responsive_video();
 					?>
-				</div>
+
+					<div class="entry-content mt-5">
+						<?php
+						// echo '<p>' . $post->post_content . '</p>';
+						the_content();
+						?>
+					</div>
 				</div>
 			</div>
 			<aside class=" d-none-sm sidebar lessons-list" data-equal-height-target=".lesson-content" style="height:0; overflow:hidden;">
-				
-					<?php echo apply_filters('byniko_lessons_sidebar', null); ?>
+				<?php echo apply_filters('byniko_lessons_sidebar', null); ?>
 			</aside>
 
 		</div>
