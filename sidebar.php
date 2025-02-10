@@ -16,7 +16,7 @@ if (! is_active_sidebar('sidebar-1')) {
 
 <aside id="secondary" class="widget-area">
 	<div class="sidebar-container centered">
-		<?php the_questionnaire_modal_trigger(); ?>
+		<?php the_questionnaire_modal_trigger('button secondary', 'Begin Now!'); ?>
 	</div>
 	<?php if (!is_post_type_archive('testimonial')): ?>
 		<div class="sidebar-container">
