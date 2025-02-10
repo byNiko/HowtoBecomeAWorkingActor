@@ -34,26 +34,28 @@ $member_has_access = $lesson->member_has_access_to_bonus_lesson();
 			<?php the_title('<h1 class="lesson-title entry-title">', '</h1>'); ?>
 		</header>
 		<div class="grid has-sidebar sidebar ">
-			<div class="course-content main">
-				<?php 
-				echo $lesson->get_main_video();
-				 ?>
-				<div class="entry-content">
-					<?php \byniko\pmpro_the_courses_lesson_nav($course_id); ?>
-					<div class="lesson-content mt-6">
-						<?php				
+			<div class="main">
+				<div class="lesson-content">
+					<?php
+					echo $lesson->get_main_video();
+					?>
+					<div class="entry-content">
+						<?php \byniko\pmpro_the_courses_lesson_nav($course_id); ?>
+						<div class="lesson-content mt-6">
+							<?php
 
-						// If comments are open or we have at least one comment, load up the comment template.
-						if (comments_open() || get_comments_number()) :
-							comments_template();
-						endif;
-						?>
-						<?php the_content(); ?>
-					</div>
+							// If comments are open or we have at least one comment, load up the comment template.
+							if (comments_open() || get_comments_number()) :
+								comments_template();
+							endif;
+							?>
+							<?php the_content(); ?>
+						</div>
 
-				</div><!-- .entry-content -->
+					</div><!-- .entry-content -->
+				</div>
 			</div>
-			<aside class=" sidebar lessons-list ">
+			<aside class=" sidebar lessons-list " data-equal-height-target=".lesson-content" style="height:0; overflow:hidden;">
 				<?php echo apply_filters('byniko_lessons_sidebar', null); ?>
 			</aside>
 
