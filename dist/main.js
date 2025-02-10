@@ -313,7 +313,10 @@ window.addEventListener("load", makeEqualHeight);
 window.addEventListener("resize", equalizeHeight);
 function makeEqualHeight() {
   (0,overlayscrollbars__WEBPACK_IMPORTED_MODULE_2__.OverlayScrollbars)({
-    target: document.querySelector('.inner-lessons-list')
+    target: document.querySelector('.inner-lessons-list'),
+    scrollbars: {
+      slot: document.querySelector('.inner-lessons-list').parentElement
+    }
   }, {
     // options here
   });
