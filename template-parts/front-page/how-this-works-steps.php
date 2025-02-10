@@ -28,7 +28,7 @@
 	<div class="row ">
 		
 		<p class="fz-sml fw-light border-bottom--inner pb-10 mb-10 small-reading-width">
-			I meet with every potential student before getting access to these courses. This road isn’t easy and I want to make sure you’re a good fit for this program.
+			Jim meets with every potential student before getting access to these courses to make sure you’re a good fit for this program.
 		</p>
 	</div>
 	<div class="row">

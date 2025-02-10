@@ -20,7 +20,7 @@ $Courses = new Courses();
 						<?php $extended = get_extended($course->post_content); ?>
 						<p><?= apply_filters('the_content', $extended['main']); ?></p>
 						<p class="text-center text-underline">
-							<a class="button secondary " href="<?= get_permalink($course->ID); ?>">Start <?= $course->post_title; ?>!</a>
+							<a class="button secondary " href="<?= get_permalink($course->ID); ?>">Learn More!</a>
 						</p>
 					</div>
 				</div>

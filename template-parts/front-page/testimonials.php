@@ -3,7 +3,7 @@
 
 ?>
 <div class="container light">
-	<header>
+	<header class="d-none">
 		<h2 class="display centered">Testimonials</h2>
 	</header>
 	<div class="main">
