@@ -45,6 +45,7 @@ function byniko_pmpro_courses_the_content_lessons() {
 
 		// Build the HTML to output a list of lessons.
 ?>
+<div class="inner-lessons-list">
 		<div class="pmpro_courses pmpro_courses-lessons <?php echo esc_attr($pmpro_courses_lesson_access_class); ?>">
 			<h3 class="pmpro_courses-title"><?php esc_html_e('Lessons', 'pmpro-courses'); ?></h3>
 			<ol class="pmpro_courses-list">
@@ -88,6 +89,7 @@ function byniko_pmpro_courses_the_content_lessons() {
 				?>
 			</ol> <!-- end pmpro_courses-list -->
 		</div> <!-- end pmpro_courses -->
+</div>
 <?php
 
 		$temp_content = ob_get_contents();
