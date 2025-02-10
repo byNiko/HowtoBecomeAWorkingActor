@@ -55,7 +55,7 @@ $member_has_access = $lesson->member_has_access_to_bonus_lesson();
 					</div><!-- .entry-content -->
 				</div>
 			</div>
-			<aside class=" sidebar lessons-list " data-equal-height-target=".lesson-content" style="height:0; ">
+			<aside class=" sidebar lessons-list " data-equal-height-target=".lesson-content" style="height:0; overflow:hidden;">
 				<?php echo apply_filters('byniko_lessons_sidebar', null); ?>
 			</aside>
 
