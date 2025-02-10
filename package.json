@@ -28,6 +28,7 @@
 		"@picocss/pico": "^2.0.6",
 		"hamburgers": "^1.2.1",
 		"micromodal": "^0.4.10",
-		"modern-normalize": "^3.0.0"
+		"modern-normalize": "^3.0.0",
+		"overlayscrollbars": "^2.10.1"
 	}
 }

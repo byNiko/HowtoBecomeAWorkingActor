@@ -1,4 +1,8 @@
-import {debounce} from "./utilities.js";
+import { debounce } from "./utilities.js";
+import 'overlayscrollbars/overlayscrollbars.css';
+import { OverlayScrollbars } from 'overlayscrollbars';
+
+
 
 const equalizeHeight = debounce( makeEqualHeight );
 window.addEventListener( "load", makeEqualHeight );
@@ -7,6 +11,11 @@ window.addEventListener( "resize", equalizeHeight );
 
 
 function makeEqualHeight() {
+	OverlayScrollbars({ 
+		target: document.querySelector('.inner-lessons-list'), 
+	  }, {
+		// options here
+	  });
 	const els = document.querySelectorAll( '[data-equal-height-target]' );
 	if ( els.length ) {
 		els.forEach( el => {
