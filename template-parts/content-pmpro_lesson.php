@@ -12,20 +12,10 @@ require(get_template_directory() . '/parts/svg-icons.php');
 $lesson = new Lesson($post->ID);
 $course_id = $lesson->get_course_id($lesson->ID);
 $course = new Course($course_id);
-// $course = new Course($lesson->get_course_id($lesson->ID));
 
-
-
-// $video_args = array(
-// 	'video_url' => get_field('lesson_video_url', $post->ID),
-// );
-// $v = new ResponsiveVideo($video_args);
 $is_bonus = $lesson->is_bonus_lesson();
 $is_restricted = $lesson->is_restricted_bonus_lesson();
-$member_has_access = $lesson->member_has_access_to_bonus_lesson();
-// var_dump($member_has_access);
-// echo apply_filters( 'pmpro_membership_content_filter', false, "test content", true );
-?>
+$member_has_access = $lesson->member_has_access_to_bonus_lesson(); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
