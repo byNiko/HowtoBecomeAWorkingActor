@@ -112,3 +112,16 @@ function shortcode_lesson_count() {
 	return $lesson_count;
 }
 add_shortcode('lesson_count', 'shortcode_lesson_count');
+
+function byniko_restrict_comments_by_post_type($open, $post_id) {
+
+    // Check if the post type is your custom post type
+    if (get_post_type($post_id) === 'pmpro_lesson') {
+        // Allow comments
+        return true;
+    }
+
+    // return default
+    return $open;
+}
+add_filter('comments_open', 'byniko_restrict_comments_by_post_type', 100, 2);
