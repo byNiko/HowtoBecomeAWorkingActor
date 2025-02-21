@@ -1,15 +1,24 @@
 <?php
+
+/** 
+ * Remove the lessons list from the course content.
+ * since I want to add it as a sidebar.
+ */
+remove_filter('the_content', 'pmpro_courses_add_lessons_to_course', 10);
+
+/**
+ * Add the lessons list to the course content as sidebar.
+ */
 add_filter('byniko_lessons_sidebar', 'byniko_pmpro_courses_the_content_lessons', 10, 1);
 function byniko_pmpro_courses_the_content_lessons() {
 	// $temp_content = '';
 	global $post;
-	// if (is_singular('pmpro_course')) {
-	// 	$course_id = $post->ID;
-	// }
+
 	if (is_singular('pmpro_lesson')) {
-		$course_id = wp_get_post_parent_id($post->ID);
 		// Get the course ID from the global post.
+		$course_id = wp_get_post_parent_id($post->ID);
 	}
+
 	if (empty($course_id) && ! empty($post) && isset($post->ID)) {
 		$course_id = $post->ID;
 	}
@@ -19,6 +28,7 @@ function byniko_pmpro_courses_the_content_lessons() {
 		return;
 	}
 
+	// Start output buffering.
 	ob_start();
 
 	// Get the lessons assigned to this course.
@@ -95,20 +105,13 @@ function byniko_pmpro_courses_the_content_lessons() {
 	$temp_content = ob_get_contents();
 	ob_end_clean();
 	return $temp_content;
-	// }
 }
 
 
 /** real lessons updates here **/
-
-
-
-// remove default pmpro filter for lesson content
+// remove and override default pmpro filter for lesson content
 remove_filter('the_content', 'pmpro_courses_the_content_lesson', 10);
-remove_filter('the_content', 'pmpro_courses_add_lessons_to_course', 10);
-
 add_filter('the_content', 'byniko_pmpro_courses_the_content_lesson', 10, 1);
-
 function byniko_pmpro_courses_the_content_lesson($content) {
 	global $post;
 	$after_the_content = '';
@@ -131,11 +134,4 @@ function byniko_pmpro_courses_the_content_lesson($content) {
 		}
 	}
 	return $content . $after_the_content;
-}
-
-
-
-// add_filter('byniko_lessons_sidebar','byniko_lessons_sidebar_function', 10, 1);
-function byniko_lessons_sidebar_function($post) {
-	// echo "woke";
 }
