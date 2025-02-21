@@ -25,7 +25,7 @@ $course = new Course($post->ID);
 					<?php
 					$video_args = array(
 						'video_url' => get_field('welcome_video_link', $post->ID),
-						'video_url' => get_field('sample_video_link', $post->ID),
+						// 'video_url' => get_field('sample_video_link', $post->ID),
 					);
 					$v = new ResponsiveVideo($video_args);
 					echo $v->get_responsive_video();
