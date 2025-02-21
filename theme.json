@@ -8,8 +8,8 @@
   },
 	"settings": {
 		"layout": {
-			"contentSize": "48rem",
-			"wideSize": "80rem"
+			"contentSize": "100%",
+			"wideSize": "100%"
 		},
 		"appearanceTools": true,
 		"border": {
