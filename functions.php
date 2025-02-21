@@ -330,4 +330,3 @@ function my_init_change_pmpro_content_filter_priority()
 	add_filter('the_content', 'pmpro_membership_content_filter',0);
 }
 // add_action('init', 'my_init_change_pmpro_content_filter_priority');
-
