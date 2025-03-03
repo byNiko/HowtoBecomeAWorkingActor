@@ -43,29 +43,37 @@ function removeOpenedContent(index) {
 /*!**********************************!*\
   !*** ./src/scripts/backToTop.js ***!
   \**********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utilities_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utilities.js */ "./src/scripts/utilities.js");
 
 // Get the button:
 let backToTop = document.getElementById("back-to-top-button");
+const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
 backToTop.addEventListener("click", topFunction);
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
-  scrollFunction();
-};
-function scrollFunction() {
-  if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
-    //   backToTop.style.display = "block";
-    backToTop.classList.add("active");
-  } else {
-    backToTop.classList.remove("active");
-  }
+function getScrollPercentage() {
+  // Get the scroll position
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  // Calculate the percentage scrolled
+  const scrollPercentage = scrollTop / totalHeight * 100;
+  return scrollPercentage;
 }
-
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+function watchScroll() {
+  const scrollPercentage = getScrollPercentage();
+  if (scrollPercentage > 30) {
+    backToTop.classList.add("active");
+  } else {
+    backToTop.classList.remove("active");
+  }
+}
+window.addEventListener('scroll', (0,_utilities_js__WEBPACK_IMPORTED_MODULE_0__.debounce)(watchScroll, 80));
 
 /***/ }),
 
@@ -84,7 +92,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vimeo_video__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./vimeo-video */ "./src/scripts/vimeo-video.js");
 /* harmony import */ var _sameHeightSidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sameHeightSidebar */ "./src/scripts/sameHeightSidebar.js");
 /* harmony import */ var _backToTop__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./backToTop */ "./src/scripts/backToTop.js");
-/* harmony import */ var _backToTop__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_backToTop__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
