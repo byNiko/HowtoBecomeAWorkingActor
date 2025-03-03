@@ -125,3 +125,14 @@ function byniko_restrict_comments_by_post_type($open, $post_id) {
     return $open;
 }
 add_filter('comments_open', 'byniko_restrict_comments_by_post_type', 100, 2);
+
+
+
+function wpsnippets_change_comment_form_title( $defaults ) {
+	global $current_user;	
+	// var_dump($defaults);
+    $defaults['title_reply'] = 'Join the Discussion';
+	$defaults['logged_in_as'] = "Logged in as <i>$current_user->user_login</i>";  
+    return $defaults;
+}
+add_filter( 'comment_form_defaults', 'wpsnippets_change_comment_form_title' );
