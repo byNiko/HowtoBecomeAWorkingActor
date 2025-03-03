@@ -330,3 +330,18 @@ function my_init_change_pmpro_content_filter_priority()
 	add_filter('the_content', 'pmpro_membership_content_filter',0);
 }
 // add_action('init', 'my_init_change_pmpro_content_filter_priority');
+
+
+// function fix_elementor_meta_data($meta_value) {
+//     if (is_array($meta_value)) {
+//         return json_encode($meta_value);
+//     }
+//     return $meta_value;
+// }
+
+// add_filter('update_post_metadata', function ($check, $object_id, $meta_key, $meta_value) {
+//     if ($meta_key === 'pmpro_default_level') {
+//         return fix_elementor_meta_data($meta_value);
+//     }
+//     return null;
+// }, 10, 4);
