@@ -29,8 +29,9 @@ $Courses = new Courses();
 						<?php
 						if ($welcome_url = get_field('welcome_video_link', $course->ID)):
 							$id = trim(sanitize_title($welcome_url));
-							echo makeModal($id, null);
+							//echo makeModal($id, null);
 						?>
+						<?= $welcome_url; ?>	
 						<div data-iframe-url="<?= $welcome_url; ?>">
 						</div>
 							<div class="lesson-item-wrap d-none"
@@ -38,12 +39,12 @@ $Courses = new Courses();
 								data-video-url="<?= $welcome_url; ?>">
 								<div class="lesson-title-wrap">
 									<span class='lesson-icon'><?= $playIcon; ?></span>
-									<div class="lesson-title">Course Trailer</div>
+									<div class="lesson-title">Courses Trailer</div>
 								</div>
 							</div>
 						<?php endif; ?>
 						<?php
-						if ($sample_url = get_field('sample_video_link', $course->ID)):
+						if ( 1 === 2 && $sample_url = get_field('sample_video_link', $course->ID)):
 							$id = trim(sanitize_title($sample_url));
 							echo makeModal($id, null);
 						?>
