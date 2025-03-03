@@ -31,7 +31,7 @@ $Courses = new Courses();
 							$id = trim(sanitize_title($welcome_url));
 							//echo makeModal($id, null);
 						?>
-						<?= $welcome_url; ?>	
+						
 						<div data-iframe-url="<?= $welcome_url; ?>">
 						</div>
 							<div class="lesson-item-wrap d-none"
