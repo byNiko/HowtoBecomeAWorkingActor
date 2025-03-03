@@ -34,8 +34,8 @@ $course = new Course($post->ID);
 					<div class="entry-content mt-5">
 						<?php
 						// echo '<p>' . $post->post_content . '</p>';
-						$extended = get_extended($course->post_content); 
-						echo apply_filters('the_content', $extended['extended']);</p>
+						$extended = get_extended($post->post_content); 
+						echo apply_filters('the_content', $extended['extended']);
 						?>
 					</div>
 				</div>
