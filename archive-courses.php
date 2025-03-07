@@ -10,7 +10,6 @@
 get_header();
 ?>
 		<?php if ( have_posts() ) : 
-		echo "what";
 		echo get_terms($post); 
 			
 			?>
