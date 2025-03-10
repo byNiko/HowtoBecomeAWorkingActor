@@ -2758,18 +2758,15 @@ ul.no-bullets, ul.no-bullet {
   border: 1px solid #ddd;
   border-bottom-color: transparent;
 }
-.container--tabs .tab-content {
-  width: 100%;
-  border-radius: 1rem;
-  overflow: hidden;
-}
 .container--tabs .tab-content > .tab-pane {
   display: none;
+  border: 1px solid #ccc;
+  border-radius: var(--radius-sm);
 }
 .container--tabs .tab-content > .tab-pane.active {
   display: block;
   padding: 2.5% 3.5%;
-  background-color: #efefef;
+  background-color: hsl(225, 59%, 98%);
 }
 .container--tabs .tab-content > .active {
   display: block;

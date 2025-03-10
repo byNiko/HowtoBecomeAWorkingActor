@@ -1,5 +1,6 @@
 .container--tabs {
-margin-top: 2rem;
+	margin-top: 2rem;
+
 	.nav-tabs {
 		// float: left;
 		// width: 100%;
@@ -26,6 +27,7 @@ margin-top: 2rem;
 			}
 
 			&.active {
+
 				> a,
 				> a:hover,
 				> a:focus {
@@ -40,16 +42,19 @@ margin-top: 2rem;
 	}
 
 	.tab-content {
-		width: 100%;
-		border-radius: 1rem;
-		overflow: hidden;
+		// width: 100%;
+		// border-radius: 1rem;
+		// overflow: hidden;
+
 		> .tab-pane {
 			display: none;
+			border: 1px solid #ccc;
+			border-radius: var(--radius-sm);
 
 			&.active {
 				display: block;
 				padding: 2.5% 3.5%;
-				background-color: #efefef;
+				background-color: hsl(225, 59%, 98%);
 			}
 		}
 
