@@ -19,10 +19,11 @@
 
 				</div>
 				<div class="centered">
-					<form action="" class="grid">
+				<?php echo FrmFormsController::get_form_shortcode( array( 'id' => 7 ) ); ?>
+					<!-- <form action="" class="grid">
 						<input type="email" placeholder="Enter your email">
 						<button class="button hollow mt-3">Sign Up</button>
-					</form>
+					</form> -->
 				</div>
 			</div>
 		</div>
