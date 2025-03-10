@@ -3,12 +3,13 @@
 class Lesson {
 	public $id, $ID;
 	public $post;
-	public $bonus_access_levels, $free_bonus_access_levels;
+	public $bonus_access_levels, $free_bonus_access_levels, $post_content;
 	public function __construct($lesson_id) {
 
 		$this->id = $lesson_id;
 		$this->ID = $this->id;
 		$this->post =  get_post($lesson_id);
+		$this->post_content = $this->post->post_content;
 		$this->free_bonus_access_levels = array(2); // required levels for access bonus lessons of free category		
 		$this->bonus_access_levels = array(2,3); // required levels for access to all bonus lessons 
 	}

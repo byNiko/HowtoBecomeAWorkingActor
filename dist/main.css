@@ -2300,12 +2300,6 @@ header {
   row-gap: var(--spacer-2);
 }
 
-.lesson-description {
-  font-size: var(--font-size-sm);
-  line-height: 1.5;
-  font-weight: var(--font-weight-normal);
-  text-wrap: pretty;
-}
 .lesson-description p:first-of-type {
   margin-top: var(--spacer-2);
 }
@@ -2731,6 +2725,138 @@ ul.no-bullets, ul.no-bullet {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.container--tabs {
+  margin-top: 2rem;
+}
+.container--tabs .nav-tabs {
+  list-style-type: none;
+  display: flex;
+  margin-bottom: 0;
+}
+.container--tabs .nav-tabs > li {
+  margin-bottom: -1px;
+}
+.container--tabs .nav-tabs > li > a {
+  float: left;
+  margin-right: 2px;
+  line-height: 1.42857143;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+.container--tabs .nav-tabs > li > a:hover {
+  border-color: #eee #eee #ddd;
+}
+.container--tabs .nav-tabs > li.active > a,
+.container--tabs .nav-tabs > li.active > a:hover,
+.container--tabs .nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+.container--tabs .tab-content {
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.container--tabs .tab-content > .tab-pane {
+  display: none;
+}
+.container--tabs .tab-content > .tab-pane.active {
+  display: block;
+  padding: 2.5% 3.5%;
+  background-color: #efefef;
+}
+.container--tabs .tab-content > .active {
+  display: block;
+}
+
+.comments-area {
+  font-size: var(--font-size-sm);
+}
+.comments-area .comment-list {
+  list-style-type: none;
+  font-size: 0.9rem;
+  margin-top: 2em;
+  list-style-type: none;
+  padding-left: 0;
+}
+.comments-area .comment-body {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-top: 0.75em;
+  border-radius: var(--radius-sm);
+}
+.comments-area .comment-body p:last-of-type {
+  margin-bottom: 0;
+}
+.comments-area .reply {
+  text-align: right;
+}
+.comments-area .comment-meta img {
+  display: none;
+}
+.comments-area .comment-metadata {
+  display: none;
+}
+.comments-area .comment-form-comment textarea {
+  width: 100%;
+  padding: 0.5em 1em;
+  height: 100px;
+}
+.comments-area .comment-content {
+  padding: 1rem;
+  margin-top: 0.75em;
+}
+.comments-area .comment-content p:last-of-type {
+  margin-bottom: 0;
+}
+.comments-area .children {
+  margin-top: 1em;
+  list-style-type: none;
+}
+.comments-area .comment-respond {
+  margin-top: 2em;
+}
+.comments-area .comment-content {
+  padding: 0.5em 1em;
+}
+.comments-area .comment-reply-title small {
+  padding-left: 2rem;
+  font-size: 0.8rem;
+}
+.comments-area .comment-success, .comments-area .comment-hold {
+  background: var(--body-color-dark);
+  color: white;
+  padding: 0.5rem;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  width: auto;
+  display: inline-block;
+  /* margin-inline: auto; */
+  margin-left: auto;
+  margin-top: -1rem;
+}
+.comments-area .comment-hold .comment-text {
+  padding-left: 2rem;
+}
+.comments-area .comment-hold .comment-text a {
+  color: var(--body-color-dark);
+  text-decoration: underline;
+}
+.comments-area .comment-hold .comment-text a:hover {
+  text-decoration: none;
+}
+.comments-area .comment-hold .comment-hold-notice {
+  font-style: italic;
+  padding-inline: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
 }
 
 /*!

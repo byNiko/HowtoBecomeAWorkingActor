@@ -19,9 +19,12 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
+<div class="comments-notice">
+	<p>All comments are reviewed before being published.</p>
+	<p>Please keep the conversation kind and respectful—let’s create a positive space for everyone to share their thoughts. </p>
+</div>
 
 <div id="comments" class="comments-area">
-
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :

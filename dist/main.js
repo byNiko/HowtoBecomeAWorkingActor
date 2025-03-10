@@ -92,6 +92,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vimeo_video__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./vimeo-video */ "./src/scripts/vimeo-video.js");
 /* harmony import */ var _sameHeightSidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sameHeightSidebar */ "./src/scripts/sameHeightSidebar.js");
 /* harmony import */ var _backToTop__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./backToTop */ "./src/scripts/backToTop.js");
+/* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tabs */ "./src/scripts/tabs.js");
+/* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_tabs__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -377,6 +380,38 @@ function makeEqualHeight() {
     });
   }
 }
+
+/***/ }),
+
+/***/ "./src/scripts/tabs.js":
+/*!*****************************!*\
+  !*** ./src/scripts/tabs.js ***!
+  \*****************************/
+/***/ (() => {
+
+window.addEventListener("load", function () {
+  // store tabs variable
+  var myTabs = document.querySelectorAll("ul.nav-tabs > li");
+  function myTabClicks(tabClickEvent) {
+    for (var i = 0; i < myTabs.length; i++) {
+      myTabs[i].classList.remove("active");
+    }
+    var clickedTab = tabClickEvent.currentTarget;
+    clickedTab.classList.add("active");
+    tabClickEvent.preventDefault();
+    var myContentPanes = document.querySelectorAll(".tab-pane");
+    for (i = 0; i < myContentPanes.length; i++) {
+      myContentPanes[i].classList.remove("active");
+    }
+    var anchorReference = tabClickEvent.target;
+    var activePaneId = anchorReference.getAttribute("href");
+    var activePane = document.querySelector(activePaneId);
+    activePane.classList.add("active");
+  }
+  for (i = 0; i < myTabs.length; i++) {
+    myTabs[i].addEventListener("click", myTabClicks);
+  }
+});
 
 /***/ }),
 

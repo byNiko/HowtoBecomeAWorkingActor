@@ -34,12 +34,15 @@ $course = new Course($post->ID);
 					<div class="entry-content mt-5">
 						<?php
 						// echo '<p>' . $post->post_content . '</p>';
-						$extended = get_extended($post->post_content); 
+						$extended = get_extended($post->post_content);
+
 						echo apply_filters('the_content', $extended['extended']);
-						echo "<div class='text-right'>";
-						echo "<a href='" . get_permalink() . "' class='button tertiary '>Head to " . get_the_title() . " &rarr;</a>";
-						echo "</div>";
-						echo "<hr>";
+						if (!is_singular('pmpro_course')):
+							echo "<div class='text-right'>";
+							echo "<a href='" . get_permalink() . "' class='button tertiary '>Head to " . get_the_title() . " &rarr;</a>";
+							echo "</div>";
+							echo "<hr>";
+						endif;
 						?>
 					</div>
 				</div>

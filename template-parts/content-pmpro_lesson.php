@@ -30,18 +30,50 @@ $member_has_access = $lesson->member_has_access_to_bonus_lesson(); ?>
 					echo $lesson->get_main_video();
 					?>
 					<div class="entry-content">
-						<?php \byniko\pmpro_the_courses_lesson_nav($course_id); ?>
-						<div class="lesson-content mt-6">
-							<?php
+					<?php \byniko\pmpro_the_courses_lesson_nav($course_id); ?>
+						<div class="container--tabs">
+							<section class="">
+								<ul class="nav nav-tabs">
+									<li class="active">
+										<a href="#lesson-content">Lesson Content</a>
+									</li>
+									<?php
+									if (comments_open() || get_comments_number()) :
+									?>
+										<li class="">
+											<a href="#discussion">Discussion</a>
+										</li>
+									<?php endif; ?>
+								</ul>
+								<div class="tab-content">
+									<div id="lesson-content" class="tab-pane active">
+										<span class="glyphicon glyphicon-leaf glyphicon--home--feature two columns text-center"></span>
 
-							// If comments are open or we have at least one comment, load up the comment template.
-							if (comments_open() || get_comments_number()) :
-								comments_template();
-							endif;
-							?>
-							<?php the_content(); ?>
+										<div class="lesson-description">
+											<?php echo apply_filters('the_content', $lesson->post_content); ?>
+										</div>
+
+									</div>
+									<div id="discussion" class="tab-pane">
+										<span class="glyphicon glyphicon-fire glyphicon--home--feature two columns text-center"></span>
+										<span class="col-md-10">
+											<?php
+											// If comments are open or we have at least one comment, load up the comment template.
+											if (comments_open() || get_comments_number()) :
+											?>
+												<div id="discussion" class="tab-content-item">
+													<div class="lesson-discussion">
+														<?php
+														comments_template();
+														?>
+													</div>
+												</div>
+											<?php endif; ?>
+										</span>
+									</div>
+								</div>
+							</section>
 						</div>
-
 					</div><!-- .entry-content -->
 				</div>
 			</div>

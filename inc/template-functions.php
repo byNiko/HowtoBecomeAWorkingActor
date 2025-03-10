@@ -132,7 +132,28 @@ function wpsnippets_change_comment_form_title( $defaults ) {
 	global $current_user;	
 	// var_dump($defaults);
     $defaults['title_reply'] = 'Join the Discussion';
-	$defaults['logged_in_as'] = "Logged in as <i>$current_user->user_login</i>";  
+	$defaults['logged_in_as'] = "<i>$current_user->user_login</i>";  
     return $defaults;
 }
 add_filter( 'comment_form_defaults', 'wpsnippets_change_comment_form_title' );
+
+wp_localize_script( 'wp-api', 'wpApiSettings', array(
+    'root' => esc_url_raw( rest_url() ),
+    'nonce' => wp_create_nonce( 'wp_rest' )
+) );
+function enqueue_ajax_comment_script() {
+    // Register your JavaScript file
+	wp_register_script( 'ajax-comment', get_template_directory_uri() . '/dist/ajax-comment.js', array('jquery', 'wp-api'), null, true );
+    wp_enqueue_script( 'ajax-comment' );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_ajax_comment_script' );
+
+
+// add_action('rest_api_init', function () {
+//     register_rest_route('wa/v1', '/comments', array(
+// 		'methods' => 'POST',
+//         // 'methods' => 'GET',
+//         'callback' => 'submit_comments_callback'
+//     ));
+// });
+
