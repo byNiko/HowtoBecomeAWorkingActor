@@ -2686,6 +2686,11 @@ form button {
   border-top: 1px solid #ccc;
 }
 
+.with_frm_style .frm_message, .with_frm_style .frm_message p, .frm_success_style, .frm_success_style p {
+  background-color: transparent;
+  color: white;
+}
+
 .responsive-media-wrapper {
   position: relative;
   aspect-ratio: var(--aspect-ratio);
