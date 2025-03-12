@@ -1781,6 +1781,51 @@ header {
   padding-block: 1rem 0rem;
 }
 
+/* 404 Page Styling */
+.error-404-container {
+  text-align: center;
+  padding-inline: 50px;
+  padding-block: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-404-content h1 {
+  font-size: var(--font-size-xxxxl, 120px);
+  color: #d32f2f;
+  margin: 0;
+  line-height: 1;
+}
+
+.error-404-content h2 {
+  font-size: var(--font-size-lg, 36px);
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.error-404-content p {
+  font-size: var(--font-size-base, 18px);
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.error-404-content a {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: var(--primary-400, #1976d2);
+  color: #fff;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.error-404-content a:hover {
+  background-color: #1565c0;
+}
+
 .site-header {
   position: relative;
   z-index: 100;
