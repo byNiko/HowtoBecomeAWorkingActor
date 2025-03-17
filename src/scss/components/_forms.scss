@@ -36,10 +36,10 @@ form {
 	}
 }
 
-.with_frm_style .frm_message, .frm_success_style {
+.home .with_frm_style .frm_message, .home .frm_success_style {
+	--success-text-color: white;
 
 	&, p {
 	background-color: transparent;
-	color: white!important;
 	}
 }

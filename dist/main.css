@@ -2686,9 +2686,11 @@ form button {
   border-top: 1px solid #ccc;
 }
 
-.with_frm_style .frm_message, .with_frm_style .frm_message p, .frm_success_style, .frm_success_style p {
+.home .with_frm_style .frm_message, .home .frm_success_style {
+  --success-text-color: white;
+}
+.home .with_frm_style .frm_message, .home .with_frm_style .frm_message p, .home .frm_success_style, .home .frm_success_style p {
   background-color: transparent;
-  color: white;
 }
 
 .responsive-media-wrapper {
