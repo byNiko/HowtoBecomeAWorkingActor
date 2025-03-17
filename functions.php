@@ -345,3 +345,44 @@ function my_init_change_pmpro_content_filter_priority()
 //     }
 //     return null;
 // }, 10, 4);
+
+
+
+/**
+ * Shortcode to display anchor links for all PMPro courses.
+ *
+ * Usage: [pmpro_courses_links]
+ *
+ * @return string HTML output of anchor links for all courses.
+ */
+function pmpro_courses_links_shortcode() {
+    // Query all PMPro courses
+    $args = array(
+        'post_type'      => 'pmpro_course', // Replace with the actual post type for courses
+        'posts_per_page' => -1,             // Get all courses
+        'post_status'    => 'publish',      // Only published courses
+        'orderby'        => 'title',        // Order by title
+        'order'          => 'ASC',          // Ascending order
+    );
+
+    $courses = get_posts($args);
+
+    // Check if there are any courses
+    if (empty($courses)) {
+        return '<p>No courses found.</p>';
+    }
+
+    // Build the HTML output
+    $output = '<ul class="pmpro-courses-links">';
+    foreach ($courses as $course) {
+        $title = esc_html($course->post_title);
+        $link = esc_url(get_permalink($course->ID));
+        $output .= "<li><a href='{$link}'>{$title}</a></li>";
+    }
+    $output .= '</ul>';
+
+    return $output;
+}
+
+// Register the shortcode
+add_shortcode('pmpro_courses_links', 'pmpro_courses_links_shortcode');
