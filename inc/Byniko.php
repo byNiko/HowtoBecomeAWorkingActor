@@ -45,7 +45,18 @@ function get_hero_background_settings() {
 	return $arr;
 }
 
-
+/**
+ * Retrieves the price of a course based on the specified membership level.
+ *
+ * This function uses the Paid Memberships Pro (PMPro) plugin to fetch the cost
+ * of a membership level. It also filters the cost text to remove the word "now."
+ * from the beginning of the cost string.
+ *
+ * @param array|null $atts Optional. An associative array of attributes. Default is null.
+ *                         - 'level' (string): The membership level ID. Default is '2'.
+ *
+ * @return string|null The formatted cost of the membership level, or null if the level is not found.
+ */
 function get_courses_price($atts = null) {
 	if (function_exists('pmpro_getLevel')) {
 		$default = array(
