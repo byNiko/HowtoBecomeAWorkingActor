@@ -1,6 +1,5 @@
 <?php
 require(get_template_directory() . '/parts/svg-icons.php');
-
 ?>
 <div class="hero">
 	<div class="hero-grid copy--<?= $args['text_side']; ?>">
@@ -18,9 +17,9 @@ require(get_template_directory() . '/parts/svg-icons.php');
 				<div class="hero-image-container"
 					style="--background:url( <?= $args['hero_image']; ?>), var(--primary-linear-gradient);">
 					<div class="hero-image-overlay mb-lg">
-						<button class='button icon text ' data-micromodal-trigger="modal-welcome-video" data-video-url="<?= $args['hero_image_link']['url']; ?>">
+						<button class='button icon text ' data-micromodal-trigger="modal-welcome-video" data-video-url="https://vimeo.com/1061886208/659feef313">
 							<span class='icon'><?= $playIcon; ?></span>
-							<span class='text'><?= $args['hero_image_link']['title']; ?></span>
+							<span class='text'>A Welcome From Jim</span>
 						</button>
 					</div>
 				</div>
