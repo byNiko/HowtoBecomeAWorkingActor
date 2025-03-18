@@ -18,7 +18,7 @@ require (get_template_directory() . '/parts/svg-icons.php');
 				 style="--background: url(<?= $args['hero_image']; ?>);">
 				<!-- <img src="<?php //echo get_template_directory_uri(); ?>/src/media/jim_black_white_hands.jpg" alt="hero image" style="background-image: url(<?php echo get_template_directory_uri(); ?>/src/media/jim_black_white_hands.jpg)"> -->
 				<div class="hero-image-overlay mb-lg">
-					<button class='button icon text fz-sm' data-micromodal-trigger="modal-welcome-video" data-video-url="https://vimeo.com/1061886208/659feef313?share=copy">
+					<button class='button icon text fz-sm' data-micromodal-trigger="modal-welcome-video" data-video-url="https://vimeo.com/1061884719/643263f7d0?share=copy">
 						<span class='icon'><?= $playIcon; ?></span>
 						<span class='text'>A Welcome From Jim</span>
 					</button>
