@@ -17,9 +17,9 @@ require(get_template_directory() . '/parts/svg-icons.php');
 				<div class="hero-image-container"
 					style="--background:url( <?= $args['hero_image']; ?>), var(--primary-linear-gradient);">
 					<div class="hero-image-overlay mb-lg">
-						<button class='button icon text ' data-micromodal-trigger="modal-welcome-video" data-video-url="<?= $args['link']; ?>">
+						<button class='button icon text ' data-micromodal-trigger="modal-welcome-video" data-video-url="<?= $args['link']->url; ?>">
 							<span class='icon'><?= $playIcon; ?></span>
-							<span class='text'>A Welcome From Jim</span>
+							<span class='text'><?= $args['link']->title; ?></span>
 						</button>
 					</div>
 				</div>
