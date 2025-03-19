@@ -2686,10 +2686,10 @@ form button {
   border-top: 1px solid #ccc;
 }
 
-.home .with_frm_style .frm_message, .home .frm_success_style {
+.bold .with_frm_style .frm_message, .bold .frm_success_style {
   --success-text-color: white;
 }
-.home .with_frm_style .frm_message, .home .with_frm_style .frm_message p, .home .frm_success_style, .home .frm_success_style p {
+.bold .with_frm_style .frm_message, .bold .with_frm_style .frm_message p, .bold .frm_success_style, .bold .frm_success_style p {
   background-color: transparent;
 }
 
