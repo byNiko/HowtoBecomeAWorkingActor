@@ -13,8 +13,8 @@
 			</div>
 		</div>
 		<div class=" border-radius-lg">
-			<!-- <div data-iframe-url="https://player.vimeo.com/video/862029920"></div> -->
-			<div data-iframe-url="https://vimeo.com/1061886208/659feef313?share=copy"></div>
+			<div data-iframe-url="https://vimeo.com/1067140021?share=copy"></div>
+			<!-- <div data-iframe-url="https://player.vimeo.com/video/862029920?ts=0&share=copy"></div> -->
 			<?php
 			// echo apply_filters('the_content', "https://player.vimeo.com/video/862029920");
 			?>

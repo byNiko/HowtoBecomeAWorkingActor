@@ -14,14 +14,19 @@ require(get_template_directory() . '/parts/svg-icons.php');
 		</div>
 		<?php if(is_front_page()): ?> 
 			<div class="hero-image ">
+			
+
 				<div class="hero-image-container"
 					style="--background:url( <?= $args['hero_image']; ?>), var(--primary-linear-gradient);">
+					<?php
+				if ($hero_image_link = $args['hero_image_link']): ?>
 					<div class="hero-image-overlay mb-lg">
-						<button class='button icon text ' data-micromodal-trigger="modal-welcome-video" data-video-url="https://vimeo.com/1061886208/659feef313">
+						<button class='button icon text ' data-micromodal-trigger="modal-welcome-video" data-video-url="<?= $hero_image_link['url']; ?>">
 							<span class='icon'><?= $playIcon; ?></span>
-							<span class='text'>A Welcome From Jim</span>
+							<span class='text'><?= $hero_image_link['title']; ?></span>
 						</button>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		<?php endif; ?>
