@@ -67,7 +67,7 @@
 	box-shadow: 0 3px 3px rgba(0, 0%, 0%, 0.2);
 }
 
-.grid-300, .grid-450 {	
+.grid-300, .grid-450, .grid-50 {	
 	display: grid;
 	gap: 2rem;
 	align-items: start;
@@ -78,6 +78,16 @@
 }
 .grid-450 {	
 	--minWidth: 450px;
+}
+
+.grid-50-50{
+	@include bp(md){
+display: grid;
+	gap: 2rem;
+	align-items: start;
+	grid-template-columns: 1fr 1fr;
+	}
+	
 }
 
 .align-start {

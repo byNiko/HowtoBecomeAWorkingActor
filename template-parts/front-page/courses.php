@@ -13,7 +13,7 @@ $Courses = new Courses();
 					<h2 class="display-sm"><?php echo $course->post_title; ?></h2>
 				</header>
 			</div>
-			<div class="grid has-sidebar row grid-400 align-start">
+			<div class="grid grid-50-50 row  align-start">
 				<div class="course-content main">
 
 					<div class="content fz-mds">
