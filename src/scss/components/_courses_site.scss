@@ -6,6 +6,9 @@
 	border-radius: var(--radius-md);
 	width: 100%;
 	position: relative;
+	.home & {
+padding:0;
+	}
 }
 .inner-lessons-list {
 	max-height: 100%;

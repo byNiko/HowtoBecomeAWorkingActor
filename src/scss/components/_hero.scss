@@ -88,8 +88,9 @@
     font-weight: var(--font-weight-normal);
 	// text-wrap: pretty;
 	// text-align: center;;
+	text-wrap: balance;
 	@include bp(sm){
-		text-wrap: balance;
+		text-wrap:pretty;
 	}
 	@include bp(lg){
 	}

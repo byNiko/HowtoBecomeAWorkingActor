@@ -2163,10 +2163,11 @@ header {
   font-size: var(--font-size-md);
   line-height: 1.5;
   font-weight: var(--font-weight-normal);
+  text-wrap: balance;
 }
 @media (min-width: 576px) {
   .hero-subtitle {
-    text-wrap: balance;
+    text-wrap: pretty;
   }
 }
 .hero-image {
@@ -2286,6 +2287,9 @@ header {
   border-radius: var(--radius-md);
   width: 100%;
   position: relative;
+}
+.home .lessons-list {
+  padding: 0;
 }
 
 .inner-lessons-list {
@@ -3032,7 +3036,7 @@ main > section:last-of-type {
   margin-block: 2rem;
 }
 .home .site-main {
-  margin-block: clamp(2rem, 9vw, 10rem);
+  margin-block: clamp(2rem, 13vw, 10rem);
 }
 
 .page-content {
