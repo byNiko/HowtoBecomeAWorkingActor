@@ -34,7 +34,6 @@ $categorized = byniko\order_terms_with_posts('faq', 'faq-category');
 						?>
 							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 								<header class="faq__entry-header">
-									<?php the_id(); ?>
 									<?php the_title(); ?>
 								</header>
 								<?php the_content(); ?>
