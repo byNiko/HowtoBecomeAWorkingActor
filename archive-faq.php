@@ -28,15 +28,20 @@ $categorized = byniko\order_terms_with_posts('faq', 'faq-category');
 							<h2 class="faq__category-title"><?= $category; ?></h2>
 						</header>
 						<div class="faq__questions grid-300">
-						<?php foreach ($posts as $post): ?>
+						<?php 
+						foreach ($posts as $post): 
+							setup_postdata($post);
+						?>
 							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 								<header class="faq__entry-header">
+									<?php the_id(); ?>
 									<?php the_title(); ?>
 								</header>
 								<?php the_content(); ?>
 								<?= byniko\get_post_edit_link($post->ID); ?>
 							</article>
 						<?php endforeach; ?>
+						<?php wp_reset_postdata(); ?>
 						</div>
 					</div>
 				<?php endforeach; ?>
