@@ -24,7 +24,7 @@ get_header();
 					$count++;
 					if ($count === 4):
 						echo '</section>';
-						echo "<div class='py-10 text-center'>";
+						echo "<div class='py-10 text-center bright-cta-container'>";
 						the_questionnaire_modal_trigger('button secondary', 'Begin Now!');
 						echo '</div>';
 						echo '<section class="grid grid__3-md">';
@@ -37,7 +37,7 @@ get_header();
 				?>
 
 			</section>
-			<div class="py-10 text-center">
+			<div class="py-10 text-center bright-cta-container">
 				<?php the_questionnaire_modal_trigger('button secondary', 'Begin Now!'); ?>
 			</div>
 

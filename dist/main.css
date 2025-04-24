@@ -952,6 +952,15 @@ ul.no-style {
   margin-top: 0.51em;
 }
 
+.bright-cta-container {
+  background: beige;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 8px -4px #ccc;
+  margin-block: 2rem;
+  border: 1px solid;
+  border-color: color-mix(in srgb, beige 100%, black 10%);
+}
+
 /**************************\
   Basic Modal Styles
 \**************************/
