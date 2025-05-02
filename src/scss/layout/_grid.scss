@@ -16,6 +16,13 @@
 	grid-template-columns: 1fr min(350px, 100%);
 }
 
+.w70{ 
+	width: 100%;
+	@include bp(md){
+		width: 70%;
+	}
+}
+
 
 .grid.has-sidebar {
 	gap: var(--spacer-row);

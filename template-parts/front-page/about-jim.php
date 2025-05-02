@@ -2,7 +2,7 @@
 	<div class="grid-50 grid-centered row">
 		<div class="content ">
 			<p class="fz-mdl">
-				Jim Jarrett designed these video courses for <strong>anyone</strong> at <strong>any stage</strong> of their acting dreams who is <strong>dedicated</strong> to being part of that 2%.
+				Veteran acting teacher Jim Jarrett knows firsthand what it takes to make it as a working actor. With over 4 decades mentoring thousands of students, he now shares that wisdom in this detailed online course - plus a monthly mentorship program. 
 			</p>
 			<div class="centered">
 				<a

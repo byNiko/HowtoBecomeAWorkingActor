@@ -1418,6 +1418,10 @@ header {
   position: absolute !important;
 }
 
+.mx-a {
+  margin-inline: auto;
+}
+
 .mb-lg {
   margin-bottom: var(--spacer-16);
 }
@@ -1623,6 +1627,15 @@ header {
 .grid-66 {
   display: grid;
   grid-template-columns: 1fr min(350px, 100%);
+}
+
+.w70 {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .w70 {
+    width: 70%;
+  }
 }
 
 .grid.has-sidebar {

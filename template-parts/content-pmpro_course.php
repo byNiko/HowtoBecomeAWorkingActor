@@ -19,7 +19,6 @@ $course = new Course($post->ID);
 		<?php // byniko_post_thumbnail(); 
 		?>
 		<div class="grid has-sidebar sidebar">
-
 			<div class=" main">
 				<div class="lesson-content">
 					<?php
@@ -36,7 +35,10 @@ $course = new Course($post->ID);
 						// echo '<p>' . $post->post_content . '</p>';
 						$extended = get_extended($post->post_content);
 
+						// echo $extended['extended'];
 						echo apply_filters('the_content', $extended['extended']);
+						// echo apply_filters('the_content', get_the_content());
+						// echo $extended['main'];
 						if (!is_singular('pmpro_course')):
 							echo "<div class='text-right'>";
 							echo "<a href='" . get_permalink() . "' class='button tertiary '>Head to " . get_the_title() . " &rarr;</a>";
