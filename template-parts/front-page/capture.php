@@ -2,7 +2,7 @@
 	<div class="row">
 		<header class="">
 			<h4>
-				<div class="display-md centered"> Free Teaching</div>
+				<div class="display-md centered"> Free Lesson</div>
 			</h4>
 		</header>
 
