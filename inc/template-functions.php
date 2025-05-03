@@ -19,6 +19,7 @@
  */
 require get_template_directory() . '/inc/pmprpo_templates/lesson_template_functions.php';
 require get_template_directory() . '/inc/pmprpo_templates/course_template_functions.php';
+require get_template_directory() . '/inc/vimeo-total-times.php';
 
 function byniko_body_classes($classes) {
 	// Adds a class of hfeed to non-singular pages.
@@ -159,3 +160,5 @@ add_action( 'wp_enqueue_scripts', 'enqueue_rest_comment_script' );
 
 
 
+
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');

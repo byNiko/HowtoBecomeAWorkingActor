@@ -4,7 +4,7 @@
 	</header>
 	<div class="row mt-8">
 		<div class="w70 mx-a">
-			Over XX hours of video lessons explore the three critical components of success as a working actor: The Craft, The Business, and The Mental Game.
+			Over <?php echo do_shortcode('[lessons_total_hours]'); ?> hours of video lessons explore the three critical components of success as a working actor: The Craft, The Business, and The Mental Game.
 		</div>
 	</div>
 	<div class="row mt-8">
@@ -21,7 +21,7 @@
 						<path d="M38.3806 0.660645H5.8355C2.85634 0.660645 0.441406 3.07558 0.441406 6.05474V38.5999C0.441406 41.579 2.85634 43.994 5.8355 43.994H38.3806C41.3598 43.994 43.7747 41.579 43.7747 38.5999V6.05474C43.7747 3.07558 41.3598 0.660645 38.3806 0.660645ZM59.7539 4.91498L47.3859 13.4462V31.2084L59.7539 39.7284C62.1463 41.3759 65.4414 39.6945 65.4414 36.8169V7.82644C65.4414 4.96012 62.1576 3.26741 59.7539 4.91498Z" />
 					</svg>
 				</span>
-				<span class="stat">More than 10hrs Video</span>
+				<span class="stat">More than <?php echo do_shortcode('[lessons_total_hours]'); ?> Hrs Video</span>
 			</div>
 			<div class="icon-stat">
 				<span class="icon"><svg width="65" height="33" viewBox="0 0 65 33" xmlns="http://www.w3.org/2000/svg">
