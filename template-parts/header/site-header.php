@@ -3,7 +3,7 @@
 		<?php
 		$logo = wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'full');
 		if (has_custom_logo()) : echo '<img src="' . esc_url($logo[0]) . '" alt="' . get_bloginfo('name') . '">';
-		else : echo '<span class="subtitle">' . get_bloginfo('name') . '</span>';
+		else : echo '<span class="">' . get_bloginfo('name') . '</span>';
 		endif;
 		?>
 	</a>

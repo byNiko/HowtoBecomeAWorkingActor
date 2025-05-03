@@ -6,7 +6,7 @@
 		<div class="row flex-row">
 			<div class="column">
 				<a class="brand footer-brand" href="<?php echo site_url(); ?>">
-					<span class="subtitle"><?= get_bloginfo('name'); ?> </span>
+					<span class=""><?= get_bloginfo('name'); ?> </span>
 				</a>
 			</div>
 			<div class="flex-row">
