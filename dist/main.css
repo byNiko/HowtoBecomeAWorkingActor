@@ -1402,6 +1402,13 @@ header {
   text-align: right;
 }
 
+.subtitle {
+  font-size: 1.6rem;
+  text-align: center;
+  text-wrap: balance;
+  font-weight: 500;
+}
+
 .sr-only,
 .visually-hidden {
   width: 1px !important;

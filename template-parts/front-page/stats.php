@@ -2,9 +2,9 @@
 	<header class="row centered">
 		<h2 class='display-sm text-underline'>What's in the Program</h2>
 	</header>
-	<div class="row mt-8">
-		<div class="w70 mx-a">
-			Over <?php echo do_shortcode('[lessons_total_hours]'); ?> hours of video lessons explore the three critical components of success as a working actor: The Craft, The Business, and The Mental Game.
+	<div class="row mt-3">
+		<div class="mx-a subtitle">
+			Over <?php echo do_shortcode('[lessons_total_hours]'); ?> hours of video lessons explore the three critical components of success as a working actor: <strong>The Craft</strong>, <strong>The Business</strong>, and <strong>The Mental Game</strong>.
 		</div>
 	</div>
 	<div class="row mt-8">
