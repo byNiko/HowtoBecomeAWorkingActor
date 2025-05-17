@@ -79,17 +79,23 @@
 		transition: opacity .2s;
 	}
 
-	&:hover {
+	&:hover, &.focus {
+
 		.sub-menu {
 			--color: var(--primary);
 			--secondary-color: var(--primary-100);
 			visibility: visible;
 			opacity: 1;
-			width: 225px;
+			position: relative;
+		width: 100%;
 			display: block;
 			z-index: 100;
 			box-shadow: 0 0 16px #333;
 			border: 1px solid var(--primary-100);
+			@include bp(md){
+				width: 225px;
+				position: absolute;
+			}
 
 			li {
 				width: 100%;
@@ -105,8 +111,10 @@
 
 			a {
 				display: block;
-				padding: 1ch;
 				color: currentColor;
+				@include bp(lg) {
+					padding: 1ch;
+				}
 
 			}
 		}

@@ -46,22 +46,29 @@
 .navbar-menu {
 	ul {
 		list-style: none;
-		display: flex;
+		display: block;
 		justify-content: end;
 		margin: 0;
 		padding: 0;
 
 		@include bp(lg) {
+			display: flex;
 			gap: var(--spacer-6);
 		}
+				& > .menu-item {
+					@include bp(lg, 'max-width') {
+						padding: 0.5rem 1rem;
+						// display: inline-block;
+					}}
 	}
+
 
 	a {
 		text-decoration: none;
 		color: var(--main-nav-link-color);
 
 		@include bp(lg, 'max-width') {
-			padding: 0.5rem 1rem;
+			// padding: 0.5rem 1rem;
 			display: inline-block;
 		}
 
