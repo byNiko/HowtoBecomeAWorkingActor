@@ -49,7 +49,7 @@ $course = new Course($post->ID);
 					</div>
 				</div>
 			</div>
-			<aside class=" d-none-sm sidebar lessons-list" data-equal-height-target=".lesson-content" style="height:0; overflow:hidden;">
+			<aside class="sidebar lessons-list" data-equal-height-target=".lesson-content" style="height:0; overflow:hidden;">
 				<?php echo apply_filters('byniko_lessons_sidebar', null); ?>
 			</aside>
 
