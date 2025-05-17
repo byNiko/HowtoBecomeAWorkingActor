@@ -17,9 +17,10 @@
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/pmprpo_templates/lesson_template_functions.php';
-require get_template_directory() . '/inc/pmprpo_templates/course_template_functions.php';
-require get_template_directory() . '/inc/vimeo-total-times.php';
+require_once __DIR__ .  '/pmprpo_templates/lesson_template_functions.php';
+require_once __DIR__ .  '/pmprpo_templates/course_template_functions.php';
+// require_once __DIR__ . '/monthly-mentorship-trial-automatic-signup.php';
+require_once __DIR__ . '/vimeo-total-times.php';
 
 function byniko_body_classes($classes) {
 	// Adds a class of hfeed to non-singular pages.
@@ -86,9 +87,9 @@ function makeModal($id, $content, $title = null) {
 function byniko_loginout_menu_link($items, $args) {
 	if ($args->menu === 11 || $args->menu === 7) {
 		if (is_user_logged_in()) {
-			$items .= '<li class="right"><a href="' . wp_logout_url('/') . '">' . __("Log Out") . '</a></li>';
+			$items .= '<li class="right menu-item"><a href="' . wp_logout_url('/') . '">' . __("Log Out") . '</a></li>';
 		} else {
-			$items .= '<li class="right"><a href="' . wp_login_url() . '">' . __("Log In") . '</a></li>';
+			$items .= '<li class="right menu-item"><a href="' . wp_login_url() . '">' . __("Log In") . '</a></li>';
 		}
 	}
 	return $items;
