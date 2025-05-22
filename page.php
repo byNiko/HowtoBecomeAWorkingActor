@@ -37,34 +37,39 @@ if (function_exists('pmpro_is_checkout') && pmpro_is_checkout()) {
 	$categorized = byniko\order_terms_with_posts('faq', 'faq-category');
 ?>
 	<div class="container light">
-		<h2>FAQ</h2>
-		<?php
-		foreach ($categorized as $category => $posts): ?>
-			<div class="faq__category ">
-				<header class="faq__category-header">
-					<h2 class="faq__category-title"><?= $category; ?></h2>
-				</header>
-				<div class="faq__questions grid-300">
-					<?php
-					foreach ($posts as $post):
-						setup_postdata($post);
-					?>
-						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-							<header class="faq__entry-header">
-								<?php the_title(); ?>
-							</header>
-							<?php the_content(); ?>
-							<?= byniko\get_post_edit_link($post->ID); ?>
-						</article>
-					<?php endforeach; ?>
-					<?php wp_reset_postdata(); ?>
-				</div>
-			</div>
-	<?php endforeach;
-	}
-	?>
+		<div class="grid-50">
+			<h2 class="display-md">FAQ</h2>
+			<div class=" faq-container">
+				<?php
+				foreach ($categorized as $category => $posts): ?>
+					<div class="faq__category ">
+						<header class="faq__category-header">
+							<h4 class="faq__category-title"><?= $category; ?></h4>
+						</header>
+						<div class="faq__questions grid-300">
+							<?php
+							foreach ($posts as $post):
+								setup_postdata($post);
+							?>
+								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+									<header class="faq__entry-header">
+										<?php the_title(); ?>
+									</header>
+									<?php the_content(); ?>
+									<?= byniko\get_post_edit_link($post->ID); ?>
+								</article>
+							<?php endforeach; ?>
+							<?php wp_reset_postdata(); ?>
+						</div>
+					</div>
+				<?php endforeach; ?>
+		</div>
 	</div>
+	</div>
+<?php
+}
+?>
 
-	<?php
-	// get_sidebar();
-	get_footer();
+<?php
+// get_sidebar();
+get_footer();
