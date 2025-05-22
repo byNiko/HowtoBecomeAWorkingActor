@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all pages
  *
@@ -14,23 +15,56 @@
 
 get_header();
 ?>
-		<?php
-		while ( have_posts() ) :
-			the_post();
-			echo "<div class='container light no-padding'>";
-			get_template_part( 'template-parts/content', 'page' );
-			echo "</div>";
+<?php
+while (have_posts()) :
+	the_post();
+	echo "<div class='container light no-padding'>";
+	get_template_part('template-parts/content', 'page');
+	echo "</div>";
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				echo "<div class='container light no-padding'>";
-				comments_template();
-				echo "</div>";
-			endif;
+	// If comments are open or we have at least one comment, load up the comment template.
+	if (comments_open() || get_comments_number()) :
+		echo "<div class='container light no-padding'>";
+		comments_template();
+		echo "</div>";
+	endif;
 
-		endwhile; // End of the loop.
-		?>
+endwhile; // End of the loop.
+?>
 
 <?php
-// get_sidebar();
-get_footer();
+if (function_exists('pmpro_is_checkout') && pmpro_is_checkout()) {
+	$categorized = byniko\order_terms_with_posts('faq', 'faq-category');
+?>
+	<div class="container light">
+		<h2>FAQ</h2>
+		<?php
+		foreach ($categorized as $category => $posts): ?>
+			<div class="faq__category ">
+				<header class="faq__category-header">
+					<h2 class="faq__category-title"><?= $category; ?></h2>
+				</header>
+				<div class="faq__questions grid-300">
+					<?php
+					foreach ($posts as $post):
+						setup_postdata($post);
+					?>
+						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+							<header class="faq__entry-header">
+								<?php the_title(); ?>
+							</header>
+							<?php the_content(); ?>
+							<?= byniko\get_post_edit_link($post->ID); ?>
+						</article>
+					<?php endforeach; ?>
+					<?php wp_reset_postdata(); ?>
+				</div>
+			</div>
+	<?php endforeach;
+	}
+	?>
+	</div>
+
+	<?php
+	// get_sidebar();
+	get_footer();

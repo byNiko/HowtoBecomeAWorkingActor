@@ -1,7 +1,7 @@
 <div class="container light ">
 	<div class="grid-50 grid-centered row">
 		<div class="content ">
-			<p class="fz-mdl">
+			<p class="fz-md">
 				Veteran acting teacher Jim Jarrett knows firsthand what it takes to make it as a working actor. With over 4 decades mentoring thousands of students, he now shares that wisdom in this detailed online course - plus a monthly mentorship program. 
 			</p>
 			<div class="centered">
