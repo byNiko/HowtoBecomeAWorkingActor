@@ -2468,6 +2468,39 @@ header {
   overflow: hidden;
   transition: height 0.3s ease-in-out;
 }
+.faq-container .faq__category:not(:first-of-type) {
+  margin-top: 0;
+}
+.faq-container .accordions {
+  row-gap: 12px;
+}
+.faq-container .accordion {
+  padding-block: var(--spacer-5);
+  border-bottom: 1px solid #ccc;
+}
+.faq-container .is-open .accordion-trigger .arrow {
+  rotate: 0deg;
+}
+.faq-container .accordion-trigger {
+  position: relative;
+  text-wrap: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-container .accordion-trigger:hover {
+  cursor: pointer;
+}
+.faq-container .accordion-trigger .arrow {
+  width: 25px;
+  transform-origin: center center;
+  transition: rotate 0.3s ease-in-out;
+  rotate: 180deg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .testimonials {
   display: grid;
   gap: var(--spacer-16);

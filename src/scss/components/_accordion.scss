@@ -1,19 +1,60 @@
 .accordion-trigger {
-	margin-bottom: 0;		
+	margin-bottom: 0;
 }
+
 .accordion {
 	transition: height 0.3s ease-in-out;
-	
+
 	& > .accordion-content {
-		height:0;
+		height: 0;
 		overflow: hidden;
 		transition: height 0.3s ease-in-out;
 	}
+
 	&.is-open {
 		& > .accordion-content {
 			// height: auto;
 		}
 	}
+}
 
-	
+.faq-container {
+	.faq__category:not(:first-of-type) {
+		margin-top: 0;
+	}
+	.accordions {
+		row-gap: 12px;
+	}
+
+	.accordion {
+		padding-block: var(--spacer-5);
+		border-bottom: 1px solid #ccc;
+	}
+
+	.is-open .accordion-trigger .arrow {
+		// content: "\002D";
+		rotate: 0deg;
+	}
+
+	.accordion-trigger {
+		position: relative;
+		text-wrap: unset;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		.arrow {
+			width: 25px;
+			transform-origin: center center;
+			transition: rotate 0.3s ease-in-out;
+			rotate: 180deg; 
+			display: flex;
+				justify-content: center;
+				align-items: center;
+		}
+	}
 }
