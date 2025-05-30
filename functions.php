@@ -29,7 +29,8 @@ require __DIR__ . '/inc/Byniko.php';
 
 $include_theme_customizations = [
 	'template-functions',
-	'template-tags'
+	'template-tags',
+	'menu-items-for-membership',
 ];
 foreach ($include_theme_customizations as $file) {
 	if (!locate_template($file = "inc/{$file}.php", true, true)) {
@@ -100,7 +101,7 @@ function byniko_setup() {
 			'footer-1' => esc_html__('Footer 1', 'byniko'),
 			'footer-2' => esc_html__('Footer 2', 'byniko'),
 			'footer-3' => esc_html__('Footer 3', 'byniko'),
-			
+
 		)
 	);
 
@@ -215,34 +216,33 @@ add_action('wp_enqueue_scripts', 'byniko_scripts');
 
 
 
-add_filter( 'is_post_type_viewable', 'byniko_hide_cpt_single', 10, 2 );
-function byniko_hide_cpt_single( $is_viewable, $post_type ) {
+add_filter('is_post_type_viewable', 'byniko_hide_cpt_single', 10, 2);
+function byniko_hide_cpt_single($is_viewable, $post_type) {
 	$hide = array(
 		'testimonial',
 		'faq'
 	);
-    if ( in_array($post_type->name, $hide) ) {
-        return false;
-    }
-    return $is_viewable;
+	if (in_array($post_type->name, $hide)) {
+		return false;
+	}
+	return $is_viewable;
 }
 
 
 add_filter('use_block_editor_for_post_type', 'byniko_disable_gutenberg', 10, 2);
-function byniko_disable_gutenberg($current_status, $post_type)
-{
-    // Use your post type key instead of 'product'
-    if ($post_type === 'student-type') return false;
-    return $current_status;
+function byniko_disable_gutenberg($current_status, $post_type) {
+	// Use your post type key instead of 'product'
+	if ($post_type === 'student-type') return false;
+	return $current_status;
 }
 
 
 function get_questionnaire_modal_trigger($class = 'button secondary', $CTA = 'Sign Up With Us!') {
-	if(byniko\has_membership_level('2')) return;
+	if (byniko\has_membership_level('2')) return;
 	return "<button class='$class' data-micromodal-trigger='modal-questionairre'>$CTA</button>";
 }
 function get_questionnaire_modal() {
-	$form = FrmFormsController::get_form_shortcode(array('id' => 2, 'title'=>true, 'description'=>true));
+	$form = FrmFormsController::get_form_shortcode(array('id' => 2, 'title' => true, 'description' => true));
 	return makeModal('questionairre', $form);
 }
 function the_questionnaire_modal_trigger($class = 'button secondary', $CTA = 'Sign Up With Us!') {
@@ -257,23 +257,22 @@ add_shortcode('questionnaire-trigger', 'the_questionnaire_modal_trigger_shortcod
 add_action('acf/input/admin_enqueue_scripts', 'my_acf_admin_enqueue_scripts');
 
 function my_acf_admin_enqueue_scripts() {
-        wp_enqueue_style( 'my-acf-input-css', get_stylesheet_directory_uri() . '/dist/my-acf-input.css', false, '1.0.0' );
-        // wp_enqueue_script( 'my-acf-input-js', get_stylesheet_directory_uri() . '/js/my-acf-input.js', false, '1.0.0' );
-    }
+	wp_enqueue_style('my-acf-input-css', get_stylesheet_directory_uri() . '/dist/my-acf-input.css', false, '1.0.0');
+	// wp_enqueue_script( 'my-acf-input-js', get_stylesheet_directory_uri() . '/js/my-acf-input.js', false, '1.0.0' );
+}
 
-	add_action( 'wp_before_admin_bar_render', 'byniko_custom_admin_bar' ); 
+add_action('wp_before_admin_bar_render', 'byniko_custom_admin_bar');
 
-function byniko_custom_admin_bar()
-{
-    global $wp_admin_bar;
+function byniko_custom_admin_bar() {
+	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('comments');
-    $wp_admin_bar->remove_menu('customize');
+	$wp_admin_bar->remove_menu('customize');
 }
 
 
 function add_custom_user_role_pending() {
-	if ( ! wp_roles()->is_role( 'pending' ) ) {
-		add_role( 'pending', 'Pending', array() );
+	if (! wp_roles()->is_role('pending')) {
+		add_role('pending', 'Pending', array());
 	}
 }
 add_action('init', 'add_custom_user_role_pending');
@@ -284,10 +283,10 @@ add_action('init', 'add_custom_user_role_pending');
  * Add this code to your site by following this guide - https://www.paidmembershipspro.com/create-a-plugin-for-pmpro-customizations/
  */
 
- remove_action( 'login_form_rp', 'pmpro_reset_password_redirect' );
- remove_action( 'login_form_resetpass', 'pmpro_reset_password_redirect' );
- remove_filter( 'retrieve_password_message', 'pmpro_password_reset_email_filter', 20, 3 );
- remove_filter( 'wp_new_user_notification_email', 'pmpro_password_reset_email_filter', 10, 3 );
+remove_action('login_form_rp', 'pmpro_reset_password_redirect');
+remove_action('login_form_resetpass', 'pmpro_reset_password_redirect');
+remove_filter('retrieve_password_message', 'pmpro_password_reset_email_filter', 20, 3);
+remove_filter('wp_new_user_notification_email', 'pmpro_password_reset_email_filter', 10, 3);
 
 //  global $pmpro_invite_required_levels;
 // $pmpro_invite_required_levels = array(1);
@@ -305,12 +304,12 @@ add_action('init', 'add_custom_user_role_pending');
 
 // add_action( 'init', 'namespace_share_category_with_pages' );
 
-function byniko( $query ) {
-    if ( $query->is_category() && $query->is_main_query() ) {
-        $query->set( 'post_type', array( 'post', 'pmpro_lesson' ) );
-    }
+function byniko($query) {
+	if ($query->is_category() && $query->is_main_query()) {
+		$query->set('post_type', array('post', 'pmpro_lesson'));
+	}
 }
-add_action( 'pre_get_posts', 'byniko' );
+add_action('pre_get_posts', 'byniko');
 
 
 /*
@@ -324,10 +323,9 @@ add_action( 'pre_get_posts', 'byniko' );
 	
 	Add this to your active theme's fucntions.php or a custom plugin.
 */
-function my_init_change_pmpro_content_filter_priority()
-{
+function my_init_change_pmpro_content_filter_priority() {
 	remove_filter('the_content', 'pmpro_membership_content_filter', 5);
-	add_filter('the_content', 'pmpro_membership_content_filter',0);
+	add_filter('the_content', 'pmpro_membership_content_filter', 0);
 }
 // add_action('init', 'my_init_change_pmpro_content_filter_priority');
 
@@ -356,33 +354,34 @@ function my_init_change_pmpro_content_filter_priority()
  * @return string HTML output of anchor links for all courses.
  */
 function pmpro_courses_links_shortcode() {
-    // Query all PMPro courses
-    $args = array(
-        'post_type'      => 'pmpro_course', // Replace with the actual post type for courses
-        'posts_per_page' => -1,             // Get all courses
-        'post_status'    => 'publish',      // Only published courses
-        'orderby'        => 'title',        // Order by title
-        'order'          => 'ASC',          // Ascending order
-    );
+	// Query all PMPro courses
+	$args = array(
+		'post_type'      => 'pmpro_course', // Replace with the actual post type for courses
+		'posts_per_page' => -1,             // Get all courses
+		'post_status'    => 'publish',      // Only published courses
+		'orderby'        => 'title',        // Order by title
+		'order'          => 'ASC',          // Ascending order
+	);
 
-    $courses = get_posts($args);
+	$courses = get_posts($args);
 
-    // Check if there are any courses
-    if (empty($courses)) {
-        return '<p>No courses found.</p>';
-    }
+	// Check if there are any courses
+	if (empty($courses)) {
+		return '<p>No courses found.</p>';
+	}
 
-    // Build the HTML output
-    $output = '<ul class="pmpro-courses-links">';
-    foreach ($courses as $course) {
-        $title = esc_html($course->post_title);
-        $link = esc_url(get_permalink($course->ID));
-        $output .= "<li><a href='{$link}'>{$title}</a></li>";
-    }
-    $output .= '</ul>';
+	// Build the HTML output
+	$output = '<ul class="pmpro-courses-links">';
+	foreach ($courses as $course) {
+		$title = esc_html($course->post_title);
+		$link = esc_url(get_permalink($course->ID));
+		$output .= "<li><a href='{$link}'>{$title}</a></li>";
+	}
+	$output .= '</ul>';
 
-    return $output;
+	return $output;
 }
 
 // Register the shortcode
 add_shortcode('pmpro_courses_links', 'pmpro_courses_links_shortcode');
+

@@ -15,14 +15,7 @@
 					</header>
 					<p>I'd love to work with you, but no matter what, your success is important to me.
 					<p>Sign up for a free membership and I'll give you access to <strong>ten essential lessons</strong> that I know will help you – completely free. </p>
-					<div class="centered">
-						<?php echo do_shortcode('[pmpro_signup level="1" short="emailonly" login="false" title="true"]'); ?>
-						<?php // echo FrmFormsController::get_form_shortcode(array('id' => 7)); ?>
-						<!-- <form action="" class="grid">
-						<input type="email" placeholder="Enter your email">
-						<button class="button hollow mt-3">Sign Up</button>
-					</form> -->
-					</div>
+
 					<p>These are just a few of the topics you'll get:</p>
 					<ul>
 						<li>Dealing with criticism and being a perfectionist</li>
@@ -32,6 +25,15 @@
 					</ul>
 
 					<p>By signing up, you'll also be the first to know about course updates, opportunities to meet with Jim, new free videos and more.</p>
+					<div class="centered">
+						<?php echo do_shortcode('[pmpro_signup level="1" short="emailonly" login="false" title="true" submit_button="Send Email" intro="intro test" custom_fields="true" redirect="/course/free-lessons"]'); ?>
+						<?php // echo FrmFormsController::get_form_shortcode(array('id' => 7)); 
+						?>
+						<!-- <form action="" class="grid">
+						<input type="email" placeholder="Enter your email">
+						<button class="button hollow mt-3">Sign Up</button>
+					</form> -->
+					</div>
 
 				</div>
 

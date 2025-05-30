@@ -26,8 +26,10 @@ $course = new Course($post->ID);
 						'video_url' => get_field('welcome_video_link', $post->ID),
 						// 'video_url' => get_field('sample_video_link', $post->ID),
 					);
+					if ($video_args && ($video_args['video_url'])) {
 					$v = new ResponsiveVideo($video_args);
 					echo $v->get_responsive_video();
+					}
 					?>
 
 					<div class="entry-content mt-5">

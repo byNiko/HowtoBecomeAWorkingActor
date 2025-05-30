@@ -63,7 +63,7 @@ function f25_show_membership_expired_notice() {
 	}
 
 	global $wpdb;
-	var_dump(pmpro_getMembershipLevelsForUser($user_id)); 
+	// var_dump(pmpro_getMembershipLevelsForUser($user_id)); 
 
 	// Query for the most recent expired membership
 	$expired_membership = $wpdb->get_row(

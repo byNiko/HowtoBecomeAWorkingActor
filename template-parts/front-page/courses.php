@@ -6,6 +6,8 @@ $Courses = new Courses();
 <div class="grid vertical-grid">
 	<?php
 	foreach ($Courses->get_courses() as $course):
+		if($course->post_title === "Free Lessons") continue;
+		if($course->post_title === "Bonus Lessons") continue;
 	?>
 		<article class="container light-md has-shadow">
 			<div class="row">
