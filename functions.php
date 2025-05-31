@@ -440,3 +440,52 @@ function my_pmpro_filter_display_name( $display_name, $user ) {
    }
 }
 add_filter( 'display_name', 'my_pmpro_filter_display_name', 10, 2 );
+
+
+add_filter('pmpro_getMemberDisplayName', 'f25_use_first_name_if_available', 10, 2);
+function f25_use_first_name_if_available($display_name, $user_id) {
+	$first_name = get_user_meta($user_id, 'first_name', true);
+
+	if (!empty($first_name)) {
+		return $first_name;
+	}
+
+	return $display_name; // fallback
+}
+
+add_filter('pmpro_member_shortcode_user', 'f25_pmpro_shortcode_override', 10, 2);
+function f25_pmpro_shortcode_override($user, $atts) {
+	if (!empty($user) && is_a($user, 'WP_User')) {
+		$first_name = get_user_meta($user->ID, 'first_name', true);
+		if (!empty($first_name)) {
+			$user->display_name = $first_name;
+		}
+	}
+	return $user;
+}
+
+add_action('user_register', 'f25_set_display_name_to_first_name', 20);
+function f25_set_display_name_to_first_name($user_id) {
+	$first_name = get_user_meta($user_id, 'first_name', true);
+	if (!empty($first_name)) {
+		wp_update_user([
+			'ID' => $user_id,
+			'display_name' => $first_name,
+		]);
+	}
+}
+
+add_action('profile_update', 'f25_update_display_name_on_profile_change', 20, 2);
+function f25_update_display_name_on_profile_change($user_id, $old_user_data) {
+	$first_name = get_user_meta($user_id, 'first_name', true);
+	$user = get_userdata($user_id);
+
+	if (!empty($first_name) && $user->display_name !== $first_name) {
+		remove_action('profile_update', 'f25_update_display_name_on_profile_change', 20); // prevent infinite loop
+		wp_update_user([
+			'ID' => $user_id,
+			'display_name' => $first_name,
+		]);
+		add_action('profile_update', 'f25_update_display_name_on_profile_change', 20, 2); // reattach
+	}
+}
