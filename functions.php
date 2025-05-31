@@ -468,4 +468,4 @@ function my_pmpro_generate_username_at_checkout() {
 		$_REQUEST['username'] = $_GET['username'] = my_pmpro_generate_username_from_email($_GET['bemail']);
 	}
 }
-add_action('init', 'my_pmpro_generate_username_at_checkout');
+// add_action('init', 'my_pmpro_generate_username_at_checkout');
