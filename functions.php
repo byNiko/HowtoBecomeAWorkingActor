@@ -405,10 +405,10 @@ if(!function_exists('pmpro_getMembershipLevelsForUser')) {
 	return $pmpro_member_action_links;
 }
 
-	$pmpro_member_action_links['change'] = sprintf(
-		/* change "change" URL. */
-		'<a id="pmpro_actionlink-renew" href="/home">Change Level</a>',
-	);
+	// $pmpro_member_action_links['change'] = sprintf(
+	// 	/* change "change" URL. */
+	// 	'<a id="pmpro_actionlink-renew" href="/home">Change Level</a>',
+	// );
 
 	// For which levels should we remove the "Change" link?
 	$levels = array(2); // Level IDs go here
