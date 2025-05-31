@@ -427,3 +427,16 @@ if(!function_exists('pmpro_getMembershipLevelsForUser')) {
 	return $pmpro_member_action_links;
 }
 add_filter('pmpro_member_action_links', 'customize_change_link_for_pmpro_member_action_links');
+
+/*
+* Filter the user's display name to prioritize first name, then username.
+* Use with caution as this affects the global display_name for the user.
+*/
+function my_pmpro_filter_display_name( $display_name, $user ) {
+   if ( ! empty( $user->first_name ) ) {
+	   return $user->first_name;
+   } else {
+	   return $user->user_login; // Fallback to username
+   }
+}
+add_filter( 'display_name', 'my_pmpro_filter_display_name', 10, 2 );
