@@ -385,3 +385,45 @@ function pmpro_courses_links_shortcode() {
 // Register the shortcode
 add_shortcode('pmpro_courses_links', 'pmpro_courses_links_shortcode');
 
+
+
+
+/**
+ * Change the "Renew" link under My Memberships 
+ * Hide "change" link from some levels (add level id to line 19)
+ *
+ * Please be aware this is not a thoroughly tested recipe and is therefore considered a "use-at-own-risk" option.
+ * 
+ * You can add this recipe to your site by creating a custom plugin
+ * or using the Code Snippets plugin available for free in the WordPress repository.
+ * Read this companion article for step-by-step directions on either method.
+ * https://www.paidmembershipspro.com/create-a-plugin-for-pmpro-customizations/
+ */
+function customize_change_link_for_pmpro_member_action_links($pmpro_member_action_links) {
+
+if(!function_exists('pmpro_getMembershipLevelsForUser')) {
+	return $pmpro_member_action_links;
+}
+
+	$pmpro_member_action_links['change'] = sprintf(
+		/* change "change" URL. */
+		'<a id="pmpro_actionlink-renew" href="/home">Change Level</a>',
+	);
+
+	// For which levels should we remove the "Change" link?
+	$levels = array(2); // Level IDs go here
+
+	// Get user's membership levels
+	$user_levels = pmpro_getMembershipLevelsForUser();
+
+	// Check level
+	foreach ($user_levels as $key => $level) {
+		if (in_array($level->id, $levels, false)) {
+			unset($pmpro_member_action_links['change']);
+			// unset($pmpro_member_action_links['cancel']);
+		}
+	}
+
+	return $pmpro_member_action_links;
+}
+add_filter('pmpro_member_action_links', 'customize_change_link_for_pmpro_member_action_links');
