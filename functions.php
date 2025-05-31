@@ -411,7 +411,7 @@ if(!function_exists('pmpro_getMembershipLevelsForUser')) {
 	// );
 
 	// For which levels should we remove the "Change" link?
-	$levels = array(2); // Level IDs go here
+	$levels = array(1,2); // Level IDs go here
 
 	// Get user's membership levels
 	$user_levels = pmpro_getMembershipLevelsForUser();
