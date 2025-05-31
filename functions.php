@@ -440,32 +440,3 @@ function my_pmpro_filter_display_name( $display_name, $user ) {
    }
 }
 add_filter( 'display_name', 'my_pmpro_filter_display_name', 10, 2 );
-
-/**
- * Generate a username at PMPro checkout from email for users.
- * Also hides your 'username' field using custom CSS.
- * Add this code to your site by following this guide - https://www.paidmembershipspro.com/create-a-plugin-for-pmpro-customizations/
- */
-function my_pmpro_generate_username_at_checkout() {
-	// Make sure PMPro is installed and the function to get the level at checkout exists.
-	if (! function_exists('pmpro_getLevelAtCheckout')) {
-		return;
-	}
-
-	// Check for level as well to make sure we're on checkout page.
-	// This ensures the code only runs on the PMPro checkout page.
-	if (empty(pmpro_getLevelAtCheckout())) {
-		return;
-	}
-
-	// If the email field is submitted, set the username to be based on it.
-	if (! empty($_POST['bemail'])) {
-		$_REQUEST['username'] = $_POST['username'] = my_pmpro_generate_username_from_email($_POST['bemail']);
-	}
-
-	// For GET requests (less common for checkout but good to include)
-	if (! empty($_GET['bemail'])) {
-		$_REQUEST['username'] = $_GET['username'] = my_pmpro_generate_username_from_email($_GET['bemail']);
-	}
-}
-// add_action('init', 'my_pmpro_generate_username_at_checkout');
