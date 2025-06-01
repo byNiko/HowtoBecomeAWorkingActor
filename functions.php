@@ -502,7 +502,7 @@ add_shortcode('show_current_user_name', 'display_current_user_display_name');
 
 
 
-function byniko_restrict_pmpro_levels(array $levels) {
+function working_restrict_pmpro_levels(array $levels) {
 	//a comma-separated list of the levels to hide
 	$hiddenlevels = array(1);
 
@@ -515,4 +515,4 @@ function byniko_restrict_pmpro_levels(array $levels) {
 	}
 	return $newlevels;
 }
-add_filter( 'pmpro_levels_array', 'byniko_restrict_pmpro_levels' );
+add_filter( 'pmpro_levels_array', 'working_restrict_pmpro_levels' );
