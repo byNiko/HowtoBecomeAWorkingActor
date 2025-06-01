@@ -103,3 +103,14 @@ line-height: 1.2;
 		border-color: color-mix(in srgb, beige 100%, black 10%);
 
 }
+
+
+.pmpro_form.pmpro_signup_form {
+	.pmpro_form_field-radio-items {
+		display: flex;
+		justify-content: center;
+	}
+	.pmpro_btn.pmpro_btn-submit-checkout {
+		width: 100%;
+	}
+}
