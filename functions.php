@@ -493,8 +493,9 @@ function f25_update_display_name_on_profile_change($user_id, $old_user_data) {
 
 function display_current_user_display_name() {
 	$user = wp_get_current_user();
-	var_dump($user);
+	// var_dump($user);
+	$email = $user->user_email;
 	$display_name = $user->display_name;
-	return $user->display_name;
+	return $display_name ?? $email;
 }
 add_shortcode('show_current_user_name', 'display_current_user_display_name');
