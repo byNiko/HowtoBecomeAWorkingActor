@@ -495,7 +495,24 @@ function display_current_user_display_name() {
 	$user = wp_get_current_user();
 	// var_dump($user);
 	$email = $user->user_email;
-	$display_name = $user->display_name;
+	$display_name = !empty($user->display_name) ?  $user->display_name : $email; 
 	return "<span>" . $display_name ?? $email . "</span>";
 }
 add_shortcode('show_current_user_name', 'display_current_user_display_name');
+
+
+
+function byniko_restrict_pmpro_levels(array $levels) {
+	//a comma-separated list of the levels to hide
+	$hiddenlevels = array(1);
+
+	//build the filtered levels array
+	$newlevels = array();
+	foreach ($levels as $key => $level) {
+		if (!in_array($level->id, $hiddenlevels)) {
+			$newlevels[$key] = $level;
+		}
+	}
+	return $newlevels;
+}
+add_filter( 'pmpro_levels_array', 'byniko_restrict_pmpro_levels' );
