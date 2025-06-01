@@ -496,6 +496,6 @@ function display_current_user_display_name() {
 	// var_dump($user);
 	$email = $user->user_email;
 	$display_name = $user->display_name;
-	return $display_name ?? $email;
+	echo $display_name ?? $email;
 }
 add_shortcode('show_current_user_name', 'display_current_user_display_name');
