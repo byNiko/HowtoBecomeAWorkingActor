@@ -526,6 +526,6 @@ function my_pmpro_custom_field_validation($r, $this) {
 			$okay = false;
 		}
 	// }
-	return $okay;
+	// return $okay;
 }
 add_filter('pmprorh_get_html', 'my_pmpro_custom_field_validation', 10, 2);
