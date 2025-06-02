@@ -518,12 +518,12 @@ function working_restrict_pmpro_levels(array $levels) {
 add_filter('pmpro_levels_array', 'working_restrict_pmpro_levels');
 
 function my_pmpro_custom_field_validation($okay) {
-	if (function_exists('pmpro_setMessage')) {
+	// if (function_exists('pmpro_setMessage')) {
 		if (empty($_REQUEST['experience_level'])) {
 			pmpro_setMessage("Please enter your company name.", "pmpro_error");
 			$okay = false;
 		}
-	}
+	// }
 	return $okay;
 }
 add_filter('pmpro_registration_checks', 'my_pmpro_custom_field_validation');
