@@ -524,7 +524,7 @@ function my_pmpro_custom_field_validation($okay) {
 			$okay = false;
 		}
 	}
-	return $okay;
+	return false;
 }
 add_filter('pmpro_checkout_checks', 'my_pmpro_custom_field_validation');
 
