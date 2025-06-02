@@ -71,6 +71,11 @@
     letter-spacing: -1px;
 	margin-bottom: 0;
 	text-wrap:balance;
+
+	.jarret {
+		font-size: max(1rem, 0.6em);
+			font-weight: 300;
+	}
 }
 
 .hero-title--accent2{
