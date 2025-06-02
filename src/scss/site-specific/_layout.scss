@@ -89,7 +89,7 @@ main > section {
 			--foreground: var(--primary);
 			
 		}
-		a:not(.button){
+		a:not(.button):not(.pmpro_btn){
 			color: var(--primary);
 		}
 	}
