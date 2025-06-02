@@ -517,15 +517,19 @@ function working_restrict_pmpro_levels(array $levels) {
 }
 add_filter('pmpro_levels_array', 'working_restrict_pmpro_levels');
 
-function my_pmpro_custom_field_validation($r, $this) {
-	var_dump($r);
-	$okay = true;
-	// if (function_exists('pmpro_setMessage')) {
-		if (empty($_REQUEST['experience_level'])) {
-			pmpro_setMessage("Please enter your company name.", "pmpro_error");
-			$okay = false;
-		}
-	// }
-	// return $okay;
+
+function my_pmpro_early_validation() {
+	if (empty($_REQUEST['experience_level'])) {
+		// This stops the checkout and shows an error.
+		global $pmpro_msg, $pmpro_msgt, $pmpro_error_fields;
+
+		$pmpro_msg = "Please fill in the required field.";
+		$pmpro_msgt = "pmpro_error";
+		$pmpro_error_fields[] = "experience_level";
+
+		// Flag error so PMPro aborts checkout
+		global $pmpro_error;
+		$pmpro_error = true;
+	}
 }
-add_filter('pmprorh_get_html', 'my_pmpro_custom_field_validation', 10, 2);
+add_action('pmpro_before_checkout_submit', 'my_pmpro_early_validation');
