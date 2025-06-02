@@ -26,7 +26,7 @@
 
 					<p>By signing up, you'll also be the first to know about course updates, opportunities to meet with Jim, new free videos and more.</p>
 					<div class="centered">
-						<?php echo do_shortcode('[pmpro_signup level="1" short="emailonly" login="true" title="true" submit_button="Send Email" intro="false" custom_fields="true" redirect="/course/free-lessons"]'); ?>
+						<?php echo do_shortcode('[pmpro_signup level="1" short="emailonly" login="true" title="true" submit_button="Send Email" intro="false" custom_fields="false" redirect="/membership-account/"]'); ?>
 						<?php // echo FrmFormsController::get_form_shortcode(array('id' => 7)); ?>
 					</div>
 
