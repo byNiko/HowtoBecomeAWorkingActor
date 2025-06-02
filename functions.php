@@ -401,9 +401,9 @@ add_shortcode('pmpro_courses_links', 'pmpro_courses_links_shortcode');
  */
 function customize_change_link_for_pmpro_member_action_links($pmpro_member_action_links) {
 
-if(!function_exists('pmpro_getMembershipLevelsForUser')) {
-	return $pmpro_member_action_links;
-}
+	if (!function_exists('pmpro_getMembershipLevelsForUser')) {
+		return $pmpro_member_action_links;
+	}
 
 	// $pmpro_member_action_links['change'] = sprintf(
 	// 	/* change "change" URL. */
@@ -411,7 +411,7 @@ if(!function_exists('pmpro_getMembershipLevelsForUser')) {
 	// );
 
 	// For which levels should we remove the "Change" link?
-	$levels = array(1,2); // Level IDs go here
+	$levels = array(1, 2); // Level IDs go here
 
 	// Get user's membership levels
 	$user_levels = pmpro_getMembershipLevelsForUser();
@@ -432,14 +432,14 @@ add_filter('pmpro_member_action_links', 'customize_change_link_for_pmpro_member_
 * Filter the user's display name to prioritize first name, then username.
 * Use with caution as this affects the global display_name for the user.
 */
-function my_pmpro_filter_display_name( $display_name, $user ) {
-   if ( ! empty( $user->first_name ) ) {
-	   return $user->first_name;
-   } else {
-	   return $user->user_login; // Fallback to username
-   }
+function my_pmpro_filter_display_name($display_name, $user) {
+	if (! empty($user->first_name)) {
+		return $user->first_name;
+	} else {
+		return $user->user_login; // Fallback to username
+	}
 }
-add_filter( 'display_name', 'my_pmpro_filter_display_name', 10, 2 );
+add_filter('display_name', 'my_pmpro_filter_display_name', 10, 2);
 
 
 add_filter('pmpro_getMemberDisplayName', 'f25_use_first_name_if_available', 10, 2);
@@ -495,7 +495,7 @@ function display_current_user_display_name() {
 	$user = wp_get_current_user();
 	// var_dump($user);
 	$email = $user->user_email;
-	$display_name = !empty($user->display_name) ?  $user->display_name : $email; 
+	$display_name = !empty($user->display_name) ?  $user->display_name : $email;
 	return "<span>" . $display_name ?? $email . "</span>";
 }
 add_shortcode('show_current_user_name', 'display_current_user_display_name');
@@ -515,4 +515,15 @@ function working_restrict_pmpro_levels(array $levels) {
 	}
 	return $newlevels;
 }
-add_filter( 'pmpro_levels_array', 'working_restrict_pmpro_levels' );
+add_filter('pmpro_levels_array', 'working_restrict_pmpro_levels');
+
+function my_pmpro_custom_field_validation($okay) {
+	if (function_exists('pmpro_setMessage')) {
+		if (empty($_REQUEST['experience_level'])) {
+			pmpro_setMessage("Please enter your company name.", "pmpro_error");
+			$okay = false;
+		}
+	}
+	return $okay;
+}
+add_filter('pmpro_registration_checks', 'my_pmpro_custom_field_validation');
