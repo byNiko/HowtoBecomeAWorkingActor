@@ -532,6 +532,7 @@ function working_pmpro_checkout_after_email() {
 	ob_start();
 ?>
 	<script>
+		document.addEventListener("DOMContentLoaded", function () {
 		const wrapper = document.querySelector("#experience_level_div");
 
 
@@ -541,6 +542,7 @@ function working_pmpro_checkout_after_email() {
 				input.setAttribute("required", "required");
 			}
 		}
+	});
 	</script>
 <?php
 	$output = ob_get_contents();
