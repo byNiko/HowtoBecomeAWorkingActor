@@ -491,15 +491,24 @@ function f25_update_display_name_on_profile_change($user_id, $old_user_data) {
 }
 
 
-function display_current_user_display_name() {
+function f25_show_current_user_display_name() {
 	$user = wp_get_current_user();
 	// var_dump($user);
 	$email = $user->user_email;
 	$display_name = !empty($user->display_name) ?  $user->display_name : $email;
 	return "<span>" . $display_name ?? $email . "</span>";
 }
-add_shortcode('show_current_user_name', 'display_current_user_display_name');
+add_shortcode('show_current_user_name', 'f25_show_current_user_display_name');
 
+function f25_display_user_email() {
+	if (is_user_logged_in()) {
+		$current_user = wp_get_current_user();
+		return esc_html($current_user->user_email);
+	} else {
+		return ''; // or 'You must be logged in.'
+	}
+}
+add_shortcode('user_email', 'f25_display_user_email');
 
 
 function working_restrict_pmpro_levels(array $levels) {
