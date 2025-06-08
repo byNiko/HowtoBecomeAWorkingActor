@@ -36,10 +36,10 @@ function working_add_monthly_with_lifetime($level_id, $user_id) {
 		wp_mail($admin_email, $subject, $message);
 	}
 }
-add_action('pmpro_after_change_membership_level', 'working_add_monthly_with_lifetime', 10, 3);
+// add_action('pmpro_after_change_membership_level', 'working_add_monthly_with_lifetime', 10, 3);
 
 
-add_action('pmpro_membership_post_membership_expiry', 'working_email_membership_expiry', 10, 2);
+// add_action('pmpro_membership_post_membership_expiry', 'working_email_membership_expiry', 10, 2);
 function working_email_membership_expiry($user_id, $expired_level_id) {
 	$free_trial_id = 3; // trial level
 	if ($expired_level_id == $free_trial_id) {

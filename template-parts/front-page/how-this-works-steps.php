@@ -52,7 +52,7 @@
 						<?php endif; ?>
 						<?php if (isset($step_data['price'])) : ?>
 							<div class="pricing invert">
-								<div class="how-this-works-step-price"><?= byniko\get_courses_price(); ?></div>
+								<div class="how-this-works-step-price d-none"><?= byniko\get_courses_price(); ?></div>
 								<?php if (isset($step_data['benefits'])) : ?>
 									<ul class="how-this-works-step-benefits">
 										<?php foreach ($step_data['benefits'] as $benefit): ?>
