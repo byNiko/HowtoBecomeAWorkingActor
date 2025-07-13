@@ -420,7 +420,7 @@ function customize_change_link_for_pmpro_member_action_links($pmpro_member_actio
 	foreach ($user_levels as $key => $level) {
 		if (in_array($level->id, $levels, false)) {
 			unset($pmpro_member_action_links['change']);
-			unset($pmpro_member_action_links['cancel']);
+			// unset($pmpro_member_action_links['cancel']);
 		}
 	}
 
