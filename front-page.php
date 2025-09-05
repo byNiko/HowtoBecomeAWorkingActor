@@ -9,6 +9,9 @@ get_header();
 	<?php get_template_part('template-parts/front-page/hard-truth'); ?>
 </section>
 <section>
+	<?php get_template_part('template-parts/front-page/student-types'); ?>
+</section>
+<section>
 	<?php get_template_part('template-parts/front-page/stats'); ?>
 </section>
 <section>
@@ -30,9 +33,7 @@ get_header();
 <section id="sign-up">
 	<?php get_template_part('template-parts/front-page/how-this-works-steps'); ?>
 </section>
-<section>
-	<?php get_template_part('template-parts/front-page/student-types'); ?>
-</section>
+
 <section>
 	<?php get_template_part('template-parts/front-page/capture'); ?>
 </section>
