@@ -1,4 +1,4 @@
-<div class="container bold">
+<div class="container light-md has-shadow">
 	<header class="row centered">
 		<h2 class='display-sm text-underline'>What's in the Program</h2>
 	</header>

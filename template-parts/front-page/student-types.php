@@ -1,4 +1,4 @@
-<div class="container grid vertical-grid">
+<div class="container grid vertical-grid bold">
 	<header class="display centered row">
 		<div>Where are <span class="text-accent">you</span> on your journey to becoming a working actor?</div>
 	</header>
